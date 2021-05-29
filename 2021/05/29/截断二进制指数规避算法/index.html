@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
-  <title>Cache设计 | Asuhe</title>
+  <title>CSMA/CD中重传时机的确定 | Asuhe</title>
   <meta name="author" content="Asuhe" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,20 +13,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="CS" />
+    <meta name="keywords" content="CN" />
   
-  <meta name="description" content="Cache设计Cache原理 利用程序的局部性原理，缩减CPU的访存时间，让CPU能够更好的发挥性能   空间局部性：最近被访问的块邻近的块很有可能被访问 时间局部性：最近被的访问的块很有可能被再次访问  Cache设计的两大原则 高命中率，要求高命中率减少块的置换操作 对CPU透明，即CPU访问内存和访问Cache为同一种方式，无需改变  Cache设计的四个问题 从主存取得的块如何在Cache">
+  <meta name="description" content="截断二进制指数规避算法什么是截断二进制指数规避算法在CSMA&#x2F;CD协议中，检测到碰撞我们要重传数据。那么如何选择碰撞后数据的重传的时机呢？该算法就是为了解决这个问题而提出的 如何使用该算法计算重传时机首先，发生碰撞后我们要确定一个基本的退避时间来延迟发送。假设从A发送到B的传播时延是 t ，我们将基本退避时间设置为 2t 。 其次，定义参数 k ，用于记录重传的次数。 k &#x3D; min[ 重传次数，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cache设计">
-<meta property="og:url" content="http://example.com/2021/05/27/Cache%E8%AE%BE%E8%AE%A1/index.html">
+<meta property="og:title" content="CSMA&#x2F;CD中重传时机的确定">
+<meta property="og:url" content="http://example.com/2021/05/29/%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E8%A7%84%E9%81%BF%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="Asuhe">
-<meta property="og:description" content="Cache设计Cache原理 利用程序的局部性原理，缩减CPU的访存时间，让CPU能够更好的发挥性能   空间局部性：最近被访问的块邻近的块很有可能被访问 时间局部性：最近被的访问的块很有可能被再次访问  Cache设计的两大原则 高命中率，要求高命中率减少块的置换操作 对CPU透明，即CPU访问内存和访问Cache为同一种方式，无需改变  Cache设计的四个问题 从主存取得的块如何在Cache">
+<meta property="og:description" content="截断二进制指数规避算法什么是截断二进制指数规避算法在CSMA&#x2F;CD协议中，检测到碰撞我们要重传数据。那么如何选择碰撞后数据的重传的时机呢？该算法就是为了解决这个问题而提出的 如何使用该算法计算重传时机首先，发生碰撞后我们要确定一个基本的退避时间来延迟发送。假设从A发送到B的传播时延是 t ，我们将基本退避时间设置为 2t 。 其次，定义参数 k ，用于记录重传的次数。 k &#x3D; min[ 重传次数，">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
-<meta property="article:published_time" content="2021-05-27T15:06:08.000Z">
-<meta property="article:modified_time" content="2021-05-27T15:06:12.101Z">
+<meta property="article:published_time" content="2021-05-29T15:14:31.000Z">
+<meta property="article:modified_time" content="2021-05-29T15:23:00.609Z">
 <meta property="article:author" content="Asuhe">
-<meta property="article:tag" content="CS">
+<meta property="article:tag" content="CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
 <meta name="twitter:site" content="@null">
@@ -165,17 +165,17 @@
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
                 
-                    <h1 class="kratos-entry-title text-center">Cache设计</h1>
+                    <h1 class="kratos-entry-title text-center">CSMA/CD中重传时机的确定</h1>
                 
                 
                 <ul class="kratos-post-meta text-center">
-                    <li><i class="fa fa-calendar"></i> 2021-05-27</li>
+                    <li><i class="fa fa-calendar"></i> 2021-05-29</li>
                     <li><i class="fa fa-user"></i> 作者 Asuhe</li>
                     <li>
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~1.66K
+                            319
                         
                         字
                     </li>
@@ -184,62 +184,18 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1622127972101"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1622301780609"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                     <div class="kratos-post-inner-toc">
-                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.</span> <span class="toc-text">Cache设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cache%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">Cache原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cache%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%B8%A4%E5%A4%A7%E5%8E%9F%E5%88%99"><span class="toc-number">1.2.</span> <span class="toc-text">Cache设计的两大原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cache%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9B%9B%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text">Cache设计的四个问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8DCache%E4%B8%8E%E4%B8%BB%E5%AD%98%E5%9C%B0%E5%9D%80%E6%98%A0%E5%B0%84%E7%AD%96%E7%95%A5"><span class="toc-number">1.4.</span> <span class="toc-text">三种Cache与主存地址映射策略</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E7%9B%B8%E8%81%94%E6%98%A0%E5%B0%84"><span class="toc-number">1.4.1.</span> <span class="toc-text">全相联映射</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E6%98%A0%E5%B0%84"><span class="toc-number">1.4.2.</span> <span class="toc-text">直接映射</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E7%9B%B8%E8%81%94"><span class="toc-number">1.4.3.</span> <span class="toc-text">组相联</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache%E6%9B%BF%E6%8D%A2%E7%AD%96%E7%95%A5"><span class="toc-number">2.</span> <span class="toc-text">Cache替换策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LFU%E7%AE%97%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">LFU算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LRU%E7%AE%97%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">LRU算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%9B%BF%E6%8D%A2"><span class="toc-number">2.3.</span> <span class="toc-text">随机替换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache%E5%86%99%E6%93%8D%E4%BD%9C%E7%AD%96%E7%95%A5"><span class="toc-number">3.</span> <span class="toc-text">Cache写操作策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E5%9B%9E%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text">写回法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%86%99%E6%B3%95"><span class="toc-number">3.2.</span> <span class="toc-text">全写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E4%B8%80%E6%AC%A1%E6%B3%95"><span class="toc-number">3.3.</span> <span class="toc-text">写一次法</span></a></li></ol></li></ol>
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E8%A7%84%E9%81%BF%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">截断二进制指数规避算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E8%A7%84%E9%81%BF%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">什么是截断二进制指数规避算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E8%AF%A5%E7%AE%97%E6%B3%95%E8%AE%A1%E7%AE%97%E9%87%8D%E4%BC%A0%E6%97%B6%E6%9C%BA"><span class="toc-number">1.2.</span> <span class="toc-text">如何使用该算法计算重传时机</span></a></li></ol></li></ol>
                     </div>
                 
                 <hr />
-                <h2 id="Cache设计"><a href="#Cache设计" class="headerlink" title="Cache设计"></a>Cache设计</h2><h3 id="Cache原理"><a href="#Cache原理" class="headerlink" title="Cache原理"></a>Cache原理</h3><blockquote>
-<p>利用程序的局部性原理，缩减CPU的访存时间，让CPU能够更好的发挥性能</p>
-</blockquote>
-<ul>
-<li>空间局部性：最近被访问的块邻近的块很有可能被访问</li>
-<li>时间局部性：最近被的访问的块很有可能被再次访问</li>
-</ul>
-<h3 id="Cache设计的两大原则"><a href="#Cache设计的两大原则" class="headerlink" title="Cache设计的两大原则"></a>Cache设计的两大原则</h3><ul>
-<li>高命中率，要求高命中率减少块的置换操作</li>
-<li>对CPU透明，即CPU访问内存和访问Cache为同一种方式，无需改变</li>
-</ul>
-<h3 id="Cache设计的四个问题"><a href="#Cache设计的四个问题" class="headerlink" title="Cache设计的四个问题"></a>Cache设计的四个问题</h3><ul>
-<li>从主存取得的块如何在Cache中存放</li>
-<li>如何访问主存放入Cache中的块</li>
-<li>当Cache未命中时置换数据块的策略</li>
-<li>怎样保持Cache块中数据与主存块的数据同步</li>
-</ul>
-<h3 id="三种Cache与主存地址映射策略"><a href="#三种Cache与主存地址映射策略" class="headerlink" title="三种Cache与主存地址映射策略"></a>三种Cache与主存地址映射策略</h3><h4 id="全相联映射"><a href="#全相联映射" class="headerlink" title="全相联映射"></a>全相联映射</h4><blockquote>
-<p>Cache数据块称为行，主存数据块称为块，其中行大小==块大小。全相联映射中，主存一个块地址、块号、块内容都被一起存于Cache的行中</p>
-</blockquote>
-<p>主存中的块被复制到Cache的任意行中</p>
-<p><img src="https://i.loli.net/2021/02/09/rsdg2fLWOGitSzp.png" alt="全相联"></p>
-<p>CPU访问一个主存地址时，为了快速检索，指令中的块号与Cache所有行号的标记同时在比较器中比较，若命中则从Cache中读取一个字，否则在主存地址中读取</p>
-<p>全相联映射其主要缺点是高速比较器电路难于设计和实现，因此适合小容量Cache</p>
-<h4 id="直接映射"><a href="#直接映射" class="headerlink" title="直接映射"></a>直接映射</h4><p>主存被划分为n个和Cache大小相同的区，区内的块只能存入对应Cache行内</p>
-<p>Cache行号 i 和主存块号 j 关系为 i = j mode m，其中m为Cache的大小</p>
-<p><img src="https://i.loli.net/2021/02/09/1zF6SnI5QXZMYqV.png" alt="全相联映射"></p>
-<p>直接映射其优点是硬件简单，成本低，地址变换速度快，但其缺点是每个主存块有一个固定行号可以存放。</p>
-<p>当连续两个访存指令要求访问块号相距m整数倍的两个块时，因两个块同时映射到同一个Cache行内，所以会产生冲突，需要置换行块，导致置换操作频繁，降低Cache效率</p>
-<h4 id="组相联"><a href="#组相联" class="headerlink" title="组相联"></a>组相联</h4><p>将Cache划分为若干个大小相同的组，而主存不同区内，区内的对应块可以换入Cache对应的组中，在组中可以存放在任意行</p>
-<p>当Cache分组的大小为1时，组内只有一个块，此时为直接映射；当Caceh分组大小为整个Cache大小时，只有一个分组，此时为全相联</p>
-<p><img src="https://i.loli.net/2021/02/09/ujlnd1BE5Q2NTZw.png" alt="组相联"></p>
-<p>组相联模式结合了适度兼顾了全相联和直接映射的优点，被普遍采用</p>
-<h2 id="Cache替换策略"><a href="#Cache替换策略" class="headerlink" title="Cache替换策略"></a>Cache替换策略</h2><h3 id="LFU算法"><a href="#LFU算法" class="headerlink" title="LFU算法"></a>LFU算法</h3><p>LFU，最不经常使用算法，将一段时间内被访问次数最少的行换出。每行设置一个计数器，当新行调入Cache，该新行计数器为0。当某个行被读取一次，该行的计数器+1，需要换出行时寻找到计数器最低的行将其换出。</p>
-<h3 id="LRU算法"><a href="#LRU算法" class="headerlink" title="LRU算法"></a>LRU算法</h3><p>LRU，近期最少使用算法，将近期内最长久未被访问过的行换出。同样如LFU为每行设置一个计数器，但是Cache行每次被命中其计数器清零，其它各行计数器+1，与LFU算法相反，需要置换出行时将计数器值最高的行换出</p>
-<h3 id="随机替换"><a href="#随机替换" class="headerlink" title="随机替换"></a>随机替换</h3><p>随机换出行，无固定规则。研究表明随机替换的性能只是稍稍逊于前两种算法</p>
-<h2 id="Cache写操作策略"><a href="#Cache写操作策略" class="headerlink" title="Cache写操作策略"></a>Cache写操作策略</h2><h3 id="写回法"><a href="#写回法" class="headerlink" title="写回法"></a>写回法</h3><blockquote>
-<p>write back,copy back：CPU命中Cache时，只修改Cache行中的数据内容，仅当Cache该块被换出时，将数据写回主存；CPU未命中Cache时，将该块从主存复制到Cache行中，再对其修改。Cache中每行都置一个修改位，记录该块是否被修改，若该行被换出是修改位为0，则直接抛弃</p>
-</blockquote>
-<p>写回法优点是减少访问主存的次数，但是写回法会导致Cache行中的数据与对应主存块中的数据不一致，产生隐患</p>
-<h3 id="全写法"><a href="#全写法" class="headerlink" title="全写法"></a>全写法</h3><blockquote>
-<p>write through：CPU命中Cache时，同时修改Cache行和主存块中的内容，主存和Cache同步；当CPU未命中Cache时，有两种策略，一是WTWA法，将主存块置换如Cache行中，对Cache行修改，另一种是WTNWA法，直接修改主存块，不置换入Cache中</p>
-</blockquote>
-<p>全写法的优点是简单，Cache和主存同步，不会发生数据不一致，但是其频繁的访问主存操作导致Cache性能降低</p>
-<h3 id="写一次法"><a href="#写一次法" class="headerlink" title="写一次法"></a>写一次法</h3><blockquote>
-<p>write once：CPU第一次命中Cache时，同时修改Cache行中和主存块中的内容，后面再命中时采用写回法的策略；CPU未命中时采用写回法策略</p>
-</blockquote>
-<p>写一次法结合了写回法和全写法</p>
+                <h1 id="截断二进制指数规避算法"><a href="#截断二进制指数规避算法" class="headerlink" title="截断二进制指数规避算法"></a>截断二进制指数规避算法</h1><h2 id="什么是截断二进制指数规避算法"><a href="#什么是截断二进制指数规避算法" class="headerlink" title="什么是截断二进制指数规避算法"></a>什么是截断二进制指数规避算法</h2><p>在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/CSMA%2FCD%E5%8D%8F%E8%AE%AE">CSMA/CD</a>协议中，检测到碰撞我们要重传数据。那么如何选择碰撞后数据的重传的时机呢？该算法就是为了解决这个问题而提出的</p>
+<h2 id="如何使用该算法计算重传时机"><a href="#如何使用该算法计算重传时机" class="headerlink" title="如何使用该算法计算重传时机"></a>如何使用该算法计算重传时机</h2><p>首先，发生碰撞后我们要确定一个基本的退避时间来延迟发送。假设从A发送到B的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BC%A0%E6%92%AD%E6%97%B6%E5%BB%B6">传播时延</a>是 t ，我们将基本退避时间设置为 2t 。</p>
+<p>其次，定义参数 k ，用于记录重传的次数。 k = min[ 重传次数，10 ]。当检测到数据碰撞时，在 0 ~ 2<sup>k</sup> - 1 的范围中随机取出一个数 r ，重传时间 R 即为 r 倍的基本退避时间 ， R = 2tr </p>
+<p>最后，若重传 <strong>16</strong> 次仍然不能成功发送数据则向网络层发出错误信息表示网络拥挤并抛弃此帧</p>
 
             </div>
             
@@ -293,7 +249,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://example.com/2021/05/27/Cache%E8%AE%BE%E8%AE%A1/",
+                text: "http://example.com/2021/05/29/%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E8%A7%84%E9%81%BF%E7%AE%97%E6%B3%95/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -305,17 +261,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://example.com/2021/05/27/Cache%E8%AE%BE%E8%AE%A1/";
-            const title         = "「Cache设计」";
-            const excerpt       = `Cache设计Cache原理
-利用程序的局部性原理，缩减CPU的访存时间，让CPU能够更好的发挥性能
-
-
-空间局部性：最近被访问的块邻近的块很有可能被访问
-时间局部性：最近被的访问的块很有可能被再次访问
-
-Cache设计的两大原则
-高...`;
+            const hostUrl       = "http://example.com/2021/05/29/%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E8%A7%84%E9%81%BF%E7%AE%97%E6%B3%95/";
+            const title         = "「CSMA/CD中重传时机的确定」";
+            const excerpt       = `截断二进制指数规避算法什么是截断二进制指数规避算法在CSMA/CD协议中，检测到碰撞我们要重传数据。那么如何选择碰撞后数据的重传的时机呢？该算法就是为了解决这个问题而提出的
+如何使用该算法计算重传时机首先，发生碰撞后我们要确定一个基本...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -334,14 +283,23 @@ Cache设计的两大原则
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/CS/" rel="tag">CS</a>
+                        <a class="tag-none-link" href="/tags/CN/" rel="tag">CN</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2021-05-27</span>
+                    <span>最后编辑：2021-05-29</span>
                     </div>
                 </div>
             </footer>
         </div>
+        
+            <nav class="navigation post-navigation clearfix" role="navigation">
+                
+                <div class="nav-previous clearfix">
+                    <a title=" 数据链路层中最小帧长问题" href="/2021/05/20/最小帧长/">&lt; 上一篇</a>
+                </div>
+                
+                
+            </nav>
         
         
     </article>
@@ -362,7 +320,7 @@ Cache设计的两大原则
         </div>
     </div>
     <div class="textwidget">
-        <p class="text-center">挫锐解纷，和光同尘</p>
+        <p class="text-center">3055</p>
     </div>
 </aside>
             
@@ -376,14 +334,14 @@ Cache设计的两大原则
         <span class="toc-progress-bar"></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache%E8%AE%BE%E8%AE%A1"><span class="toc-text">Cache设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cache%E5%8E%9F%E7%90%86"><span class="toc-text">Cache原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cache%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%B8%A4%E5%A4%A7%E5%8E%9F%E5%88%99"><span class="toc-text">Cache设计的两大原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cache%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9B%9B%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="toc-text">Cache设计的四个问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8DCache%E4%B8%8E%E4%B8%BB%E5%AD%98%E5%9C%B0%E5%9D%80%E6%98%A0%E5%B0%84%E7%AD%96%E7%95%A5"><span class="toc-text">三种Cache与主存地址映射策略</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E7%9B%B8%E8%81%94%E6%98%A0%E5%B0%84"><span class="toc-text">全相联映射</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E6%98%A0%E5%B0%84"><span class="toc-text">直接映射</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E7%9B%B8%E8%81%94"><span class="toc-text">组相联</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache%E6%9B%BF%E6%8D%A2%E7%AD%96%E7%95%A5"><span class="toc-text">Cache替换策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LFU%E7%AE%97%E6%B3%95"><span class="toc-text">LFU算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LRU%E7%AE%97%E6%B3%95"><span class="toc-text">LRU算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%9B%BF%E6%8D%A2"><span class="toc-text">随机替换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache%E5%86%99%E6%93%8D%E4%BD%9C%E7%AD%96%E7%95%A5"><span class="toc-text">Cache写操作策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E5%9B%9E%E6%B3%95"><span class="toc-text">写回法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%86%99%E6%B3%95"><span class="toc-text">全写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E4%B8%80%E6%AC%A1%E6%B3%95"><span class="toc-text">写一次法</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E8%A7%84%E9%81%BF%E7%AE%97%E6%B3%95"><span class="toc-text">截断二进制指数规避算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E8%A7%84%E9%81%BF%E7%AE%97%E6%B3%95"><span class="toc-text">什么是截断二进制指数规避算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E8%AF%A5%E7%AE%97%E6%B3%95%E8%AE%A1%E7%AE%97%E9%87%8D%E4%BC%A0%E6%97%B6%E6%9C%BA"><span class="toc-text">如何使用该算法计算重传时机</span></a></li></ol></li></ol>
     </div>
 </aside>
                 
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%BB%84/">计组</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><span class="category-list-count">2</span></li></ul>
   </aside>
 
 
@@ -392,7 +350,7 @@ Cache设计的两大原则
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/CS/" style="font-size: 0.6em;">CS</a>
+        <a href="/tags/CN/" style="font-size: 0.8em;">CN</a> <a href="/tags/CS/" style="font-size: 0.6em;">CS</a>
       </div>
   </aside>
 
@@ -406,7 +364,19 @@ Cache设计的两大原则
         
           
           
-            <a class="list-group-item" href="/2021/05/27/Cache%E8%AE%BE%E8%AE%A1/"><i class="fa  fa-book"></i> Cache设计</a>
+            <a class="list-group-item" href="/2021/05/29/%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E8%A7%84%E9%81%BF%E7%AE%97%E6%B3%95/"><i class="fa  fa-book"></i> CSMA/CD中重传时机的确定</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/05/20/%E6%9C%80%E5%B0%8F%E5%B8%A7%E9%95%BF/"><i class="fa  fa-book"></i> 数据链路层中最小帧长问题</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/05/07/Cache%E8%AE%BE%E8%AE%A1/"><i class="fa  fa-book"></i> Cache设计</a>
             
           
         
