@@ -15,16 +15,16 @@
   
     <meta name="keywords" content="CS" />
   
-  <meta name="description" content="FLAG寄存器 存储程序状态字（PSW，program status word），存储相关指令的执行结果，为相关指令提供行为依据，用来控制CPU的相关工作方式。flag寄存器是按位起作用的，每一位都有专门的含义记录特定信息。   在32位CPU中称为为EFLAGS寄存器，64为CPU中称为RFLAGS寄存器，它们扩展出的高位地址都不使用。现代操作系统中一般也叫做PSW寄存器。下面以8086为基础处">
+  <meta name="description" content="FLAG寄存器 存储程序状态字（PSW，program status word），存储相关指令的执行结果，为相关指令提供行为依据，用来控制CPU的相关工作方式。flag寄存器是按位起作用的，每一位都有专门的含义记录特定信息。   在32位CPU中称为为EFLAGS寄存器，64为CPU中称为RFLAGS寄存器，它们扩展出的高位地址都不使用。现代计算机中一般也叫做PSW寄存器。下面以8086为基础处理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PSW寄存器分析">
 <meta property="og:url" content="http://example.com/2021/06/01/FLAG%E5%AF%84%E5%AD%98%E5%99%A8/index.html">
 <meta property="og:site_name" content="Asuhe">
-<meta property="og:description" content="FLAG寄存器 存储程序状态字（PSW，program status word），存储相关指令的执行结果，为相关指令提供行为依据，用来控制CPU的相关工作方式。flag寄存器是按位起作用的，每一位都有专门的含义记录特定信息。   在32位CPU中称为为EFLAGS寄存器，64为CPU中称为RFLAGS寄存器，它们扩展出的高位地址都不使用。现代操作系统中一般也叫做PSW寄存器。下面以8086为基础处">
+<meta property="og:description" content="FLAG寄存器 存储程序状态字（PSW，program status word），存储相关指令的执行结果，为相关指令提供行为依据，用来控制CPU的相关工作方式。flag寄存器是按位起作用的，每一位都有专门的含义记录特定信息。   在32位CPU中称为为EFLAGS寄存器，64为CPU中称为RFLAGS寄存器，它们扩展出的高位地址都不使用。现代计算机中一般也叫做PSW寄存器。下面以8086为基础处理">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
 <meta property="article:published_time" content="2021-05-31T23:51:22.000Z">
-<meta property="article:modified_time" content="2021-05-31T23:52:08.822Z">
+<meta property="article:modified_time" content="2021-05-31T23:54:53.787Z">
 <meta property="article:author" content="Asuhe">
 <meta property="article:tag" content="CS">
 <meta name="twitter:card" content="summary">
@@ -175,7 +175,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            972
+                            971
                         
                         字
                     </li>
@@ -184,7 +184,7 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1622505128822"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1622505293787"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                     <div class="kratos-post-inner-toc">
@@ -196,7 +196,7 @@
 <p>存储<strong>程序状态字（PSW，program status word）</strong>，存储相关指令的执行结果，为相关指令提供行为依据，用来控制CPU的相关工作方式。<strong>flag寄存器是按位起作用的</strong>，<strong>每一位都有专门的含义记录特定信息</strong>。</p>
 </blockquote>
 <blockquote>
-<p>在32位CPU中称为为<strong>EFLAGS寄存器</strong>，64为CPU中称为<strong>RFLAGS寄存器</strong>，它们扩展出的高位地址都不使用。现代操作系统中一般也叫做<strong>PSW寄存器</strong>。下面以8086为基础处理器分析该寄存器的功能</p>
+<p>在32位CPU中称为为<strong>EFLAGS寄存器</strong>，64为CPU中称为<strong>RFLAGS寄存器</strong>，它们扩展出的高位地址都不使用。现代计算机中一般也叫做<strong>PSW寄存器</strong>。下面以8086为基础处理器分析该寄存器的功能</p>
 </blockquote>
 <p><img src="https://i.loli.net/2021/06/01/UlwYT5fQjx3gNsM.png" alt="flag寄存器"></p>
 <h4 id="ZF（Zero-Flag）"><a href="#ZF（Zero-Flag）" class="headerlink" title="ZF（Zero Flag）"></a>ZF（Zero Flag）</h4><blockquote>
