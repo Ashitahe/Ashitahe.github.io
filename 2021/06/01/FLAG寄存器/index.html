@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
-  <title>Cache设计 | Asuhe</title>
+  <title>PSW寄存器分析 | Asuhe</title>
   <meta name="author" content="Asuhe" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -15,16 +15,16 @@
   
     <meta name="keywords" content="CS" />
   
-  <meta name="description" content="Cache设计Cache原理 利用程序的局部性原理，缩减CPU的访存时间，让CPU能够更好的发挥性能   空间局部性：最近被访问的块邻近的块很有可能被访问 时间局部性：最近被的访问的块很有可能被再次访问  Cache设计的两大原则 高命中率，要求高命中率减少块的置换操作 对CPU透明，即CPU访问内存和访问Cache为同一种方式，无需改变  Cache设计的四个问题 从主存取得的块如何在Cache">
+  <meta name="description" content="FLAG寄存器 存储程序状态字（PSW，program status word），存储相关指令的执行结果，为相关指令提供行为依据，用来控制CPU的相关工作方式。flag寄存器是按位起作用的，每一位都有专门的含义记录特定信息。   在32位CPU中称为为EFLAGS寄存器，64为CPU中称为RFLAGS寄存器，它们扩展出的高位地址都不使用。现代操作系统中一般也叫做PSW寄存器。下面以8086为基础处">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cache设计">
-<meta property="og:url" content="http://example.com/2021/05/07/Cache%E8%AE%BE%E8%AE%A1/index.html">
+<meta property="og:title" content="PSW寄存器分析">
+<meta property="og:url" content="http://example.com/2021/06/01/FLAG%E5%AF%84%E5%AD%98%E5%99%A8/index.html">
 <meta property="og:site_name" content="Asuhe">
-<meta property="og:description" content="Cache设计Cache原理 利用程序的局部性原理，缩减CPU的访存时间，让CPU能够更好的发挥性能   空间局部性：最近被访问的块邻近的块很有可能被访问 时间局部性：最近被的访问的块很有可能被再次访问  Cache设计的两大原则 高命中率，要求高命中率减少块的置换操作 对CPU透明，即CPU访问内存和访问Cache为同一种方式，无需改变  Cache设计的四个问题 从主存取得的块如何在Cache">
+<meta property="og:description" content="FLAG寄存器 存储程序状态字（PSW，program status word），存储相关指令的执行结果，为相关指令提供行为依据，用来控制CPU的相关工作方式。flag寄存器是按位起作用的，每一位都有专门的含义记录特定信息。   在32位CPU中称为为EFLAGS寄存器，64为CPU中称为RFLAGS寄存器，它们扩展出的高位地址都不使用。现代操作系统中一般也叫做PSW寄存器。下面以8086为基础处">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
-<meta property="article:published_time" content="2021-05-07T15:06:08.000Z">
-<meta property="article:modified_time" content="2021-05-29T15:24:34.973Z">
+<meta property="article:published_time" content="2021-05-31T23:51:22.000Z">
+<meta property="article:modified_time" content="2021-05-31T23:52:08.822Z">
 <meta property="article:author" content="Asuhe">
 <meta property="article:tag" content="CS">
 <meta name="twitter:card" content="summary">
@@ -165,17 +165,17 @@
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
                 
-                    <h1 class="kratos-entry-title text-center">Cache设计</h1>
+                    <h1 class="kratos-entry-title text-center">PSW寄存器分析</h1>
                 
                 
                 <ul class="kratos-post-meta text-center">
-                    <li><i class="fa fa-calendar"></i> 2021-05-07</li>
+                    <li><i class="fa fa-calendar"></i> 2021-06-01</li>
                     <li><i class="fa fa-user"></i> 作者 Asuhe</li>
                     <li>
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~1.84K
+                            972
                         
                         字
                     </li>
@@ -184,71 +184,51 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1622301874973"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1622505128822"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                     <div class="kratos-post-inner-toc">
-                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Cache%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.</span> <span class="toc-text">Cache设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">Cache原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%B8%A4%E5%A4%A7%E5%8E%9F%E5%88%99"><span class="toc-number">1.2.</span> <span class="toc-text">Cache设计的两大原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9B%9B%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text">Cache设计的四个问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E7%A7%8DCache%E4%B8%8E%E4%B8%BB%E5%AD%98%E5%9C%B0%E5%9D%80%E6%98%A0%E5%B0%84%E7%AD%96%E7%95%A5"><span class="toc-number">2.</span> <span class="toc-text">三种Cache与主存地址映射策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E7%9B%B8%E8%81%94%E6%98%A0%E5%B0%84"><span class="toc-number">2.1.</span> <span class="toc-text">全相联映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E6%98%A0%E5%B0%84"><span class="toc-number">2.2.</span> <span class="toc-text">直接映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E7%9B%B8%E8%81%94"><span class="toc-number">2.3.</span> <span class="toc-text">组相联</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cache%E6%9B%BF%E6%8D%A2%E7%AD%96%E7%95%A5"><span class="toc-number">3.</span> <span class="toc-text">Cache替换策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LFU%E7%AE%97%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text">LFU算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LRU%E7%AE%97%E6%B3%95"><span class="toc-number">3.2.</span> <span class="toc-text">LRU算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%9B%BF%E6%8D%A2"><span class="toc-number">3.3.</span> <span class="toc-text">随机替换</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cache%E5%86%99%E6%93%8D%E4%BD%9C%E7%AD%96%E7%95%A5"><span class="toc-number">4.</span> <span class="toc-text">Cache写操作策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9B%9E%E6%B3%95"><span class="toc-number">4.1.</span> <span class="toc-text">写回法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%86%99%E6%B3%95"><span class="toc-number">4.2.</span> <span class="toc-text">全写法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E4%B8%80%E6%AC%A1%E6%B3%95"><span class="toc-number">4.3.</span> <span class="toc-text">写一次法</span></a></li></ol></li></ol>
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FLAG%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">FLAG寄存器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ZF%EF%BC%88Zero-Flag%EF%BC%89"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">ZF（Zero Flag）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PF%EF%BC%88Parity-Flag%EF%BC%89"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">PF（Parity Flag）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SF%EF%BC%88Symbol-Flag%EF%BC%89"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">SF（Symbol Flag）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CF%EF%BC%88Carry-Flag%EF%BC%89"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">CF（Carry Flag）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OF%EF%BC%88Overflow-Flag%EF%BC%89"><span class="toc-number">1.0.0.5.</span> <span class="toc-text">OF（Overflow Flag）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AF%EF%BC%88Auxiliary-Flag%EF%BC%89"><span class="toc-number">1.0.0.6.</span> <span class="toc-text">AF（Auxiliary Flag）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IF%EF%BC%88Interrupt-Enable-Flag%EF%BC%89"><span class="toc-number">1.0.0.7.</span> <span class="toc-text">IF（Interrupt-Enable Flag）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DF%EF%BC%88Direction-Flag%EF%BC%89"><span class="toc-number">1.0.0.8.</span> <span class="toc-text">DF（Direction Flag）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TF%EF%BC%88Trap-Flag%EF%BC%89"><span class="toc-number">1.0.0.9.</span> <span class="toc-text">TF（Trap Flag）</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 
                 <hr />
-                <h1 id="Cache设计"><a href="#Cache设计" class="headerlink" title="Cache设计"></a>Cache设计</h1><h2 id="Cache原理"><a href="#Cache原理" class="headerlink" title="Cache原理"></a>Cache原理</h2><blockquote>
-<p>利用程序的局部性原理，缩减CPU的访存时间，让CPU能够更好的发挥性能</p>
+                <h1 id="FLAG寄存器"><a href="#FLAG寄存器" class="headerlink" title="FLAG寄存器"></a>FLAG寄存器</h1><blockquote>
+<p>存储<strong>程序状态字（PSW，program status word）</strong>，存储相关指令的执行结果，为相关指令提供行为依据，用来控制CPU的相关工作方式。<strong>flag寄存器是按位起作用的</strong>，<strong>每一位都有专门的含义记录特定信息</strong>。</p>
 </blockquote>
-<ul>
-<li>空间局部性：最近被访问的块邻近的块很有可能被访问</li>
-<li>时间局部性：最近被的访问的块很有可能被再次访问</li>
-</ul>
-<h2 id="Cache设计的两大原则"><a href="#Cache设计的两大原则" class="headerlink" title="Cache设计的两大原则"></a>Cache设计的两大原则</h2><ul>
-<li>高命中率，要求高命中率减少块的置换操作</li>
-<li>对CPU透明，即CPU访问内存和访问Cache为同一种方式，无需改变</li>
-</ul>
-<h2 id="Cache设计的四个问题"><a href="#Cache设计的四个问题" class="headerlink" title="Cache设计的四个问题"></a>Cache设计的四个问题</h2><ul>
-<li>从主存取得的块如何在Cache中存放</li>
-<li>如何访问主存放入Cache中的块</li>
-<li>当Cache未命中时置换数据块的策略</li>
-<li>怎样保持Cache块中数据与主存块的数据同步</li>
-</ul>
-<h1 id="三种Cache与主存地址映射策略"><a href="#三种Cache与主存地址映射策略" class="headerlink" title="三种Cache与主存地址映射策略"></a>三种Cache与主存地址映射策略</h1><blockquote>
-<p>通常Cache相对于主存都十分小，所以主存块的哪些部分放入有限的Cache空间中是一个很重要的问题。下面有三种策略用于解决主存块在Cache中的存放位置问题</p>
+<blockquote>
+<p>在32位CPU中称为为<strong>EFLAGS寄存器</strong>，64为CPU中称为<strong>RFLAGS寄存器</strong>，它们扩展出的高位地址都不使用。现代操作系统中一般也叫做<strong>PSW寄存器</strong>。下面以8086为基础处理器分析该寄存器的功能</p>
 </blockquote>
-<h2 id="全相联映射"><a href="#全相联映射" class="headerlink" title="全相联映射"></a>全相联映射</h2><blockquote>
-<p>Cache数据块称为行，主存数据块称为块，其中行大小==块大小。全相联映射中，主存一个块地址、块号、块内容都被一起存于Cache的行中</p>
+<p><img src="https://i.loli.net/2021/06/01/UlwYT5fQjx3gNsM.png" alt="flag寄存器"></p>
+<h4 id="ZF（Zero-Flag）"><a href="#ZF（Zero-Flag）" class="headerlink" title="ZF（Zero Flag）"></a>ZF（Zero Flag）</h4><blockquote>
+<p>第6位标志位，零标志位。计算指令执行后，若结果为0，则zf=1，否则zf=0</p>
 </blockquote>
-<p>主存中的块被复制到Cache的任意行中</p>
-<p><img src="https://i.loli.net/2021/02/09/rsdg2fLWOGitSzp.png" alt="全相联"></p>
-<p>CPU访问一个主存地址时，为了快速检索，指令中的块号与Cache所有行号的标记同时在比较器中比较，若命中则从Cache中读取一个字，否则在主存地址中读取</p>
-<p>全相联映射其主要缺点是高速比较器电路难于设计和实现，因此适合小容量Cache</p>
-<h2 id="直接映射"><a href="#直接映射" class="headerlink" title="直接映射"></a>直接映射</h2><p>主存被划分为n个和Cache大小相同的区，区内的块只能存入对应Cache行内</p>
-<p>Cache行号 i 和主存块号 j 关系为 i = j mode m，其中m为Cache的大小</p>
-<p><img src="https://i.loli.net/2021/02/09/1zF6SnI5QXZMYqV.png" alt="全相联映射"></p>
-<p>直接映射其优点是硬件简单，成本低，地址变换速度快，但其缺点是每个主存块有一个固定行号可以存放。</p>
-<p>当连续两个访存指令要求访问块号相距m整数倍的两个块时，因两个块同时映射到同一个Cache行内，所以会产生冲突，需要置换行块，导致置换操作频繁，降低Cache效率</p>
-<h2 id="组相联"><a href="#组相联" class="headerlink" title="组相联"></a>组相联</h2><p>将Cache划分为若干个大小相同的组，而主存不同区内，区内的对应块可以换入Cache对应的组中，在组中可以存放在任意行</p>
-<p>当Cache分组的大小为1时，组内只有一个块，此时为直接映射；当Caceh分组大小为整个Cache大小时，只有一个分组，此时为全相联</p>
-<p><img src="https://i.loli.net/2021/02/09/ujlnd1BE5Q2NTZw.png" alt="组相联"></p>
-<p>组相联模式结合了适度兼顾了全相联和直接映射的优点，被普遍采用</p>
-<h1 id="Cache替换策略"><a href="#Cache替换策略" class="headerlink" title="Cache替换策略"></a>Cache替换策略</h1><blockquote>
-<p>当Cache存满需要换入新块时，有三种主流的替换算法分别是</p>
+<h4 id="PF（Parity-Flag）"><a href="#PF（Parity-Flag）" class="headerlink" title="PF（Parity Flag）"></a>PF（Parity Flag）</h4><blockquote>
+<p>第2位标志位，奇偶标志位。指令执行后，若所有bit位中1的个数为偶数，则pf=1，否则pf=0</p>
 </blockquote>
-<h2 id="LFU算法"><a href="#LFU算法" class="headerlink" title="LFU算法"></a>LFU算法</h2><p>LFU，最不经常使用算法，将一段时间内被访问次数最少的行换出。每行设置一个计数器，当新行调入Cache，该新行计数器为0。当某个行被读取一次，该行的计数器+1，需要换出行时寻找到计数器最低的行将其换出。</p>
-<h2 id="LRU算法"><a href="#LRU算法" class="headerlink" title="LRU算法"></a>LRU算法</h2><p>LRU，近期最少使用算法，将近期内最长久未被访问过的行换出。同样如LFU为每行设置一个计数器，但是Cache行每次被命中其计数器清零，其它各行计数器+1，与LFU算法相反，需要置换出行时将计数器值最高的行换出</p>
-<h2 id="随机替换"><a href="#随机替换" class="headerlink" title="随机替换"></a>随机替换</h2><p>随机换出行，无固定规则。研究表明随机替换的性能只是稍稍逊于前两种算法</p>
-<h1 id="Cache写操作策略"><a href="#Cache写操作策略" class="headerlink" title="Cache写操作策略"></a>Cache写操作策略</h1><blockquote>
-<p>因为Cache中的数据时主存块中的副本，在任何系统中只要存在副本就存在各副本之间数据同步的问题。当前Cache中普遍采用的同步策略有以下三种：</p>
+   <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mov al <span class="number">1</span></span><br><span class="line">add al，al</span><br><span class="line">al=<span class="number">00000010</span>   <span class="comment">//1的个数为1，所以pf=0 </span></span><br><span class="line">若改为</span><br><span class="line">add al，<span class="number">10</span>H</span><br><span class="line">al=<span class="number">00000011</span>  <span class="comment">//1的个数为2，所以pf=1 </span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="SF（Symbol-Flag）"><a href="#SF（Symbol-Flag）" class="headerlink" title="SF（Symbol Flag）"></a>SF（Symbol Flag）</h4><blockquote>
+<p>第7位标志位，符号标志位。指令执行后，若结果为负，则sf=1，否则sf=0</p>
 </blockquote>
-<h2 id="写回法"><a href="#写回法" class="headerlink" title="写回法"></a>写回法</h2><blockquote>
-<p>write back,copy back：CPU命中Cache时，只修改Cache行中的数据内容，仅当Cache该块被换出时，将数据写回主存；CPU未命中Cache时，将该块从主存复制到Cache行中，再对其修改。Cache中每行都置一个修改位，记录该块是否被修改，若该行被换出是修改位为0，则直接抛弃</p>
+<h4 id="CF（Carry-Flag）"><a href="#CF（Carry-Flag）" class="headerlink" title="CF（Carry Flag）"></a>CF（Carry Flag）</h4><blockquote>
+<p>第0位标志位，进位标志位。<strong>无符号运算中指令执行后，若产生进位</strong>，则cf=1，否则cf=0，同时也可以用作表示借位。若其值被add设置则表示进位，被sub设置则表示借位</p>
 </blockquote>
-<p>写回法优点是减少访问主存的次数，但是写回法会导致Cache行中的数据与对应主存块中的数据不一致，产生隐患</p>
-<h2 id="全写法"><a href="#全写法" class="headerlink" title="全写法"></a>全写法</h2><blockquote>
-<p>write through：CPU命中Cache时，同时修改Cache行和主存块中的内容，主存和Cache同步；当CPU未命中Cache时，有两种策略，一是WTWA法，将主存块置换如Cache行中，对Cache行修改，另一种是WTNWA法，直接修改主存块，不置换入Cache中</p>
+<h4 id="OF（Overflow-Flag）"><a href="#OF（Overflow-Flag）" class="headerlink" title="OF（Overflow Flag）"></a>OF（Overflow Flag）</h4><blockquote>
+<p>第11位标志位，溢出标志位。<strong>有符号运算</strong>时，若产生溢出，则of=1，否则of=0</p>
 </blockquote>
-<p>全写法的优点是简单，Cache和主存同步，不会发生数据不一致，但是其频繁的访问主存操作导致Cache性能降低</p>
-<h2 id="写一次法"><a href="#写一次法" class="headerlink" title="写一次法"></a>写一次法</h2><blockquote>
-<p>write once：CPU第一次命中Cache时，同时修改Cache行中和主存块中的内容，后面再命中时采用写回法的策略；CPU未命中时采用写回法策略</p>
+<h4 id="AF（Auxiliary-Flag）"><a href="#AF（Auxiliary-Flag）" class="headerlink" title="AF（Auxiliary Flag）"></a>AF（Auxiliary Flag）</h4><blockquote>
+<p>第4位标志位，辅助进位标志位。若操作中发生了进位或借位，则af=1，否则af=0<br>mov al，0Fh<br>add al，1<br>计算过程<br>00001111<br>00000001<br>——————<br>00010000   位3中发生了进位，af=1</p>
 </blockquote>
-<p>写一次法结合了写回法和全写法</p>
+<h4 id="IF（Interrupt-Enable-Flag）"><a href="#IF（Interrupt-Enable-Flag）" class="headerlink" title="IF（Interrupt-Enable Flag）"></a>IF（Interrupt-Enable Flag）</h4><blockquote>
+<p>第9位标志位，中断允许标志位。决定CPU是否能够响应外部可屏蔽中断请求，若响应则if=1，否则if=0</p>
+</blockquote>
+<h4 id="DF（Direction-Flag）"><a href="#DF（Direction-Flag）" class="headerlink" title="DF（Direction Flag）"></a>DF（Direction Flag）</h4><blockquote>
+<p>第10位标志位，方向标志位。控制SI和DI自增还是自减。若自减，则df=1，否则df=0</p>
+</blockquote>
+<h4 id="TF（Trap-Flag）"><a href="#TF（Trap-Flag）" class="headerlink" title="TF（Trap Flag）"></a>TF（Trap Flag）</h4><blockquote>
+<p>第8位标志位，追踪标志位。若CPU进入单步调试，则tf=1，否则tf=0</p>
+</blockquote>
 
             </div>
             
@@ -302,7 +282,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://example.com/2021/05/07/Cache%E8%AE%BE%E8%AE%A1/",
+                text: "http://example.com/2021/06/01/FLAG%E5%AF%84%E5%AD%98%E5%99%A8/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -314,17 +294,13 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://example.com/2021/05/07/Cache%E8%AE%BE%E8%AE%A1/";
-            const title         = "「Cache设计」";
-            const excerpt       = `Cache设计Cache原理
-利用程序的局部性原理，缩减CPU的访存时间，让CPU能够更好的发挥性能
+            const hostUrl       = "http://example.com/2021/06/01/FLAG%E5%AF%84%E5%AD%98%E5%99%A8/";
+            const title         = "「PSW寄存器分析」";
+            const excerpt       = `FLAG寄存器
+存储程序状态字（PSW，program status word），存储相关指令的执行结果，为相关指令提供行为依据，用来控制CPU的相关工作方式。flag寄存器是按位起作用的，每一位都有专门的含义记录特定信息。
 
 
-空间局部性：最近被访问的块邻近的块很有可能被访问
-时间局部性：最近被的访问的块很有可能被再次访问
-
-Cache设计的两大原则
-高...`;
+在3...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -346,7 +322,7 @@ Cache设计的两大原则
                         <a class="tag-none-link" href="/tags/CS/" rel="tag">CS</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2021-05-29</span>
+                    <span>最后编辑：2021-06-01</span>
                     </div>
                 </div>
             </footer>
@@ -354,10 +330,10 @@ Cache设计的两大原则
         
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
-                
-                <div class="nav-next clearfix">
-                    <a title=" 数据链路层中最小帧长问题" href="/2021/05/20/最小帧长/">下一篇 &gt;</a>
+                <div class="nav-previous clearfix">
+                    <a title=" CSMA/CD中重传时机的确定" href="/2021/05/29/截断二进制指数规避算法/">&lt; 上一篇</a>
                 </div>
+                
                 
             </nav>
         
@@ -394,7 +370,7 @@ Cache设计的两大原则
         <span class="toc-progress-bar"></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Cache%E8%AE%BE%E8%AE%A1"><span class="toc-text">Cache设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache%E5%8E%9F%E7%90%86"><span class="toc-text">Cache原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%B8%A4%E5%A4%A7%E5%8E%9F%E5%88%99"><span class="toc-text">Cache设计的两大原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9B%9B%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="toc-text">Cache设计的四个问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E7%A7%8DCache%E4%B8%8E%E4%B8%BB%E5%AD%98%E5%9C%B0%E5%9D%80%E6%98%A0%E5%B0%84%E7%AD%96%E7%95%A5"><span class="toc-text">三种Cache与主存地址映射策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E7%9B%B8%E8%81%94%E6%98%A0%E5%B0%84"><span class="toc-text">全相联映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E6%98%A0%E5%B0%84"><span class="toc-text">直接映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E7%9B%B8%E8%81%94"><span class="toc-text">组相联</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cache%E6%9B%BF%E6%8D%A2%E7%AD%96%E7%95%A5"><span class="toc-text">Cache替换策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LFU%E7%AE%97%E6%B3%95"><span class="toc-text">LFU算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LRU%E7%AE%97%E6%B3%95"><span class="toc-text">LRU算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%9B%BF%E6%8D%A2"><span class="toc-text">随机替换</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cache%E5%86%99%E6%93%8D%E4%BD%9C%E7%AD%96%E7%95%A5"><span class="toc-text">Cache写操作策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9B%9E%E6%B3%95"><span class="toc-text">写回法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%86%99%E6%B3%95"><span class="toc-text">全写法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E4%B8%80%E6%AC%A1%E6%B3%95"><span class="toc-text">写一次法</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FLAG%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-text">FLAG寄存器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ZF%EF%BC%88Zero-Flag%EF%BC%89"><span class="toc-text">ZF（Zero Flag）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PF%EF%BC%88Parity-Flag%EF%BC%89"><span class="toc-text">PF（Parity Flag）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SF%EF%BC%88Symbol-Flag%EF%BC%89"><span class="toc-text">SF（Symbol Flag）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CF%EF%BC%88Carry-Flag%EF%BC%89"><span class="toc-text">CF（Carry Flag）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OF%EF%BC%88Overflow-Flag%EF%BC%89"><span class="toc-text">OF（Overflow Flag）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AF%EF%BC%88Auxiliary-Flag%EF%BC%89"><span class="toc-text">AF（Auxiliary Flag）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IF%EF%BC%88Interrupt-Enable-Flag%EF%BC%89"><span class="toc-text">IF（Interrupt-Enable Flag）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DF%EF%BC%88Direction-Flag%EF%BC%89"><span class="toc-text">DF（Direction Flag）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TF%EF%BC%88Trap-Flag%EF%BC%89"><span class="toc-text">TF（Trap Flag）</span></a></li></ol></li></ol></li></ol></li></ol>
     </div>
 </aside>
                 
