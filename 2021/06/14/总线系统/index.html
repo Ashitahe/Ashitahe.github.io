@@ -18,13 +18,13 @@
   <meta name="description" content="总线系统基础概念总线用于将计算机各个部件连接起来，成为一个整体，是多个系统功能部件之间进行数据传输的公共通道 单处理器系统中总线分为三大类  内部总线：CPU内部连接寄存器、运算部件 系统总线：计算机系统用于连接其它高速设备，存储器、通道等 I&#x2F;O总线：用于连接中、低速 I&#x2F;O 设备  总线的特性 物理特性：指总线的物理连接方式，包括总线的根数，总线插头、引脚数等 功能特性：描述总线中每一根线的功">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机总线系统概述">
-<meta property="og:url" content="http://example.com/2021/07/14/%E6%80%BB%E7%BA%BF%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:url" content="http://example.com/2021/06/14/%E6%80%BB%E7%BA%BF%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="Asuhe">
 <meta property="og:description" content="总线系统基础概念总线用于将计算机各个部件连接起来，成为一个整体，是多个系统功能部件之间进行数据传输的公共通道 单处理器系统中总线分为三大类  内部总线：CPU内部连接寄存器、运算部件 系统总线：计算机系统用于连接其它高速设备，存储器、通道等 I&#x2F;O总线：用于连接中、低速 I&#x2F;O 设备  总线的特性 物理特性：指总线的物理连接方式，包括总线的根数，总线插头、引脚数等 功能特性：描述总线中每一根线的功">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
-<meta property="article:published_time" content="2021-07-14T13:34:31.000Z">
-<meta property="article:modified_time" content="2021-07-14T13:34:39.865Z">
+<meta property="article:published_time" content="2021-06-14T13:34:31.000Z">
+<meta property="article:modified_time" content="2021-07-14T13:50:35.442Z">
 <meta property="article:author" content="Asuhe">
 <meta property="article:tag" content="CS">
 <meta name="twitter:card" content="summary">
@@ -169,7 +169,7 @@
                 
                 
                 <ul class="kratos-post-meta text-center">
-                    <li><i class="fa fa-calendar"></i> 2021-07-14</li>
+                    <li><i class="fa fa-calendar"></i> 2021-06-14</li>
                     <li><i class="fa fa-user"></i> 作者 Asuhe</li>
                     <li>
                         <i class="fa fa-edit"></i> 
@@ -184,42 +184,42 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1626269679865"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1626270635442"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                     <div class="kratos-post-inner-toc">
-                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.</span> <span class="toc-text">总线系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">基础概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-number">1.2.</span> <span class="toc-text">总线的特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">总线连接方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84"><span class="toc-number">1.4.</span> <span class="toc-text">总线内部结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E4%BD%93%E6%80%BB%E7%BA%BF%E5%88%86%E7%B1%BB"><span class="toc-number">1.5.</span> <span class="toc-text">总体总线分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81%E6%80%BB%E7%BA%BF"><span class="toc-number">1.5.1.</span> <span class="toc-text">数据传送总线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%B2%E8%A3%81%E6%80%BB%E7%BA%BF"><span class="toc-number">1.5.2.</span> <span class="toc-text">仲裁总线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E5%92%8C%E5%90%8C%E6%AD%A5%E6%80%BB%E7%BA%BF"><span class="toc-number">1.5.3.</span> <span class="toc-text">中断和同步总线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%AC%E7%94%A8%E7%BA%BF"><span class="toc-number">1.5.4.</span> <span class="toc-text">公用线</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E4%BB%B2%E8%A3%81"><span class="toc-number">1.6.</span> <span class="toc-text">总线仲裁</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%86%E4%B8%AD%E5%BC%8F%E4%BB%B2%E8%A3%81"><span class="toc-number">1.6.1.</span> <span class="toc-text">集中式仲裁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E4%BB%B2%E8%A3%81"><span class="toc-number">1.6.2.</span> <span class="toc-text">分布式仲裁</span></a></li></ol></li></ol></li></ol>
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.</span> <span class="toc-text">总线系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">基础概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-number">1.2.</span> <span class="toc-text">总线的特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">总线连接方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84"><span class="toc-number">1.4.</span> <span class="toc-text">总线内部结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E4%BD%93%E6%80%BB%E7%BA%BF%E5%88%86%E7%B1%BB"><span class="toc-number">1.5.</span> <span class="toc-text">总体总线分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81%E6%80%BB%E7%BA%BF"><span class="toc-number">1.5.1.</span> <span class="toc-text">数据传送总线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%B2%E8%A3%81%E6%80%BB%E7%BA%BF"><span class="toc-number">1.5.2.</span> <span class="toc-text">仲裁总线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E5%92%8C%E5%90%8C%E6%AD%A5%E6%80%BB%E7%BA%BF"><span class="toc-number">1.5.3.</span> <span class="toc-text">中断和同步总线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E7%94%A8%E7%BA%BF"><span class="toc-number">1.5.4.</span> <span class="toc-text">公用线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E4%BB%B2%E8%A3%81"><span class="toc-number">1.6.</span> <span class="toc-text">总线仲裁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E4%B8%AD%E5%BC%8F%E4%BB%B2%E8%A3%81"><span class="toc-number">1.6.1.</span> <span class="toc-text">集中式仲裁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E4%BB%B2%E8%A3%81"><span class="toc-number">1.6.2.</span> <span class="toc-text">分布式仲裁</span></a></li></ol></li></ol></li></ol>
                     </div>
                 
                 <hr />
-                <h2 id="总线系统"><a href="#总线系统" class="headerlink" title="总线系统"></a>总线系统</h2><h3 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h3><p>总线用于将计算机各个部件连接起来，成为一个整体，是多个系统功能部件之间进行数据传输的公共通道</p>
+                <h1 id="总线系统"><a href="#总线系统" class="headerlink" title="总线系统"></a>总线系统</h1><h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><p>总线用于将计算机各个部件连接起来，成为一个整体，是多个系统功能部件之间进行数据传输的公共通道</p>
 <p>单处理器系统中总线分为三大类</p>
 <ul>
 <li>内部总线：CPU内部连接寄存器、运算部件</li>
 <li>系统总线：计算机系统用于连接其它高速设备，存储器、通道等</li>
 <li>I/O总线：用于连接中、低速 I/O 设备</li>
 </ul>
-<h3 id="总线的特性"><a href="#总线的特性" class="headerlink" title="总线的特性"></a>总线的特性</h3><ul>
+<h2 id="总线的特性"><a href="#总线的特性" class="headerlink" title="总线的特性"></a>总线的特性</h2><ul>
 <li>物理特性：指总线的物理连接方式，包括总线的根数，总线插头、引脚数等</li>
 <li>功能特性：描述总线中每一根线的功能</li>
 <li>电气特性：定义每根线上信号的传递方向以及有效的电平范围</li>
 <li>时间特性：定义了每根线在何时有效</li>
 </ul>
-<h3 id="总线连接方式"><a href="#总线连接方式" class="headerlink" title="总线连接方式"></a>总线连接方式</h3><p>通常采用适配器部件来完成</p>
+<h2 id="总线连接方式"><a href="#总线连接方式" class="headerlink" title="总线连接方式"></a>总线连接方式</h2><p>通常采用适配器部件来完成</p>
 <ul>
 <li>单总线系统：要总线上的所有逻辑部件都高速运行，以便某些设备需要使用总线时能迅速获得总线控制权</li>
 <li>多总线系统：将高速设备（北桥）和低速设备（南桥）分开，用不同类型的桥扩展出不同层次的总线</li>
 </ul>
-<h3 id="总线内部结构"><a href="#总线内部结构" class="headerlink" title="总线内部结构"></a>总线内部结构</h3><ul>
+<h2 id="总线内部结构"><a href="#总线内部结构" class="headerlink" title="总线内部结构"></a>总线内部结构</h2><ul>
 <li>地址线：单向，用于传送主存与设备的地址</li>
 <li>数据线：双向，用来传送数据</li>
 <li>控制线：对每根线是单向（CPU发向接口，或接口发向CPU），用来指明数据传送的方向（存储器读写、I/O读写）、中断控制和定时控制等</li>
 </ul>
-<h3 id="总体总线分类"><a href="#总体总线分类" class="headerlink" title="总体总线分类"></a>总体总线分类</h3><h4 id="数据传送总线"><a href="#数据传送总线" class="headerlink" title="数据传送总线"></a>数据传送总线</h4><p>由地址线、数据线、控制线组成</p>
-<h4 id="仲裁总线"><a href="#仲裁总线" class="headerlink" title="仲裁总线"></a>仲裁总线</h4><p>包括总线请求线和总线授权线</p>
-<h4 id="中断和同步总线"><a href="#中断和同步总线" class="headerlink" title="中断和同步总线"></a>中断和同步总线</h4><p>用于处理带优先级的中断操作，包括中断请求线和中断认可线</p>
-<h4 id="公用线"><a href="#公用线" class="headerlink" title="公用线"></a>公用线</h4><p>包括时钟信号线、电源线、地线、系统复位线以及加电或断电的时序信号线</p>
-<h3 id="总线仲裁"><a href="#总线仲裁" class="headerlink" title="总线仲裁"></a>总线仲裁</h3><h4 id="集中式仲裁"><a href="#集中式仲裁" class="headerlink" title="集中式仲裁"></a>集中式仲裁</h4><ul>
+<h2 id="总体总线分类"><a href="#总体总线分类" class="headerlink" title="总体总线分类"></a>总体总线分类</h2><h3 id="数据传送总线"><a href="#数据传送总线" class="headerlink" title="数据传送总线"></a>数据传送总线</h3><p>由地址线、数据线、控制线组成</p>
+<h3 id="仲裁总线"><a href="#仲裁总线" class="headerlink" title="仲裁总线"></a>仲裁总线</h3><p>包括总线请求线和总线授权线</p>
+<h3 id="中断和同步总线"><a href="#中断和同步总线" class="headerlink" title="中断和同步总线"></a>中断和同步总线</h3><p>用于处理带优先级的中断操作，包括中断请求线和中断认可线</p>
+<h3 id="公用线"><a href="#公用线" class="headerlink" title="公用线"></a>公用线</h3><p>包括时钟信号线、电源线、地线、系统复位线以及加电或断电的时序信号线</p>
+<h2 id="总线仲裁"><a href="#总线仲裁" class="headerlink" title="总线仲裁"></a>总线仲裁</h2><h3 id="集中式仲裁"><a href="#集中式仲裁" class="headerlink" title="集中式仲裁"></a>集中式仲裁</h3><ul>
 <li><p>链式查询</p>
 <p>菊花链式查询，授权信号串行地从一个接口发送到下一个接口，若中间有设备请求总线则获得授权，信号不再传递。离CPU越近的设备优先级越高</p>
 <p>该种方式优点是简单、节省线路；其缺点是优先级不能改变，不灵活，可能存在优先级低的设备饿死，对电路故障十分敏感，若中间设备故障则后面的设备都无法工作</p>
@@ -234,7 +234,7 @@
 </li>
 </ul>
 <p><strong>现代计算机基本采用独立请求方式</strong></p>
-<h4 id="分布式仲裁"><a href="#分布式仲裁" class="headerlink" title="分布式仲裁"></a>分布式仲裁</h4><p>不需要集中的总线仲裁器，每个设备都有自己的总线仲裁器。请求总线时，将它们唯一的仲裁号发送到共享的仲裁总线上，每个仲裁器将从仲裁总线上得到的号与自己比较。若仲裁总线上的号大，则不予响应并撤销其仲裁号，最后获胜者的仲裁号保留在仲裁总线上获得授权</p>
+<h3 id="分布式仲裁"><a href="#分布式仲裁" class="headerlink" title="分布式仲裁"></a>分布式仲裁</h3><p>不需要集中的总线仲裁器，每个设备都有自己的总线仲裁器。请求总线时，将它们唯一的仲裁号发送到共享的仲裁总线上，每个仲裁器将从仲裁总线上得到的号与自己比较。若仲裁总线上的号大，则不予响应并撤销其仲裁号，最后获胜者的仲裁号保留在仲裁总线上获得授权</p>
 
             </div>
             
@@ -288,7 +288,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://example.com/2021/07/14/%E6%80%BB%E7%BA%BF%E7%B3%BB%E7%BB%9F/",
+                text: "http://example.com/2021/06/14/%E6%80%BB%E7%BA%BF%E7%B3%BB%E7%BB%9F/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -300,7 +300,7 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://example.com/2021/07/14/%E6%80%BB%E7%BA%BF%E7%B3%BB%E7%BB%9F/";
+            const hostUrl       = "http://example.com/2021/06/14/%E6%80%BB%E7%BA%BF%E7%B3%BB%E7%BB%9F/";
             const title         = "「计算机总线系统概述」";
             const excerpt       = `总线系统基础概念总线用于将计算机各个部件连接起来，成为一个整体，是多个系统功能部件之间进行数据传输的公共通道
 单处理器系统中总线分为三大类
@@ -376,7 +376,7 @@
         <span class="toc-progress-bar"></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%B3%BB%E7%BB%9F"><span class="toc-text">总线系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-text">基础概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-text">总线的特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F"><span class="toc-text">总线连接方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84"><span class="toc-text">总线内部结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E4%BD%93%E6%80%BB%E7%BA%BF%E5%88%86%E7%B1%BB"><span class="toc-text">总体总线分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81%E6%80%BB%E7%BA%BF"><span class="toc-text">数据传送总线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%B2%E8%A3%81%E6%80%BB%E7%BA%BF"><span class="toc-text">仲裁总线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E5%92%8C%E5%90%8C%E6%AD%A5%E6%80%BB%E7%BA%BF"><span class="toc-text">中断和同步总线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%AC%E7%94%A8%E7%BA%BF"><span class="toc-text">公用线</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E4%BB%B2%E8%A3%81"><span class="toc-text">总线仲裁</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%86%E4%B8%AD%E5%BC%8F%E4%BB%B2%E8%A3%81"><span class="toc-text">集中式仲裁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E4%BB%B2%E8%A3%81"><span class="toc-text">分布式仲裁</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%B3%BB%E7%BB%9F"><span class="toc-text">总线系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-text">基础概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-text">总线的特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F"><span class="toc-text">总线连接方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84"><span class="toc-text">总线内部结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E4%BD%93%E6%80%BB%E7%BA%BF%E5%88%86%E7%B1%BB"><span class="toc-text">总体总线分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81%E6%80%BB%E7%BA%BF"><span class="toc-text">数据传送总线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%B2%E8%A3%81%E6%80%BB%E7%BA%BF"><span class="toc-text">仲裁总线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E5%92%8C%E5%90%8C%E6%AD%A5%E6%80%BB%E7%BA%BF"><span class="toc-text">中断和同步总线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E7%94%A8%E7%BA%BF"><span class="toc-text">公用线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E4%BB%B2%E8%A3%81"><span class="toc-text">总线仲裁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E4%B8%AD%E5%BC%8F%E4%BB%B2%E8%A3%81"><span class="toc-text">集中式仲裁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E4%BB%B2%E8%A3%81"><span class="toc-text">分布式仲裁</span></a></li></ol></li></ol></li></ol>
     </div>
 </aside>
                 
@@ -406,7 +406,7 @@
         
           
           
-            <a class="list-group-item" href="/2021/07/14/%E6%80%BB%E7%BA%BF%E7%B3%BB%E7%BB%9F/"><i class="fa  fa-book"></i> 计算机总线系统概述</a>
+            <a class="list-group-item" href="/2021/06/14/%E6%80%BB%E7%BA%BF%E7%B3%BB%E7%BB%9F/"><i class="fa  fa-book"></i> 计算机总线系统概述</a>
             
           
         
