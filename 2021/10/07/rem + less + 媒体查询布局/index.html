@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
+  <title>浅谈rem布局 | Asuhe</title>
+  <meta name="author" content="Asuhe" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="code" />
+  
+  <meta name="description" content="rem + less + 媒体查询布局rem初识rem什么是rem，rem的全称为root em。em我们都知道，1em代表一个字符的大小。而root em顾名思义，我们可以大致猜测出是以某个源为标准的单位。实际上rem代表的是以标签里font-size属性的单位，举个例子 12345html &amp;#123;	设置html文件的默认字体大小为16px	font-size:16px;&amp;#125;此时">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈rem布局">
+<meta property="og:url" content="http://example.com/2021/10/07/rem%20+%20less%20+%20%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E5%B8%83%E5%B1%80/index.html">
+<meta property="og:site_name" content="Asuhe">
+<meta property="og:description" content="rem + less + 媒体查询布局rem初识rem什么是rem，rem的全称为root em。em我们都知道，1em代表一个字符的大小。而root em顾名思义，我们可以大致猜测出是以某个源为标准的单位。实际上rem代表的是以标签里font-size属性的单位，举个例子 12345html &amp;#123;	设置html文件的默认字体大小为16px	font-size:16px;&amp;#125;此时">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
+<meta property="article:published_time" content="2021-10-07T15:14:23.000Z">
+<meta property="article:modified_time" content="2021-10-07T15:14:26.807Z">
+<meta property="article:author" content="Asuhe">
+<meta property="article:tag" content="code">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
+<meta name="twitter:site" content="@null">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" type="text/css" media="all">
+  
+  
+  <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.min.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/friends/"><i class="fa fa-paw"></i>正义伙伴</a></li>
+                                    
+                                
+                                    
+                                        <li>
+                                            <a><i class="fa fa-flask"></i>实验室</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://subs.kamigami.org">诸神字幕组</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="http://www.ati.ink">A.T.I MAD Team</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://www.youtube.com/channel/UCW5S2VdDXF_HroYXuV16UUg">Soul's Team</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        <li><a href="/about/"><i class="fa fa-paper-plane"></i>关于我</a></li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">Asuhe</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>Asuhe</h2> <br />
+                        <span>Born in poverty, died of numbness</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        <section class="col-md-8">
+    <article>
+        <div class="kratos-hentry kratos-post-inner clearfix">
+            <header class="kratos-entry-header">
+                
+                    <h1 class="kratos-entry-title text-center">浅谈rem布局</h1>
+                
+                
+                <ul class="kratos-post-meta text-center">
+                    <li><i class="fa fa-calendar"></i> 2021-10-07</li>
+                    <li><i class="fa fa-user"></i> 作者 Asuhe</li>
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~3.23K
+                        
+                        字
+                    </li>
+                    
+                </ul>
+            </header>
+            <div class="kratos-post-content">
+                <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                    本文最后编辑于 <time datetime="1633619666807"></time> 前，其中的内容可能需要更新。
+                </div>
+                
+                    <div class="kratos-post-inner-toc">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#rem-less-%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E5%B8%83%E5%B1%80"><span class="toc-number">1.</span> <span class="toc-text">rem + less + 媒体查询布局</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#rem"><span class="toc-number">1.1.</span> <span class="toc-text">rem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E8%AF%86rem"><span class="toc-number">1.1.1.</span> <span class="toc-text">初识rem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81rem"><span class="toc-number">1.1.2.</span> <span class="toc-text">为什么要rem</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#less"><span class="toc-number">1.2.</span> <span class="toc-text">less</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFless"><span class="toc-number">1.2.1.</span> <span class="toc-text">什么是less</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%E5%9C%BA%E6%99%AF"><span class="toc-number">1.2.2.</span> <span class="toc-text">典型场景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">基础语法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F"><span class="toc-number">1.2.2.1.1.</span> <span class="toc-text">定义变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97"><span class="toc-number">1.2.2.1.2.</span> <span class="toc-text">嵌套</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%90%E7%AE%97"><span class="toc-number">1.2.2.1.3.</span> <span class="toc-text">运算</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.3.</span> <span class="toc-text">媒体查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.3.1.</span> <span class="toc-text">什么是媒体查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E4%BD%BF%E7%94%A8"><span class="toc-number">1.3.2.</span> <span class="toc-text">媒体查询使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E8%8C%83%E5%BC%8F"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">基础范式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">属性详解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B"><span class="toc-number">1.3.2.4.</span> <span class="toc-text">使用实例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E5%88%86%E6%9E%90"><span class="toc-number">1.3.2.5.</span> <span class="toc-text">实例分析</span></a></li></ol></li></ol></li></ol></li></ol>
+                    </div>
+                
+                <hr />
+                <h1 id="rem-less-媒体查询布局"><a href="#rem-less-媒体查询布局" class="headerlink" title="rem + less + 媒体查询布局"></a>rem + less + 媒体查询布局</h1><h2 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h2><h3 id="初识rem"><a href="#初识rem" class="headerlink" title="初识rem"></a>初识rem</h3><p>什么是rem，rem的全称为root em。em我们都知道，1em代表一个字符的大小。而root em顾名思义，我们可以大致猜测出是以某个源为标准的单位。实际上rem代表的是以<html>标签里font-size属性的单位，举个例子</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">	设置<span class="selector-tag">html</span>文件的默认字体大小为<span class="number">16px</span></span><br><span class="line">	<span class="attribute">font-size</span>:<span class="number">16px</span>;</span><br><span class="line">&#125;</span><br><span class="line">此时 <span class="number">1</span> rem = <span class="number">16</span> px;</span><br></pre></td></tr></table></figure>
+
+<p>由此可以看出，html标签里设置的字体像素值为多少，其每单位rem就是多少像素的大小。</p>
+<h3 id="为什么要rem"><a href="#为什么要rem" class="headerlink" title="为什么要rem"></a>为什么要rem</h3><p>我们都知道当我们缩放浏览器窗口时，网页的内容会因为我们的而改变缩放。如果我们进行开发时，使用的是rem则采用rem进行设置大小的内容都会进行等比缩放，从而实现自适应效果。但如果我们使用px规定了大小，此时我们进行缩放或者使用不同分辨率的设备查看网页内容时，里面的字体的内容并不会进行一个等比缩放而是依然使用规定的像素值。</p>
+<p>rem的出现很好的解决了不同分辨率下查看同一网页字体不会自适应的问题。</p>
+<p>相比于em仅依靠父元素来设置文字大小，在实际开发中父元素文字大小可能不一致，但是整个页面只有一个html，使用rem可以很好来控制整个页面的元素大小。</p>
+<h2 id="less"><a href="#less" class="headerlink" title="less"></a>less</h2><h3 id="什么是less"><a href="#什么是less" class="headerlink" title="什么是less"></a>什么是less</h3><p>为解决css代码冗余，无法使用变量、函数等概念的问题。引入less简化css代码的开发。</p>
+<p>Less （Leaner Style Sheets 的缩写） 是一门 CSS 扩展语言，也称为CSS预处理器。</p>
+<h3 id="典型场景"><a href="#典型场景" class="headerlink" title="典型场景"></a>典型场景</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">当我们需要在不同选择器重复使用同一属性并对其修改时，需要一个一个找到相应属性然后修改十分麻烦，如下情形</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    backgroud-<span class="attribute">color</span>:green;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>:green;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">我们要同时修改背景颜色时，需要一个一个去修改很麻烦。若我们使用less开发，则可以同时修改背景颜色，只需如下</span><br><span class="line"></span><br><span class="line"><span class="keyword">@Color</span>:black;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    backgroud-<span class="attribute">color</span>:@Color;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>:@Color;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">改变变量<span class="attribute">Color</span>的值即可同时修改<span class="selector-tag">body</span> 和 <span class="selector-tag">div</span> 的背景颜色为black</span><br><span class="line"></span><br><span class="line">可以将其理解为一个全局变量</span><br></pre></td></tr></table></figure>
+
+<h4 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h4><h5 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h5><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@varname:</span>value; </span><br></pre></td></tr></table></figure>
+
+<p>注意事项</p>
+<ul>
+<li>必须有@为前缀</li>
+<li>不能包含特殊字符</li>
+<li> 不能以数字开头</li>
+<li> 大小写敏感</li>
+</ul>
+<h5 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h5><p>直接选中div里的子元素span</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="selector-tag">CSS-Code</span>;</span><br><span class="line">    <span class="selector-tag">span</span> &#123;</span><br><span class="line">        <span class="selector-tag">CSS-Code</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">编译出的<span class="selector-tag">css</span>代码为</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="selector-tag">CSS-Code</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> <span class="selector-tag">span</span> &#123;</span><br><span class="line">    <span class="selector-tag">CSS-Code</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意事项</p>
+<ul>
+<li>如果遇见（交集|伪类|伪元素选择器）</li>
+<li>内层选择器的前面没有&amp; 符号，则它被解析为父选择器的后代；</li>
+<li>如果有&amp; 符号，它就被解析为父元素自身或父元素的伪类。</li>
+</ul>
+<p>如，使用伪类选择器</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="selector-tag">CSS-Code</span></span><br><span class="line">    <span class="selector-tag">&amp;</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">        <span class="selector-tag">CSS-Code</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">编译出来的<span class="selector-tag">CSS</span>代码为</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="selector-tag">CSS-Code</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="selector-tag">CSS-Code</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h5><p>可使用的运算符有 + - * / ，运算符前后左右都要空格</p>
+<p>运算优先级为先乘除后加减，从左往右</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">width</span>:<span class="number">50px</span> - <span class="number">5</span>; <span class="comment">//最终值为 45px </span></span><br><span class="line"></span><br><span class="line">若改变运算优先级，则使用()即可，如下</span><br><span class="line"></span><br><span class="line">witdth:(50px + 10px) * 2; <span class="comment">//最终值为 120px</span></span><br></pre></td></tr></table></figure>
+
+<p>注意事项</p>
+<ul>
+<li><p>对于两个不同的单位的值之间的运算，运算结果的值取第一个值的单位</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">width</span>: <span class="number">10rem</span> / <span class="number">5px</span>; <span class="comment">//最终值为 2rem</span></span><br></pre></td></tr></table></figure></li>
+<li><p>如果两个值之间只有一个值有单位，则运算结果就取该单位</p>
+</li>
+</ul>
+<h2 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h2><h3 id="什么是媒体查询"><a href="#什么是媒体查询" class="headerlink" title="什么是媒体查询"></a>什么是媒体查询</h3><p>媒体查询（Media Query）是CSS3新语法。 使用媒体查询可以令我们针对不同的设备开发不同的css样式用以适配，当查看网页的设备不同，就可以根据媒体查询的结果去使用不同的css样式以达到最佳的显示效果。</p>
+<h3 id="媒体查询使用"><a href="#媒体查询使用" class="headerlink" title="媒体查询使用"></a>媒体查询使用</h3><h4 id="基础范式"><a href="#基础范式" class="headerlink" title="基础范式"></a>基础范式</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">检测设备分辨率</span><br><span class="line"><span class="keyword">@media</span> -mediatype- -and | <span class="keyword">not</span> | <span class="keyword">only</span> -(media feature)- &#123;</span><br><span class="line">	CSS-<span class="selector-tag">Code</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">根据设备分辨率引入文件</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; media=&quot;mediatype and|not|only (media feature)&quot; href=&quot;mystylesheet<span class="selector-class">.css</span>&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ul>
+<li>用 @media 开头 注意@符号 </li>
+<li>mediatype  媒体类型 </li>
+<li>关键字 and  not   only</li>
+<li> media feature 媒体特性 必须有小括号包含</li>
+</ul>
+<h4 id="属性详解"><a href="#属性详解" class="headerlink" title="属性详解"></a>属性详解</h4><p>mediatype 查询类型，将不同的终端设备划分成不同的类型，称为媒体类型，<strong>一般使用 screen</strong></p>
+<p><img src="https://i.loli.net/2021/10/07/D8iPs1ZbQXMKA7I.png" alt="image-20211007222508126"></p>
+<p>关键字 </p>
+<ul>
+<li>and：可以将多个媒体特性连接到一起，相当于“且”的意思。 </li>
+<li>not：排除某个媒体类型，相当于“非”的意思，可以省略。 </li>
+<li>only：指定某个特定的媒体类型，可以省略。</li>
+</ul>
+<p>媒体特性</p>
+<p>每种媒体类型都具体各自不同的特性，根据不同媒体类型的媒体特性设置不同的展示风格。我们暂且了解三个。注意他们要加小括号包含</p>
+<p><img src="https://i.loli.net/2021/10/07/E1rsOG5hjDNeFqB.png" alt="image-20211007222823943"></p>
+<h4 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">当分辨率小于<span class="number">540px</span>的设备查看时.使<span class="selector-tag">html</span>字体大小为<span class="number">16px</span>，且<span class="selector-tag">body</span>变蓝</span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>:<span class="number">540px</span>) &#123;</span><br><span class="line">	<span class="selector-tag">html</span> &#123;</span><br><span class="line">		<span class="attribute">font-size</span>:<span class="number">16px</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="selector-tag">body</span> &#123;</span><br><span class="line">		<span class="attribute">background-color</span>:blue;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">当分辨率 <span class="number">540px</span> &lt; X &lt; <span class="number">970px</span> 的设备查看时，使<span class="selector-tag">html</span>字体大小为<span class="number">25px</span>，且<span class="selector-tag">body</span>变黑</span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>:<span class="number">540px</span>) &#123;</span><br><span class="line">	<span class="selector-tag">html</span> &#123;</span><br><span class="line">		<span class="attribute">font-size</span>:<span class="number">25px</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="selector-tag">body</span> &#123;</span><br><span class="line">		<span class="attribute">background-color</span>:black;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">当分辨率大于<span class="number">970px</span>的设备查看时，使<span class="selector-tag">html</span>字体大小为<span class="number">50px</span>，且<span class="selector-tag">body</span>变红</span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>:<span class="number">970px</span>) &#123;</span><br><span class="line">	<span class="selector-tag">html</span> &#123;</span><br><span class="line">		<span class="attribute">font-size</span>:<span class="number">50px</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="selector-tag">body</span> &#123;</span><br><span class="line">		<span class="attribute">background-color</span>:red;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">使用媒体查询引入不同css文件，当设备分辨率大于<span class="number">400px</span>时引入styleA<span class="selector-class">.css</span></span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;styleA<span class="selector-class">.css</span>&quot; media=&quot;screen and (<span class="attribute">min-width</span>: <span class="number">400px</span>)<span class="string">&quot;&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h4><p>分析媒体查询的里的css层叠特性</p>
+<p><img src="https://i.loli.net/2021/10/07/GwktRdAie3QYoZM.png" alt="image-20211007224005323"></p>
+
+            </div>
+            
+                <div class="kratos-copyright text-center clearfix">
+                    <h5>本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+                </div>
+            
+            <footer class="kratos-entry-footer clearfix">
+                
+                    <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                    
+                    
+                        <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                        <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://example.com/2021/10/07/rem%20+%20less%20+%20%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E5%B8%83%E5%B1%80/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://example.com/2021/10/07/rem%20+%20less%20+%20%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E5%B8%83%E5%B1%80/";
+            const title         = "「浅谈rem布局」";
+            const excerpt       = `rem + less + 媒体查询布局rem初识rem什么是rem，rem的全称为root em。em我们都知道，1em代表一个字符的大小。而root em顾名思义，我们可以大致猜测出是以某个源为标准的单位。实际上rem代表的是以标签...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                    
+                    </div>
+                
+                <div class="footer-tag clearfix">
+                    <div class="pull-left">
+                    <i class="fa fa-tags"></i>
+                        <a class="tag-none-link" href="/tags/code/" rel="tag">code</a>
+                    </div>
+                    <div class="pull-date">
+                    <span>最后编辑：2021-10-07</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+            <nav class="navigation post-navigation clearfix" role="navigation">
+                
+                <div class="nav-previous clearfix">
+                    <a title=" 没出息的一天" href="/2021/09/20/2021-09-20-没出息的一天/">&lt; 上一篇</a>
+                </div>
+                
+                
+            </nav>
+        
+        
+    </article>
+</section>
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">明天等待死亡的自杀愿望者</p>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix">
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar"></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#rem-less-%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E5%B8%83%E5%B1%80"><span class="toc-text">rem + less + 媒体查询布局</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#rem"><span class="toc-text">rem</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E8%AF%86rem"><span class="toc-text">初识rem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81rem"><span class="toc-text">为什么要rem</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#less"><span class="toc-text">less</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFless"><span class="toc-text">什么是less</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%E5%9C%BA%E6%99%AF"><span class="toc-text">典型场景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="toc-text">基础语法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F"><span class="toc-text">定义变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97"><span class="toc-text">嵌套</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%90%E7%AE%97"><span class="toc-text">运算</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2"><span class="toc-text">媒体查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2"><span class="toc-text">什么是媒体查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E4%BD%BF%E7%94%A8"><span class="toc-text">媒体查询使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E8%8C%83%E5%BC%8F"><span class="toc-text">基础范式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E8%AF%A6%E8%A7%A3"><span class="toc-text">属性详解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B"><span class="toc-text">使用实例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E5%88%86%E6%9E%90"><span class="toc-text">实例分析</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">5</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/CN/" style="font-size: 0.67em;">CN</a> <a href="/tags/CS/" style="font-size: 0.73em;">CS</a> <a href="/tags/code/" style="font-size: 0.6em;">code</a> <a href="/tags/live/" style="font-size: 0.8em;">live</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/07/rem%20+%20less%20+%20%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E5%B8%83%E5%B1%80/"><i class="fa  fa-book"></i> 浅谈rem布局</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/09/20/2021-09-20-%E6%B2%A1%E5%87%BA%E6%81%AF%E7%9A%84%E4%B8%80%E5%A4%A9/"><i class="fa  fa-book"></i> 没出息的一天</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/09/10/2021-09-10-%E7%94%9F%E5%8D%B3%E6%98%AF%E6%81%B6/"><i class="fa  fa-book"></i> 生即是罪恶</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/09/05/2021-09-05-%E5%BC%80%E5%AD%A6/"><i class="fa  fa-book"></i> 开学</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/09/03/2021-09-03%20%20%E8%AE%A4%E8%AF%86%E6%96%B0%E6%9C%8B%E5%8F%8B/"><i class="fa  fa-book"></i> 认识新朋友</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        <li><a href="mailto:sphinx@asuhe.fun"><i class="fa fa-envelope"></i></a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li>Github<a target="_blank" rel="nofollow" href="https://github.com/Ashitahe"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2021 Asuhe 版权所有.</li>
+                            <li>本站已在风雨飘摇中运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by Asuhe.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
+
+<script async src="/js/candy.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="6776797453"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+    <script defer src="/js/kr-dark.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"superSample":2,"hOffset":40,"vOffset":-20,"position":"right","width":200,"height":400},"mobile":{"show":false,"scale":0.2},"react":{"opacityDefault":0.7,"opacityOnHover":0.5},"player":{"meting":true},"log":false});</script></body>
+</html>
