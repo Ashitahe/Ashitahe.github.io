@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
-  <title>CSMA/CD中重传时机的确定 | Asuhe</title>
+  <title>flex布局 | Asuhe</title>
   <meta name="author" content="Asuhe" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,20 +13,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="CN" />
+    <meta name="keywords" content="code" />
   
-  <meta name="description" content="截断二进制指数规避算法什么是截断二进制指数规避算法在CSMA&#x2F;CD协议中，检测到碰撞我们要重传数据。那么如何选择碰撞后数据的重传的时机呢？该算法就是为了解决这个问题而提出的 如何使用该算法计算重传时机首先，发生碰撞后我们要确定一个基本的退避时间来延迟发送。假设从A发送到B的传播时延是 t ，我们将基本退避时间设置为 2t 。 其次，定义参数 k ，用于记录重传的次数。 k &#x3D; min[ 重传次数，">
+  <meta name="description" content="什么是flex布局传统布局解决方案主要是依赖display 属性 + float属性 + position属性来控制我们盒模型的位置，用这三个属性相互配合达到将盒子摆放至预期位置的目的。而flex布局主要是利用在父元素中添加display:flex属性，使用与其相关的属性配合达到布局的目的。 在传统布局中有些特殊布局并不好实现，而在flex布局中我们可以轻松实现。例如将三个盒子同时水平对齐和垂直居">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSMA&#x2F;CD中重传时机的确定">
-<meta property="og:url" content="http://example.com/2021/05/29/%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E8%A7%84%E9%81%BF%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:title" content="flex布局">
+<meta property="og:url" content="http://example.com/2021/10/09/2021-10-09-flex%E5%B8%83%E5%B1%80/index.html">
 <meta property="og:site_name" content="Asuhe">
-<meta property="og:description" content="截断二进制指数规避算法什么是截断二进制指数规避算法在CSMA&#x2F;CD协议中，检测到碰撞我们要重传数据。那么如何选择碰撞后数据的重传的时机呢？该算法就是为了解决这个问题而提出的 如何使用该算法计算重传时机首先，发生碰撞后我们要确定一个基本的退避时间来延迟发送。假设从A发送到B的传播时延是 t ，我们将基本退避时间设置为 2t 。 其次，定义参数 k ，用于记录重传的次数。 k &#x3D; min[ 重传次数，">
+<meta property="og:description" content="什么是flex布局传统布局解决方案主要是依赖display 属性 + float属性 + position属性来控制我们盒模型的位置，用这三个属性相互配合达到将盒子摆放至预期位置的目的。而flex布局主要是利用在父元素中添加display:flex属性，使用与其相关的属性配合达到布局的目的。 在传统布局中有些特殊布局并不好实现，而在flex布局中我们可以轻松实现。例如将三个盒子同时水平对齐和垂直居">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
-<meta property="article:published_time" content="2021-05-29T15:14:31.000Z">
-<meta property="article:modified_time" content="2021-05-29T15:23:00.609Z">
+<meta property="article:published_time" content="2021-10-09T09:42:16.000Z">
+<meta property="article:modified_time" content="2021-10-09T11:00:58.292Z">
 <meta property="article:author" content="Asuhe">
-<meta property="article:tag" content="CN">
+<meta property="article:tag" content="code">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
 <meta name="twitter:site" content="@null">
@@ -150,17 +150,17 @@
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
                 
-                    <h1 class="kratos-entry-title text-center">CSMA/CD中重传时机的确定</h1>
+                    <h1 class="kratos-entry-title text-center">flex布局</h1>
                 
                 
                 <ul class="kratos-post-meta text-center">
-                    <li><i class="fa fa-calendar"></i> 2021-05-29</li>
+                    <li><i class="fa fa-calendar"></i> 2021-10-09</li>
                     <li><i class="fa fa-user"></i> 作者 Asuhe</li>
                     <li>
                         <i class="fa fa-edit"></i> 
                         
                         
-                            319
+                            ~2.45K
                         
                         字
                     </li>
@@ -169,18 +169,90 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1622301780609"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1633777258292"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                     <div class="kratos-post-inner-toc">
-                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E8%A7%84%E9%81%BF%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">截断二进制指数规避算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E8%A7%84%E9%81%BF%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">什么是截断二进制指数规避算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E8%AF%A5%E7%AE%97%E6%B3%95%E8%AE%A1%E7%AE%97%E9%87%8D%E4%BC%A0%E6%97%B6%E6%9C%BA"><span class="toc-number">1.2.</span> <span class="toc-text">如何使用该算法计算重传时机</span></a></li></ol></li></ol>
+                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFflex%E5%B8%83%E5%B1%80"><span class="toc-number">1.</span> <span class="toc-text">什么是flex布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex%E5%B8%83%E5%B1%80%E5%8E%9F%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">flex布局原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%88%B6%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7"><span class="toc-number">3.</span> <span class="toc-text">常见父元素属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-direction"><span class="toc-number">3.1.</span> <span class="toc-text">flex-direction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#justify-content"><span class="toc-number">3.2.</span> <span class="toc-text">justify-content</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-wrap"><span class="toc-number">3.3.</span> <span class="toc-text">flex-wrap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#align-items"><span class="toc-number">3.4.</span> <span class="toc-text">align-items</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#align-content"><span class="toc-number">3.5.</span> <span class="toc-text">align-content</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-flow"><span class="toc-number">3.6.</span> <span class="toc-text">flex-flow</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%AD%90%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7"><span class="toc-number">4.</span> <span class="toc-text">常见子元素属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#flex"><span class="toc-number">4.1.</span> <span class="toc-text">flex</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#align-self"><span class="toc-number">4.1.1.</span> <span class="toc-text">align-self</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#order"><span class="toc-number">4.1.2.</span> <span class="toc-text">order</span></a></li></ol></li></ol></li></ol>
                     </div>
                 
                 <hr />
-                <h1 id="截断二进制指数规避算法"><a href="#截断二进制指数规避算法" class="headerlink" title="截断二进制指数规避算法"></a>截断二进制指数规避算法</h1><h2 id="什么是截断二进制指数规避算法"><a href="#什么是截断二进制指数规避算法" class="headerlink" title="什么是截断二进制指数规避算法"></a>什么是截断二进制指数规避算法</h2><p>在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/CSMA%2FCD%E5%8D%8F%E8%AE%AE">CSMA/CD</a>协议中，检测到碰撞我们要重传数据。那么如何选择碰撞后数据的重传的时机呢？该算法就是为了解决这个问题而提出的</p>
-<h2 id="如何使用该算法计算重传时机"><a href="#如何使用该算法计算重传时机" class="headerlink" title="如何使用该算法计算重传时机"></a>如何使用该算法计算重传时机</h2><p>首先，发生碰撞后我们要确定一个基本的退避时间来延迟发送。假设从A发送到B的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BC%A0%E6%92%AD%E6%97%B6%E5%BB%B6">传播时延</a>是 t ，我们将基本退避时间设置为 2t 。</p>
-<p>其次，定义参数 k ，用于记录重传的次数。 k = min[ 重传次数，10 ]。当检测到数据碰撞时，在 0 ~ 2<sup>k</sup> - 1 的范围中随机取出一个数 r ，重传时间 R 即为 r 倍的基本退避时间 ， R = 2tr </p>
-<p>最后，若重传 <strong>16</strong> 次仍然不能成功发送数据则向网络层发出错误信息表示网络拥挤并抛弃此帧</p>
+                <h2 id="什么是flex布局"><a href="#什么是flex布局" class="headerlink" title="什么是flex布局"></a>什么是flex布局</h2><p>传统布局解决方案主要是依赖<code>display</code> 属性 + <code>float</code>属性 + <code>position</code>属性来控制我们盒模型的位置，用这三个属性相互配合达到将盒子摆放至预期位置的目的。而flex布局主要是利用在父元素中添加<code>display:flex</code>属性，使用与其相关的属性配合达到布局的目的。</p>
+<p>在传统布局中有些特殊布局并不好实现，而在flex布局中我们可以轻松实现。例如将三个盒子同时水平对齐和垂直居中对齐。</p>
+<h2 id="flex布局原理"><a href="#flex布局原理" class="headerlink" title="flex布局原理"></a>flex布局原理</h2><p>flex布局里我们可以指定任意一个元素为父元素，即使是行内元素我们也可以设置flex布局。</p>
+<p>将父盒子作为一个容器，父盒子的儿子元素作为容器的成员。使用父元素控制属性可以控制儿子元素的排列位置。同时flex布局也提供了儿子元素控制属性，令我们可以单独控制特定子元素的位置。父元素控制属性可以理解为游戏里的群体控制效果，子元素控制属性可以理解单体控制效果。</p>
+<p>在flex布局中，我们将页面看作一个二维坐标系，主轴正方向为从左至右，侧轴正方向为从上至下。</p>
+<p><img src="https://i.loli.net/2021/10/09/lxCpiurQ5AbY4eE.png" alt="flex坐标轴"></p>
+<p>利用父元素控制属性我们可以进行切换主轴、设置换行等系列操作。接下来我们可以看看主要的父元素控制元素有哪些。</p>
+<h2 id="常见父元素属性"><a href="#常见父元素属性" class="headerlink" title="常见父元素属性"></a>常见父元素属性</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">flex-direction</span>：设置主轴的方向 </span><br><span class="line"><span class="attribute">justify-content</span>：设置主轴上的子元素排列方式 </span><br><span class="line"><span class="attribute">flex-wrap</span>：设置子元素是否换行</span><br><span class="line"><span class="attribute">align-content</span>：设置侧轴上的子元素的排列方式（多行） </span><br><span class="line"><span class="attribute">align-items</span>：设置侧轴上的子元素排列方式（单行） </span><br><span class="line"><span class="attribute">flex-flow</span>：复合属性，相当于同时设置了 <span class="attribute">flex-direction</span> 和 <span class="attribute">flex-wrap</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h3><p><code>flex-direction</code>用于设置主轴为哪个，默认情况下flex主轴为x轴，正方向是从左至右的。</p>
+<p><img src="https://i.loli.net/2021/10/09/YNQTgrkiF8eSwqP.png" alt="flex-direction属性值"></p>
+<p><code>flex-direction:row </code>效果（默认方向），<strong>主轴方向</strong>为从左至右</p>
+<p><img src="https://i.loli.net/2021/10/09/765eRbhkcVWaiqQ.png" alt="flex-direction:row"></p>
+<p><code>flex-direction:row-reverse </code>效果，<strong>主轴方向</strong>为从右至左</p>
+<p><img src="https://i.loli.net/2021/10/09/5I3k2TsWvpAu4oP.png" alt="image-20211009181827790"></p>
+<p><code>flex-direction:column </code>效果，<strong>主轴方向</strong>为从上至下</p>
+<p><img src="https://i.loli.net/2021/10/09/tRj8GibZuxDHkFP.png" alt="flex-direction:column"></p>
+<p><code>flex-direction:column-reverse </code>效果，<strong>主轴方向</strong>为从下至上</p>
+<p><img src="https://i.loli.net/2021/10/09/3Ty9nv5pOoxl24V.png" alt="flex-direction:column-recerse"></p>
+<h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><p><code>justify-content</code>的作用是设置<strong>主轴</strong>上子元素的排列方式</p>
+<p><img src="https://i.loli.net/2021/10/09/rkaxRVUWpyLocHF.png" alt="justify-content属性值"></p>
+<p>下列中的示例效果，主轴皆为默认的从左至右</p>
+<p><code>justify-content:flex-start</code>效果（默认）</p>
+<p><img src="https://i.loli.net/2021/10/09/S5789RBDwpvmtQh.png" alt="justify-content:flex-start"></p>
+<p><code>justify-content:flex-end</code>效果（注意和<code>flex-direction:row-reverse</code>的区别）</p>
+<p><img src="https://i.loli.net/2021/10/09/epTGnWflVFsqKkm.png" alt="justify-content:flex-end"></p>
+<p><code>justify-content:center</code>效果</p>
+<p><img src="https://i.loli.net/2021/10/09/cbAU9a7YCRLXIV8.png" alt="justify-content:center"></p>
+<p><code>justify-content:space-around</code>效果（平分剩余空间）</p>
+<p><img src="https://i.loli.net/2021/10/09/YjNS3qDA8FaUpMh.png" alt="justify-content:space-around"></p>
+<p><code>justify-content:space-between</code>效果（头尾元素贴紧边缘）</p>
+<p><img src="https://i.loli.net/2021/10/09/HBqDgMu2Fw8VRkL.png" alt="justify-content:space-between"></p>
+<h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><p><code>flex-wrap</code>设置当子元素一行排不下时，是否换行。默认为不换行，将每个子元素宽度压缩至能一行排列。</p>
+<p>当<code>flex-wrap:nowrap</code>时，flex子元素都会挤压在一行而<strong>不会</strong>像<code>float</code>一样空间不够时自动换行</p>
+<p>当<code>flex-wrap:wrap</code>时，flex子元素保持原有大小，一行排不下时<strong>会</strong>像<code>float</code>一样空间不够时自动换行</p>
+<h3 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h3><p><code>align-items</code>设置<strong>侧轴</strong>上子元素排列方式（单行），<strong>当子元素不止一行时此属性不生效</strong></p>
+<p><img src="https://i.loli.net/2021/10/09/brXIQGHRkuntC64.png" alt="align-items属性值"></p>
+<p><code>align-items:flex-start</code>效果（默认）</p>
+<p><img src="https://i.loli.net/2021/10/09/6ZrzaxDKd1UknLV.png" alt="align-items:flex-start"></p>
+<p><code>align-items:flex-end</code>效果，在侧轴顶部排列</p>
+<p><img src="https://i.loli.net/2021/10/09/Gq9C5svxzOyPoDI.png" alt="align-items:flex-end"></p>
+<p><code>align-items:center</code>效果，在侧轴中部排列</p>
+<p><img src="https://i.loli.net/2021/10/09/pJUaHMNGVLPhIOR.png" alt="align-items:center"></p>
+<p><code>align-items:stretch</code>效果（当子元素的<code>height</code>属性不设置时才显示效果），将子元素拉伸到和父元素一样高</p>
+<p><img src="https://i.loli.net/2021/10/09/gxXsAWk3Nz9rb4H.png" alt="align-items:stretch"></p>
+<h3 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h3><p>align-content设置侧轴上的子元素的排列方式（多行）</p>
+<p>设置子项在侧轴上的排列方式并且只能用于子项出现换行的情况（多行），在单行下是没有效果的。</p>
+<p><img src="https://i.loli.net/2021/10/09/PmbyIid5qYpx9uJ.png" alt="align-content属性值"></p>
+<p><code>align-content:flex-end</code>效果，在侧轴尾部排列</p>
+<p><img src="https://i.loli.net/2021/10/09/fORD7b9Ul1oJWZN.png" alt="align-content:flex-end"></p>
+<p><code>align-content:center</code>效果，在侧轴中间排列</p>
+<p><img src="https://i.loli.net/2021/10/09/l9O3rR1XNFcfDZ4.png" alt="align-content:center"></p>
+<p><code>align-content: space-around</code> 效果，平分剩余空闲空间并在侧轴两侧排列</p>
+<p><img src="https://i.loli.net/2021/10/09/xKrhMCI1XmOAw7Q.png" alt="align-content: space-around;"></p>
+<p><code>align-content: space-between </code>效果，首行和尾行紧贴侧轴两端，中间行平分剩余空间</p>
+<p><img src="https://i.loli.net/2021/10/09/KtlQ17b3WqAYmis.png" alt="align-content: space-between"></p>
+<h3 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h3><p><code>flex-flow</code>是<code>flex-direction</code>和<code>flex-wrap</code>的复合写法</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">flex-flow</span>:flex-direction-value flex-wrap-value </span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="常见子元素属性"><a href="#常见子元素属性" class="headerlink" title="常见子元素属性"></a>常见子元素属性</h2><h3 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h3><p><code>flex </code>属性定义子项目分配剩余空间，用flex来表示占多少<strong>份数</strong> </p>
+<p>设置<code>中</code>的属性为<code>flex:2</code>,空白空间被分为四份，中间的占两份</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//父容器空间被分为四等份，中间元素占<span class="number">2</span>份，两边元素占<span class="number">1</span>份</span><br><span class="line"><span class="selector-class">.zuo</span> &#123;</span><br><span class="line">	<span class="attribute">flex</span>:<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.zhong</span> &#123;</span><br><span class="line">	<span class="attribute">flex</span>:<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.you</span> &#123;</span><br><span class="line">	<span class="attribute">flex</span>:<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/10/09/l6uzL1tUy9bw5nJ.png" alt="flex:2"></p>
+<h4 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h4><p><code>align-self </code>控制子项<strong>自己</strong>在<strong>侧轴</strong>上的排列方式，可以单独控制一个子元素的位置</p>
+<p>align-self 属性允许单个项目有与其他项目不一样的对齐方式，可覆盖 align-items 属性。 默认值为 auto，表示继承父元素的 align-items 属性，如果没有父元素，则等同于 stretch。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//如设置 右 元素，在底部</span><br><span class="line"><span class="selector-class">.you</span> &#123;</span><br><span class="line">	<span class="attribute">align-self</span>:flex-end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/10/09/eXoJMHfayB6qAY4.png" alt="align-self"></p>
+<h4 id="order"><a href="#order" class="headerlink" title="order"></a>order</h4><p>order 属性定义项目的排列顺序,数值越小，排列越靠前，<strong>默认值为0</strong>。</p>
+<p>设置<code>中</code>元素在第一个位置</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.zhong</span> &#123;</span><br><span class="line">	<span class="attribute">order</span>:-<span class="number">1</span>;  //<span class="number">0</span> &gt; -<span class="number">1</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/10/09/xzeqv2lV69jBwmr.png" alt="order"></p>
 
             </div>
             
@@ -234,7 +306,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://example.com/2021/05/29/%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E8%A7%84%E9%81%BF%E7%AE%97%E6%B3%95/",
+                text: "http://example.com/2021/10/09/2021-10-09-flex%E5%B8%83%E5%B1%80/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -246,10 +318,9 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://example.com/2021/05/29/%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E8%A7%84%E9%81%BF%E7%AE%97%E6%B3%95/";
-            const title         = "「CSMA/CD中重传时机的确定」";
-            const excerpt       = `截断二进制指数规避算法什么是截断二进制指数规避算法在CSMA/CD协议中，检测到碰撞我们要重传数据。那么如何选择碰撞后数据的重传的时机呢？该算法就是为了解决这个问题而提出的
-如何使用该算法计算重传时机首先，发生碰撞后我们要确定一个基本...`;
+            const hostUrl       = "http://example.com/2021/10/09/2021-10-09-flex%E5%B8%83%E5%B1%80/";
+            const title         = "「flex布局」";
+            const excerpt       = `什么是flex布局传统布局解决方案主要是依赖display 属性 + float属性 + position属性来控制我们盒模型的位置，用这三个属性相互配合达到将盒子摆放至预期位置的目的。而flex布局主要是利用在父元素中添加displ...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -268,10 +339,10 @@
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/CN/" rel="tag">CN</a>
+                        <a class="tag-none-link" href="/tags/code/" rel="tag">code</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2021-05-29</span>
+                    <span>最后编辑：2021-10-09</span>
                     </div>
                 </div>
             </footer>
@@ -280,13 +351,9 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" 数据链路层中最小帧长问题" href="/2021/05/20/最小帧长/">&lt; 上一篇</a>
+                    <a title=" 使用Windows terminal 免密码登录Linux服务器" href="/2021/10/08/2021-10-08-使用Windows-terminal-免密码登录Linux服务器/">&lt; 上一篇</a>
                 </div>
                 
-                
-                <div class="nav-next clearfix">
-                    <a title=" PSW寄存器分析" href="/2021/06/01/FLAG寄存器/">下一篇 &gt;</a>
-                </div>
                 
             </nav>
         
@@ -323,7 +390,7 @@
         <span class="toc-progress-bar"></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E8%A7%84%E9%81%BF%E7%AE%97%E6%B3%95"><span class="toc-text">截断二进制指数规避算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E8%A7%84%E9%81%BF%E7%AE%97%E6%B3%95"><span class="toc-text">什么是截断二进制指数规避算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E8%AF%A5%E7%AE%97%E6%B3%95%E8%AE%A1%E7%AE%97%E9%87%8D%E4%BC%A0%E6%97%B6%E6%9C%BA"><span class="toc-text">如何使用该算法计算重传时机</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFflex%E5%B8%83%E5%B1%80"><span class="toc-text">什么是flex布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex%E5%B8%83%E5%B1%80%E5%8E%9F%E7%90%86"><span class="toc-text">flex布局原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%88%B6%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7"><span class="toc-text">常见父元素属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-direction"><span class="toc-text">flex-direction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#justify-content"><span class="toc-text">justify-content</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-wrap"><span class="toc-text">flex-wrap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#align-items"><span class="toc-text">align-items</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#align-content"><span class="toc-text">align-content</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-flow"><span class="toc-text">flex-flow</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%AD%90%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7"><span class="toc-text">常见子元素属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#flex"><span class="toc-text">flex</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#align-self"><span class="toc-text">align-self</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#order"><span class="toc-text">order</span></a></li></ol></li></ol></li></ol>
     </div>
 </aside>
                 
