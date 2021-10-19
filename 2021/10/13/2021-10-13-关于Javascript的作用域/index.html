@@ -24,7 +24,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
 <meta property="article:published_time" content="2021-10-13T09:53:03.000Z">
-<meta property="article:modified_time" content="2021-10-13T11:33:50.075Z">
+<meta property="article:modified_time" content="2021-10-13T12:43:30.397Z">
 <meta property="article:author" content="Asuhe">
 <meta property="article:tag" content="Javascript">
 <meta name="twitter:card" content="summary">
@@ -160,7 +160,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~3.11K
+                            ~3.31K
                         
                         字
                     </li>
@@ -169,7 +169,7 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1634124830075"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1634129010397"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                     <div class="kratos-post-inner-toc">
@@ -181,7 +181,13 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(a); </span><br><span class="line">&#125;)(); <span class="comment">//输出3</span></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 输出2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//当我们继续想要调用foo</span></span><br><span class="line">foo(); <span class="comment">//ReferenceError</span></span><br><span class="line"></span><br><span class="line">---------</span><br><span class="line"><span class="comment">//foo函数的书写还有一个改进的形式</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(a); <span class="comment">//输出3</span></span><br><span class="line">&#125;())  <span class="comment">//即将()调用也包含进外层的()中，书写形式变了但其功能含义与上面的写法是一致的</span></span><br></pre></td></tr></table></figure>
 
 <p>上述例子中，foo函数的作用域仅限于<code>&#123;...&#125;</code>即第五行，foo函数不能再在后续代码被调用。这种情况就是被包装函数声明foo，被编译器当作一个函数表达式而不是一个标准的函数声明。</p>
-<p><code>(function foo()&#123;...&#125;)</code>作为函数表达式意味着，foo只能在<code>&#123;...&#125;</code>所代表的位置中被访问，外部作用域无法访问。</p>
+<p><code>(function foo()&#123;...&#125;)</code>作为函数表达式意味着，foo只能在<code>&#123;...&#125;</code>所代表的位置中被访问，外部作用域无法访问。但是若是有一个变量去接收该函数表达式的返回值，则该函数依然可以被继续保留调用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//最常见的函数表达式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">20</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">var</span> n = (<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(a); </span><br><span class="line">&#125;);</span><br><span class="line">n();<span class="comment">//输出3</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><p>在js中只有全局作用域和函数作用域这两个基本的单位，<strong>块级作用域在js中是不存在的</strong>。如何理解呢，请看如下代码</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">	<span class="keyword">var</span> i = <span class="number">10</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(i);  <span class="comment">//此时输出 10</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i) <span class="comment">//输出 ?     并不是输出 ReferenceError 而是输出 10</span></span><br></pre></td></tr></table></figure>
 
@@ -311,9 +317,13 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" Javascript的坑" href="/2021/10/10/2021-10-10-js的坑/">&lt; 上一篇</a>
+                    <a title=" 事件对象" href="/2021/10/13/2021-10-13-事件对象/">&lt; 上一篇</a>
                 </div>
                 
+                
+                <div class="nav-next clearfix">
+                    <a title=" sessionStorage 和 localStorage" href="/2021/10/19/2021-10-19-sessionStorage-和-localStorage/">下一篇 &gt;</a>
+                </div>
                 
             </nav>
         
@@ -357,7 +367,7 @@
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">5</span></li></ul>
   </aside>
 
 
@@ -366,7 +376,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/CN/" style="font-size: 0.67em;">CN</a> <a href="/tags/CS/" style="font-size: 0.73em;">CS</a> <a href="/tags/Javascript/" style="font-size: 0.67em;">Javascript</a> <a href="/tags/code/" style="font-size: 0.73em;">code</a> <a href="/tags/live/" style="font-size: 0.8em;">live</a> <a href="/tags/tips/" style="font-size: 0.6em;">tips</a>
+        <a href="/tags/BOM/" style="font-size: 0.6em;">BOM</a> <a href="/tags/CN/" style="font-size: 0.67em;">CN</a> <a href="/tags/CS/" style="font-size: 0.73em;">CS</a> <a href="/tags/Javascript/" style="font-size: 0.67em;">Javascript</a> <a href="/tags/Web-API/" style="font-size: 0.6em;">Web API</a> <a href="/tags/code/" style="font-size: 0.73em;">code</a> <a href="/tags/live/" style="font-size: 0.8em;">live</a> <a href="/tags/tips/" style="font-size: 0.6em;">tips</a>
       </div>
   </aside>
 
@@ -380,7 +390,19 @@
         
           
           
+            <a class="list-group-item" href="/2021/10/19/2021-10-19-sessionStorage-%E5%92%8C-localStorage/"><i class="fa  fa-book"></i> sessionStorage 和 localStorage</a>
+            
+          
+        
+          
+          
             <a class="list-group-item" href="/2021/10/13/2021-10-13-%E5%85%B3%E4%BA%8EJavascript%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/"><i class="fa  fa-book"></i> 关于Javascript的作用域</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/13/2021-10-13-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/"><i class="fa  fa-book"></i> 事件对象</a>
             
           
         
@@ -397,17 +419,9 @@
           
         
           
-          
-            <a class="list-group-item" href="/2021/10/09/2021-10-09-flex%E5%B8%83%E5%B1%80/"><i class="fa  fa-book"></i> flex布局</a>
             
           
-        
-          
-          
-            <a class="list-group-item" href="/2021/10/08/2021-10-08-%E4%BD%BF%E7%94%A8Windows-terminal-%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95Linux%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="fa  fa-book"></i> Windows terminal 免密码登录Linux服务器</a>
             
-          
-        
           
             
           

@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
-  <title>计算机总线系统概述 | Asuhe</title>
+  <title>sessionStorage 和 localStorage | Asuhe</title>
   <meta name="author" content="Asuhe" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,20 +13,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="CS" />
+    <meta name="keywords" content="BOM" />
   
-  <meta name="description" content="总线系统基础概念总线用于将计算机各个部件连接起来，成为一个整体，是多个系统功能部件之间进行数据传输的公共通道 单处理器系统中总线分为三大类  内部总线：CPU内部连接寄存器、运算部件 系统总线：计算机系统用于连接其它高速设备，存储器、通道等 I&#x2F;O总线：用于连接中、低速 I&#x2F;O 设备  总线的特性 物理特性：指总线的物理连接方式，包括总线的根数，总线插头、引脚数等 功能特性：描述总线中每一根线的功">
+  <meta name="description" content="背景本文主要围绕What、Why、How这三个方面谈谈sessionStorage 和 localStorage的联系与区别。 WhatsessionStorage 和 localStorage 都是BOM提供给我们在浏览器上进行本地存储数据的API，利用它我们可以实现在本地浏览器存储一些数据。这两个方法都是隶属于 Window这个顶级BOM下的，在需要的时候我们直接调用即可。 Why在某些场合下">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机总线系统概述">
-<meta property="og:url" content="http://example.com/2021/06/14/%E6%80%BB%E7%BA%BF%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:title" content="sessionStorage 和 localStorage">
+<meta property="og:url" content="http://example.com/2021/10/19/2021-10-19-sessionStorage-%E5%92%8C-localStorage/index.html">
 <meta property="og:site_name" content="Asuhe">
-<meta property="og:description" content="总线系统基础概念总线用于将计算机各个部件连接起来，成为一个整体，是多个系统功能部件之间进行数据传输的公共通道 单处理器系统中总线分为三大类  内部总线：CPU内部连接寄存器、运算部件 系统总线：计算机系统用于连接其它高速设备，存储器、通道等 I&#x2F;O总线：用于连接中、低速 I&#x2F;O 设备  总线的特性 物理特性：指总线的物理连接方式，包括总线的根数，总线插头、引脚数等 功能特性：描述总线中每一根线的功">
+<meta property="og:description" content="背景本文主要围绕What、Why、How这三个方面谈谈sessionStorage 和 localStorage的联系与区别。 WhatsessionStorage 和 localStorage 都是BOM提供给我们在浏览器上进行本地存储数据的API，利用它我们可以实现在本地浏览器存储一些数据。这两个方法都是隶属于 Window这个顶级BOM下的，在需要的时候我们直接调用即可。 Why在某些场合下">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
-<meta property="article:published_time" content="2021-06-14T13:34:31.000Z">
-<meta property="article:modified_time" content="2021-07-14T13:50:35.442Z">
+<meta property="article:published_time" content="2021-10-19T00:42:28.000Z">
+<meta property="article:modified_time" content="2021-10-19T01:05:37.096Z">
 <meta property="article:author" content="Asuhe">
-<meta property="article:tag" content="CS">
+<meta property="article:tag" content="BOM">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
 <meta name="twitter:site" content="@null">
@@ -150,17 +150,17 @@
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
                 
-                    <h1 class="kratos-entry-title text-center">计算机总线系统概述</h1>
+                    <h1 class="kratos-entry-title text-center">sessionStorage 和 localStorage</h1>
                 
                 
                 <ul class="kratos-post-meta text-center">
-                    <li><i class="fa fa-calendar"></i> 2021-06-14</li>
+                    <li><i class="fa fa-calendar"></i> 2021-10-19</li>
                     <li><i class="fa fa-user"></i> 作者 Asuhe</li>
                     <li>
                         <i class="fa fa-edit"></i> 
                         
                         
-                            1141
+                            1049
                         
                         字
                     </li>
@@ -169,57 +169,54 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1626270635442"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1634605537096"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                     <div class="kratos-post-inner-toc">
-                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.</span> <span class="toc-text">总线系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">基础概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-number">1.2.</span> <span class="toc-text">总线的特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">总线连接方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84"><span class="toc-number">1.4.</span> <span class="toc-text">总线内部结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E4%BD%93%E6%80%BB%E7%BA%BF%E5%88%86%E7%B1%BB"><span class="toc-number">1.5.</span> <span class="toc-text">总体总线分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81%E6%80%BB%E7%BA%BF"><span class="toc-number">1.5.1.</span> <span class="toc-text">数据传送总线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%B2%E8%A3%81%E6%80%BB%E7%BA%BF"><span class="toc-number">1.5.2.</span> <span class="toc-text">仲裁总线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E5%92%8C%E5%90%8C%E6%AD%A5%E6%80%BB%E7%BA%BF"><span class="toc-number">1.5.3.</span> <span class="toc-text">中断和同步总线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E7%94%A8%E7%BA%BF"><span class="toc-number">1.5.4.</span> <span class="toc-text">公用线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E4%BB%B2%E8%A3%81"><span class="toc-number">1.6.</span> <span class="toc-text">总线仲裁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E4%B8%AD%E5%BC%8F%E4%BB%B2%E8%A3%81"><span class="toc-number">1.6.1.</span> <span class="toc-text">集中式仲裁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E4%BB%B2%E8%A3%81"><span class="toc-number">1.6.2.</span> <span class="toc-text">分布式仲裁</span></a></li></ol></li></ol></li></ol>
+                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What"><span class="toc-number">2.</span> <span class="toc-text">What</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why"><span class="toc-number">3.</span> <span class="toc-text">Why</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How"><span class="toc-number">4.</span> <span class="toc-text">How</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#window-sessionStorage"><span class="toc-number">4.1.</span> <span class="toc-text">window.sessionStorage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window-localStorage"><span class="toc-number">4.2.</span> <span class="toc-text">window.localStorage</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sessionStorage-%E5%92%8C-localStorage%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">5.</span> <span class="toc-text">sessionStorage 和 localStorage的特点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sessionStorage"><span class="toc-number">5.1.</span> <span class="toc-text">sessionStorage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#localStorage"><span class="toc-number">5.2.</span> <span class="toc-text">localStorage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B1%E5%90%8C%E7%82%B9"><span class="toc-number">5.3.</span> <span class="toc-text">共同点</span></a></li></ol></li></ol>
                     </div>
                 
                 <hr />
-                <h1 id="总线系统"><a href="#总线系统" class="headerlink" title="总线系统"></a>总线系统</h1><h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><p>总线用于将计算机各个部件连接起来，成为一个整体，是多个系统功能部件之间进行数据传输的公共通道</p>
-<p>单处理器系统中总线分为三大类</p>
-<ul>
-<li>内部总线：CPU内部连接寄存器、运算部件</li>
-<li>系统总线：计算机系统用于连接其它高速设备，存储器、通道等</li>
-<li>I/O总线：用于连接中、低速 I/O 设备</li>
-</ul>
-<h2 id="总线的特性"><a href="#总线的特性" class="headerlink" title="总线的特性"></a>总线的特性</h2><ul>
-<li>物理特性：指总线的物理连接方式，包括总线的根数，总线插头、引脚数等</li>
-<li>功能特性：描述总线中每一根线的功能</li>
-<li>电气特性：定义每根线上信号的传递方向以及有效的电平范围</li>
-<li>时间特性：定义了每根线在何时有效</li>
-</ul>
-<h2 id="总线连接方式"><a href="#总线连接方式" class="headerlink" title="总线连接方式"></a>总线连接方式</h2><p>通常采用适配器部件来完成</p>
-<ul>
-<li>单总线系统：要总线上的所有逻辑部件都高速运行，以便某些设备需要使用总线时能迅速获得总线控制权</li>
-<li>多总线系统：将高速设备（北桥）和低速设备（南桥）分开，用不同类型的桥扩展出不同层次的总线</li>
-</ul>
-<h2 id="总线内部结构"><a href="#总线内部结构" class="headerlink" title="总线内部结构"></a>总线内部结构</h2><ul>
-<li>地址线：单向，用于传送主存与设备的地址</li>
-<li>数据线：双向，用来传送数据</li>
-<li>控制线：对每根线是单向（CPU发向接口，或接口发向CPU），用来指明数据传送的方向（存储器读写、I/O读写）、中断控制和定时控制等</li>
-</ul>
-<h2 id="总体总线分类"><a href="#总体总线分类" class="headerlink" title="总体总线分类"></a>总体总线分类</h2><h3 id="数据传送总线"><a href="#数据传送总线" class="headerlink" title="数据传送总线"></a>数据传送总线</h3><p>由地址线、数据线、控制线组成</p>
-<h3 id="仲裁总线"><a href="#仲裁总线" class="headerlink" title="仲裁总线"></a>仲裁总线</h3><p>包括总线请求线和总线授权线</p>
-<h3 id="中断和同步总线"><a href="#中断和同步总线" class="headerlink" title="中断和同步总线"></a>中断和同步总线</h3><p>用于处理带优先级的中断操作，包括中断请求线和中断认可线</p>
-<h3 id="公用线"><a href="#公用线" class="headerlink" title="公用线"></a>公用线</h3><p>包括时钟信号线、电源线、地线、系统复位线以及加电或断电的时序信号线</p>
-<h2 id="总线仲裁"><a href="#总线仲裁" class="headerlink" title="总线仲裁"></a>总线仲裁</h2><h3 id="集中式仲裁"><a href="#集中式仲裁" class="headerlink" title="集中式仲裁"></a>集中式仲裁</h3><ul>
-<li><p>链式查询</p>
-<p>菊花链式查询，授权信号串行地从一个接口发送到下一个接口，若中间有设备请求总线则获得授权，信号不再传递。离CPU越近的设备优先级越高</p>
-<p>该种方式优点是简单、节省线路；其缺点是优先级不能改变，不灵活，可能存在优先级低的设备饿死，对电路故障十分敏感，若中间设备故障则后面的设备都无法工作</p>
-</li>
-<li><p>计数器定时查询</p>
-<p>设备通过BR线发出请求，总线仲裁器接受到请求后，在BS线为0的情况下计数，计数值通过地址线发往各设备。每个设备都有设备地址判别电路，当地址线计数值与设备地址一致时，该设备获得总线使用权，BS置1，终止计数</p>
-<p>该种方式优点是可以通过决定是否从上次终止点开始继续计数还是从0计数来改变各个设备的优先级；其缺点是要增加线的数量</p>
-</li>
-<li><p>独立请求</p>
-<p>每个设备都有一对独立的总线请求线和授权线，请求的信号在排队电路中被总线仲裁器以优先级次序处理授权</p>
-<p>该种方式优点是响应快，优先级次序控制灵活；其缺点是线数大量增加</p>
-</li>
-</ul>
-<p><strong>现代计算机基本采用独立请求方式</strong></p>
-<h3 id="分布式仲裁"><a href="#分布式仲裁" class="headerlink" title="分布式仲裁"></a>分布式仲裁</h3><p>不需要集中的总线仲裁器，每个设备都有自己的总线仲裁器。请求总线时，将它们唯一的仲裁号发送到共享的仲裁总线上，每个仲裁器将从仲裁总线上得到的号与自己比较。若仲裁总线上的号大，则不予响应并撤销其仲裁号，最后获胜者的仲裁号保留在仲裁总线上获得授权</p>
+                <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>本文主要围绕What、Why、How这三个方面谈谈sessionStorage 和 localStorage的联系与区别。</p>
+<h2 id="What"><a href="#What" class="headerlink" title="What"></a>What</h2><p>sessionStorage 和 localStorage 都是BOM提供给我们在浏览器上进行本地存储数据的API，利用它我们可以实现在本地浏览器存储一些数据。这两个方法都是隶属于 Window这个顶级BOM下的，在需要的时候我们直接调用即可。</p>
+<h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><p>在某些场合下我们希望能够在用户本地的浏览器上存储一些数据以提高用户体验，所以本地存储技术就应运而生了。典型的应用场景就是我们在登录网站时希望下次登录网站能够记住我们的账号，以免再重新输入。这种时候就可以使用localStorage进行一个本地存储用户名，在用户加载完页面的时候就检测用户浏览器上有无存储相应账号数据，若有则自动填入。</p>
+<h2 id="How"><a href="#How" class="headerlink" title="How"></a>How</h2><p>在使用方式上sessionStorage和localStorage是类似的</p>
+<h3 id="window-sessionStorage"><a href="#window-sessionStorage" class="headerlink" title="window.sessionStorage"></a>window.sessionStorage</h3><p>存储数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.setItem(key, value)</span><br></pre></td></tr></table></figure>
+
+<p>获取数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.getItem(key)</span><br></pre></td></tr></table></figure>
+
+<p>删除数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.removeItem(key)</span><br></pre></td></tr></table></figure>
+
+<p>清空数据：(所有都清除掉)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.clear()</span><br></pre></td></tr></table></figure>
+
+<h3 id="window-localStorage"><a href="#window-localStorage" class="headerlink" title="window.localStorage"></a>window.localStorage</h3><p>存储数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">localStorage</span>.setItem(key, value)</span><br></pre></td></tr></table></figure>
+
+<p>获取数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">localStorage</span>.getItem(key)</span><br></pre></td></tr></table></figure>
+
+<p>删除数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">localStorage</span>.removeItem(key)</span><br></pre></td></tr></table></figure>
+
+<p>清空数据：(所有都清除掉)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">localStorage</span>.clear()</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="sessionStorage-和-localStorage的特点"><a href="#sessionStorage-和-localStorage的特点" class="headerlink" title="sessionStorage 和 localStorage的特点"></a>sessionStorage 和 localStorage的特点</h2><h3 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="sessionStorage"></a>sessionStorage</h3><p>1.存储容量约为5MB</p>
+<p>2.同一个页面下可以共享数据</p>
+<p>3.生命周期到页面关闭。当页面关闭后存储在浏览器上数据就会被清除，不会保留下来下次打开页面就没有数据了</p>
+<h3 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h3><p>1.存储容量约为20MB</p>
+<p>2.可以跨页面共享数据</p>
+<p>3.生命周期为永久，仅当我们手动删除时才会清除数据，否则下次打开页面或者浏览器数据依然存在</p>
+<h3 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h3><p>1.数据都存储在用户的浏览器中</p>
+<p>2.数据都以键值对的形式存储</p>
+<p>3.仅能存取字符串，可以将对象JSON.stringify() 编码后存储</p>
+<p>4.读取方便，刷新页面也不会丢失数据</p>
 
             </div>
             
@@ -273,7 +270,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://example.com/2021/06/14/%E6%80%BB%E7%BA%BF%E7%B3%BB%E7%BB%9F/",
+                text: "http://example.com/2021/10/19/2021-10-19-sessionStorage-%E5%92%8C-localStorage/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -285,13 +282,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://example.com/2021/06/14/%E6%80%BB%E7%BA%BF%E7%B3%BB%E7%BB%9F/";
-            const title         = "「计算机总线系统概述」";
-            const excerpt       = `总线系统基础概念总线用于将计算机各个部件连接起来，成为一个整体，是多个系统功能部件之间进行数据传输的公共通道
-单处理器系统中总线分为三大类
-
-内部总线：CPU内部连接寄存器、运算部件
-系统总线：计算机系统用于连接其它高速设备，存储器、...`;
+            const hostUrl       = "http://example.com/2021/10/19/2021-10-19-sessionStorage-%E5%92%8C-localStorage/";
+            const title         = "「sessionStorage 和 localStorage」";
+            const excerpt       = `背景本文主要围绕What、Why、How这三个方面谈谈sessionStorage 和 localStorage的联系与区别。
+WhatsessionStorage 和 localStorage 都是BOM提供给我们在浏览器上进行本地...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -310,10 +304,10 @@
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/CS/" rel="tag">CS</a>
+                        <a class="tag-none-link" href="/tags/BOM/" rel="tag">BOM</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2021-07-14</span>
+                    <span>最后编辑：2021-10-19</span>
                     </div>
                 </div>
             </footer>
@@ -322,13 +316,9 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" (无标题)" href="/2021/06/01/杂谈/">&lt; 上一篇</a>
+                    <a title=" 关于Javascript的作用域" href="/2021/10/13/2021-10-13-关于Javascript的作用域/">&lt; 上一篇</a>
                 </div>
                 
-                
-                <div class="nav-next clearfix">
-                    <a title=" (无标题)" href="/2021/07/26/2021-07-26/">下一篇 &gt;</a>
-                </div>
                 
             </nav>
         
@@ -365,7 +355,7 @@
         <span class="toc-progress-bar"></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%B3%BB%E7%BB%9F"><span class="toc-text">总线系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-text">基础概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-text">总线的特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F"><span class="toc-text">总线连接方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84"><span class="toc-text">总线内部结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E4%BD%93%E6%80%BB%E7%BA%BF%E5%88%86%E7%B1%BB"><span class="toc-text">总体总线分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81%E6%80%BB%E7%BA%BF"><span class="toc-text">数据传送总线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%B2%E8%A3%81%E6%80%BB%E7%BA%BF"><span class="toc-text">仲裁总线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E5%92%8C%E5%90%8C%E6%AD%A5%E6%80%BB%E7%BA%BF"><span class="toc-text">中断和同步总线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E7%94%A8%E7%BA%BF"><span class="toc-text">公用线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E4%BB%B2%E8%A3%81"><span class="toc-text">总线仲裁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E4%B8%AD%E5%BC%8F%E4%BB%B2%E8%A3%81"><span class="toc-text">集中式仲裁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E4%BB%B2%E8%A3%81"><span class="toc-text">分布式仲裁</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What"><span class="toc-text">What</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why"><span class="toc-text">Why</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How"><span class="toc-text">How</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#window-sessionStorage"><span class="toc-text">window.sessionStorage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#window-localStorage"><span class="toc-text">window.localStorage</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sessionStorage-%E5%92%8C-localStorage%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-text">sessionStorage 和 localStorage的特点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sessionStorage"><span class="toc-text">sessionStorage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#localStorage"><span class="toc-text">localStorage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B1%E5%90%8C%E7%82%B9"><span class="toc-text">共同点</span></a></li></ol></li></ol>
     </div>
 </aside>
                 
