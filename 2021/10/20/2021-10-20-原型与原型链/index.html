@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
+  <title>原型与原型链 | Asuhe</title>
+  <meta name="author" content="Asuhe" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="JavaScript" />
+  
+  <meta name="description" content="什么是原型在搞明白什么是原型之前我们首先要明白我们为什么要原型，毕竟语言的设计者不会无缘无故搞出一个完全没有用的东西，它肯定是为了解决某个问题而诞生的。那么原型它解决了什么问题呢？ 我们都知道在es6之前，js是没有关键字class创建类的。那时候我们要使用类就用构造函数这种形式来实现它。在C++这种原生支持类的语言中，同一个类的多个实例里的方法只有一份，也就是说不管我们实例化了多少个对象，在计算">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原型与原型链">
+<meta property="og:url" content="http://example.com/2021/10/20/2021-10-20-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/index.html">
+<meta property="og:site_name" content="Asuhe">
+<meta property="og:description" content="什么是原型在搞明白什么是原型之前我们首先要明白我们为什么要原型，毕竟语言的设计者不会无缘无故搞出一个完全没有用的东西，它肯定是为了解决某个问题而诞生的。那么原型它解决了什么问题呢？ 我们都知道在es6之前，js是没有关键字class创建类的。那时候我们要使用类就用构造函数这种形式来实现它。在C++这种原生支持类的语言中，同一个类的多个实例里的方法只有一份，也就是说不管我们实例化了多少个对象，在计算">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
+<meta property="article:published_time" content="2021-10-20T00:04:04.000Z">
+<meta property="article:modified_time" content="2021-10-20T07:20:21.283Z">
+<meta property="article:author" content="Asuhe">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
+<meta name="twitter:site" content="@null">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" type="text/css" media="all">
+  
+  
+  <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.min.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/friends/"><i class="fa fa-paw"></i>正义伙伴</a></li>
+                                    
+                                
+                                    
+                                        <li>
+                                            <a><i class="fa fa-flask"></i>实验室</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://subs.kamigami.org">诸神字幕组</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="http://www.ati.ink">A.T.I MAD Team</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://www.youtube.com/channel/UCW5S2VdDXF_HroYXuV16UUg">Soul's Team</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        <li><a href="/about/"><i class="fa fa-paper-plane"></i>关于我</a></li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">Asuhe</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>Asuhe</h2> <br />
+                        <span>Born in poverty, died of numbness</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        <section class="col-md-8">
+    <article>
+        <div class="kratos-hentry kratos-post-inner clearfix">
+            <header class="kratos-entry-header">
+                
+                    <h1 class="kratos-entry-title text-center">原型与原型链</h1>
+                
+                
+                <ul class="kratos-post-meta text-center">
+                    <li><i class="fa fa-calendar"></i> 2021-10-20</li>
+                    <li><i class="fa fa-user"></i> 作者 Asuhe</li>
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~3.71K
+                        
+                        字
+                    </li>
+                    
+                </ul>
+            </header>
+            <div class="kratos-post-content">
+                <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                    本文最后编辑于 <time datetime="1634714421283"></time> 前，其中的内容可能需要更新。
+                </div>
+                
+                    <div class="kratos-post-inner-toc">
+                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8E%9F%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">什么是原型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%8E%9F%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">如何使用原型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%8E%9F%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">对象原型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#constructor%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">constructor构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="toc-number">5.</span> <span class="toc-text">原型链</span></a></li></ol>
+                    </div>
+                
+                <hr />
+                <h2 id="什么是原型"><a href="#什么是原型" class="headerlink" title="什么是原型"></a>什么是原型</h2><p>在搞明白什么是原型之前我们首先要明白我们为什么要原型，毕竟语言的设计者不会无缘无故搞出一个完全没有用的东西，它肯定是为了解决某个问题而诞生的。那么原型它解决了什么问题呢？</p>
+<p>我们都知道在es6之前，js是没有关键字<code>class</code>创建类的。那时候我们要使用类就用构造函数这种形式来实现它。在C++这种原生支持类的语言中，同一个类的多个实例里的方法只有一份，也就是说不管我们实例化了多少个对象，在计算机的内存中这个类的方法在内存中只有一份。只有每个实例的属性才会在内存中产生多个副本。例如</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">foo</span>&#123;</span></span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">	string name;</span><br><span class="line">	<span class="keyword">int</span> age;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">	<span class="function">string <span class="title">getName</span><span class="params">()</span></span>&#123; <span class="keyword">return</span> <span class="keyword">this</span>.name; &#125;;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span>&#123; <span class="keyword">return</span> <span class="keyword">this</span>.age; &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    foo a = <span class="keyword">new</span> <span class="built_in">foo</span>();</span><br><span class="line">    foo b = <span class="keyword">new</span> <span class="built_in">foo</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在计算机的内存中，a、b这两个实例化对象的内存分布仅有printvate里的属性才有独立的内存副本，而public里的方法a、b是共享同一片内存的，这样设计就节约了内存空间。</p>
+<p><img src="https://i.loli.net/2021/10/20/2PxV6KqCkLseEaQ.png" alt="C++的类方法只占一份内存"></p>
+<p>而在es6以前没有<code>class</code>时候，我们通过构造函数实例化的类就会出现上图的第一种情况。每个实例的方法都有独有的内存空间。为了解决这个问题，所以就出现了原型。构造函数通过原型分配的函数是所有对象所共享的，也就实现了第二种内存分布。</p>
+<h2 id="如何使用原型"><a href="#如何使用原型" class="headerlink" title="如何使用原型"></a>如何使用原型</h2><p>JavaScript 规定，每一个构造函数都有一个prototype 属性，指向prototype对象。注意这个prototype就是一个对象，这个对象的所有属性和方法，都会被构造函数所拥有。</p>
+<p>我们可以把那些不变的方法，直接定义在 prototype 对象上，这样所有对象的实例就可以共享这些方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">uname,age</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = uname;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">    <span class="comment">//定义类共享的方法时我们将方法定义在原型上，而不是构造函数内部</span></span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">&#x27;哈喽&#x27;</span>); &#125;;  <span class="comment">//这样定义方法，多个实例对象就可以共享</span></span><br><span class="line"><span class="keyword">var</span> man = <span class="keyword">new</span> Person(<span class="string">&#x27;Asuhe&#x27;</span>,<span class="number">18</span>);</span><br><span class="line"><span class="keyword">var</span> woman = <span class="keyword">new</span> Person(<span class="string">&#x27;Asuka&#x27;</span>,<span class="number">16</span>);</span><br><span class="line">man.say();  <span class="comment">//输出 哈喽</span></span><br><span class="line">woman.say(); <span class="comment">//输出 哈喽</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="对象原型"><a href="#对象原型" class="headerlink" title="对象原型"></a>对象原型</h2><p>在构造函数拥有一个原型对象叫prototype，<strong>这个原型对象由构造函数内的prototype属性指明</strong>，每个构造函数都有一个这样的原型对象。经过上述学习我们知道共享的方法是定义在构造函数的原型prototype中的，但是我们的实例化对象却能使用定义在构造函数里prototype上的方法。这是如何实现的呢？</p>
+<p>实现这个机制的就是我们即将要讲的<strong>对象原型</strong>。在每个实例化的对象中，都会包含一个<strong>属性</strong><code>__proto__</code>。这个<code>__protto__</code>属性就是令我们的实例化对象能够调用构造函数里<code>prototype</code>对象里定义的方法的原因，我们同时也称这个属性为对象原型。<code>__proto__</code>属性指向的是我们的构造函数的<code>prototype</code>原型对象，如上面的<code>man</code>当我们使用实例化的对象调用<code>prototype</code>里的方法时，我们的调用链是：<code>man</code> -&gt; <code>__proto__</code>  -&gt; <code>prototype</code> -&gt; <code>say()</code>。</p>
+<p>经过这一层调用，我们的构造函数与实例化对象之间就形成了如下三角关系</p>
+<p><img src="https://i.loli.net/2021/10/20/We5yfcVqx2bsZGk.png" alt="image-20211020094410424"></p>
+<h2 id="constructor构造函数"><a href="#constructor构造函数" class="headerlink" title="constructor构造函数"></a>constructor构造函数</h2><p>不管我们构造函数里的原型对象<code>Prototype</code>，还是我们实例化的对象里的对象原型<code>__proto__</code>，它们都包含了一个<strong>属性</strong><code>constructor</code>。<code>constructor</code>属性的作用就是指明我们引用的构造函数是哪个。例如我们的<code>man、woman</code>它们都是通过构造函数<code>Person</code>创建出来的，所以它们的对象原型里的<code>construtctor</code>属性指向的就应该是<code>Person</code>这个构造函数。按这个指向顺序我们属性指向的关系应该是如下</p>
+<p><img src="https://i.loli.net/2021/10/20/TKE9jX5aDgdJfsW.png" alt="直觉上对象原型里constructor的指向"></p>
+<p>但事实情况是不是这样的呢？实际上对象原型里的constructor指向是通过构造函数里的<code>prototype.constructor</code>间接指回构造函数的。</p>
+<p><img src="https://i.loli.net/2021/10/20/2CUPlsKLuvbJtGp.png" alt="20211020100310.png"></p>
+<p>一般情况下，对象的方法都在构造函数的原型对象中设置。如果有多个对象的方法，我们可以给原型对象采取对象形式赋值，但是这样就会覆盖构造函数原型对象原来的内容，这样修改后的原型对象 constructor  就不再指向当前构造函数了。此时，我们可以在修改后的原型对象中，添加一个 constructor 指向原来的构造函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Person.prototype = &#123;</span><br><span class="line">	<span class="attr">say</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">&#x27;哈喽&#x27;</span>); &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//如果我们采用上述赋值的形式给原型对象添加新的方法，这意味着原本的那个原型对象被我们覆盖了。此时constructor指向的并不是Person</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//所以我们需要手动指定constructor的指向，让它重新指向Person</span></span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">    <span class="attr">constructor</span>:Person,</span><br><span class="line">	<span class="attr">say</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">&#x27;哈喽&#x27;</span>); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>当我们继续打印出<code>prototype</code>这个对象的时候，我们可以看到<code>prototype</code>里面和已经实例化的对象一样里面也有一个<code>__proto__</code>对象原型。那么这个<code>__proto__</code>又指向哪里呢。实际上这个<code>__proto__</code>指向的是js内置的空对象<code>Object</code>的<code>prototype</code>。这个<code>Objerct</code>构造函数的对象原型里的<code>__proto__</code>还会继续往下指向最后的<code>null</code>。所以当我们查找方法时就会延着这条路径链式查找下去返回最先查找到的方法，若最后没找到则返回null。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">uname,age</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = uname;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//Person.prototype.__proto__指向的是Object的prototype，Object.prototype.__proto__指向null</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.__proto__);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.__proto__);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://i.loli.net/2021/10/20/Q4hrRYLdgxqDAGP.png" alt="输出结果"></p>
+<p><img src="https://i.loli.net/2021/10/20/D1tKv4GVaNwAUu8.png" alt="实例对象查找共享方法的链式结构"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">uname,age</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = uname;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">&#x27;哈喽&#x27;</span>); &#125;;  </span><br><span class="line"><span class="keyword">var</span> man = <span class="keyword">new</span> Person(<span class="string">&#x27;Asuhe&#x27;</span>,<span class="number">18</span>);</span><br><span class="line"><span class="keyword">var</span> woman = <span class="keyword">new</span> Person(<span class="string">&#x27;Asuka&#x27;</span>,<span class="number">16</span>);</span><br><span class="line">man.say();  <span class="comment">//输出 哈喽  //在Person.prototype中找到了say方法，停止查找</span></span><br><span class="line">woman.sleep(); <span class="comment">//输出 TypeError //Person.prototype -&gt; Object.prototype中均未找到sleep方法，返回null</span></span><br></pre></td></tr></table></figure>
+
+<p>像上面这种<code>__proto__</code>层层查找构成的链式结构就是我们常说的原型链。</p>
+<p>还有一点需要我们注意的是，不管是构造函数里的<code>this</code> 还是构造函数的prototype里的<code>this</code>都是指向我们实例化出来的对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">uname,age</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = uname;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> ptr = <span class="literal">null</span>;</span><br><span class="line">Person.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;哈喽&#x27;</span>);</span><br><span class="line">    ptr = <span class="built_in">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> man = <span class="keyword">new</span> Person(<span class="string">&#x27;Asuhe&#x27;</span>,<span class="number">18</span>);</span><br><span class="line"><span class="built_in">console</span>.log(man === ptr) <span class="comment">//输出 true</span></span><br></pre></td></tr></table></figure>
+
+
+            </div>
+            
+                <div class="kratos-copyright text-center clearfix">
+                    <h5>本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+                </div>
+            
+            <footer class="kratos-entry-footer clearfix">
+                
+                    <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                    
+                    
+                        <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                        <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://example.com/2021/10/20/2021-10-20-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://example.com/2021/10/20/2021-10-20-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/";
+            const title         = "「原型与原型链」";
+            const excerpt       = `什么是原型在搞明白什么是原型之前我们首先要明白我们为什么要原型，毕竟语言的设计者不会无缘无故搞出一个完全没有用的东西，它肯定是为了解决某个问题而诞生的。那么原型它解决了什么问题呢？
+我们都知道在es6之前，js是没有关键字class创...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                    
+                    </div>
+                
+                <div class="footer-tag clearfix">
+                    <div class="pull-left">
+                    <i class="fa fa-tags"></i>
+                        <a class="tag-none-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
+                    </div>
+                    <div class="pull-date">
+                    <span>最后编辑：2021-10-20</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+            <nav class="navigation post-navigation clearfix" role="navigation">
+                
+                <div class="nav-previous clearfix">
+                    <a title=" sessionStorage 和 localStorage" href="/2021/10/19/2021-10-19-sessionStorage-和-localStorage/">&lt; 上一篇</a>
+                </div>
+                
+                
+            </nav>
+        
+        
+    </article>
+</section>
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">明天等待死亡的自杀愿望者</p>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix">
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar"></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8E%9F%E5%9E%8B"><span class="toc-text">什么是原型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%8E%9F%E5%9E%8B"><span class="toc-text">如何使用原型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%8E%9F%E5%9E%8B"><span class="toc-text">对象原型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#constructor%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-text">constructor构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="toc-text">原型链</span></a></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">5</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/BOM/" style="font-size: 0.6em;">BOM</a> <a href="/tags/CN/" style="font-size: 0.67em;">CN</a> <a href="/tags/CS/" style="font-size: 0.73em;">CS</a> <a href="/tags/JavaScript/" style="font-size: 0.6em;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 0.67em;">Javascript</a> <a href="/tags/Web-API/" style="font-size: 0.6em;">Web API</a> <a href="/tags/code/" style="font-size: 0.73em;">code</a> <a href="/tags/live/" style="font-size: 0.8em;">live</a> <a href="/tags/tips/" style="font-size: 0.6em;">tips</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/20/2021-10-20-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/"><i class="fa  fa-book"></i> 原型与原型链</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/19/2021-10-19-sessionStorage-%E5%92%8C-localStorage/"><i class="fa  fa-book"></i> sessionStorage 和 localStorage</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/13/2021-10-13-%E5%85%B3%E4%BA%8EJavascript%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/"><i class="fa  fa-book"></i> 关于Javascript的作用域</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/13/2021-10-13-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/"><i class="fa  fa-book"></i> 事件对象</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/10/2021-10-10-js%E7%9A%84%E5%9D%91/"><i class="fa  fa-book"></i> Javascript的坑</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        <li><a href="mailto:sphinx@asuhe.fun"><i class="fa fa-envelope"></i></a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li>Github<a target="_blank" rel="nofollow" href="https://github.com/Ashitahe"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2021 Asuhe 版权所有.</li>
+                            <li>本站已在风雨飘摇中运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by Asuhe.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
+
+<script async src="/js/candy.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="6776797453"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+    <script defer src="/js/kr-dark.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"superSample":2,"hOffset":40,"vOffset":-20,"position":"right","width":200,"height":400},"mobile":{"show":false,"scale":0.2},"react":{"opacityDefault":0.7,"opacityOnHover":0.5},"player":{"meting":true},"log":false});</script></body>
+</html>
