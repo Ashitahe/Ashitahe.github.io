@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
-  <title>Cache设计 | Asuhe</title>
+  <title>JavaScript中的继承 | Asuhe</title>
   <meta name="author" content="Asuhe" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,20 +13,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="CS" />
+    <meta name="keywords" content="JavaScript" />
   
-  <meta name="description" content="Cache设计Cache原理 利用程序的局部性原理，缩减CPU的访存时间，让CPU能够更好的发挥性能   空间局部性：最近被访问的块邻近的块很有可能被访问 时间局部性：最近被的访问的块很有可能被再次访问  Cache设计的两大原则 高命中率，要求高命中率减少块的置换操作 对CPU透明，即CPU访问内存和访问Cache为同一种方式，无需改变  Cache设计的四个问题 从主存取得的块如何在Cache">
+  <meta name="description" content="ES6以前在es6以前 js 并没有专门的关键字可以实现继承特性，但是那时候我们又需要使用继承。于是就产生了一些方法可以实现继承的效果 call调用实现继承父属性我们都知道call可以改变函数内this的指向，利用这个特性我们可以在子构造函数里面调用父构造函数，并利用call让父构造函数内的this指向子构造函数。这样就完成了继承操作 1234567function Father(uname,ag">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cache设计">
-<meta property="og:url" content="http://example.com/2021/05/07/Cache%E8%AE%BE%E8%AE%A1/index.html">
+<meta property="og:title" content="JavaScript中的继承">
+<meta property="og:url" content="http://example.com/2021/10/23/2021-10-23-JavaScript%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF/index.html">
 <meta property="og:site_name" content="Asuhe">
-<meta property="og:description" content="Cache设计Cache原理 利用程序的局部性原理，缩减CPU的访存时间，让CPU能够更好的发挥性能   空间局部性：最近被访问的块邻近的块很有可能被访问 时间局部性：最近被的访问的块很有可能被再次访问  Cache设计的两大原则 高命中率，要求高命中率减少块的置换操作 对CPU透明，即CPU访问内存和访问Cache为同一种方式，无需改变  Cache设计的四个问题 从主存取得的块如何在Cache">
+<meta property="og:description" content="ES6以前在es6以前 js 并没有专门的关键字可以实现继承特性，但是那时候我们又需要使用继承。于是就产生了一些方法可以实现继承的效果 call调用实现继承父属性我们都知道call可以改变函数内this的指向，利用这个特性我们可以在子构造函数里面调用父构造函数，并利用call让父构造函数内的this指向子构造函数。这样就完成了继承操作 1234567function Father(uname,ag">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
-<meta property="article:published_time" content="2021-05-07T15:06:08.000Z">
-<meta property="article:modified_time" content="2021-05-29T15:24:34.973Z">
+<meta property="article:published_time" content="2021-10-23T00:33:54.000Z">
+<meta property="article:modified_time" content="2021-10-23T01:50:50.551Z">
 <meta property="article:author" content="Asuhe">
-<meta property="article:tag" content="CS">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
 <meta name="twitter:site" content="@null">
@@ -150,17 +150,17 @@
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
                 
-                    <h1 class="kratos-entry-title text-center">Cache设计</h1>
+                    <h1 class="kratos-entry-title text-center">JavaScript中的继承</h1>
                 
                 
                 <ul class="kratos-post-meta text-center">
-                    <li><i class="fa fa-calendar"></i> 2021-05-07</li>
+                    <li><i class="fa fa-calendar"></i> 2021-10-23</li>
                     <li><i class="fa fa-user"></i> 作者 Asuhe</li>
                     <li>
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~1.84K
+                            ~1.71K
                         
                         字
                     </li>
@@ -169,71 +169,26 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1622301874973"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1634953850551"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                     <div class="kratos-post-inner-toc">
-                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Cache%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.</span> <span class="toc-text">Cache设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">Cache原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%B8%A4%E5%A4%A7%E5%8E%9F%E5%88%99"><span class="toc-number">1.2.</span> <span class="toc-text">Cache设计的两大原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9B%9B%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text">Cache设计的四个问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E7%A7%8DCache%E4%B8%8E%E4%B8%BB%E5%AD%98%E5%9C%B0%E5%9D%80%E6%98%A0%E5%B0%84%E7%AD%96%E7%95%A5"><span class="toc-number">2.</span> <span class="toc-text">三种Cache与主存地址映射策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E7%9B%B8%E8%81%94%E6%98%A0%E5%B0%84"><span class="toc-number">2.1.</span> <span class="toc-text">全相联映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E6%98%A0%E5%B0%84"><span class="toc-number">2.2.</span> <span class="toc-text">直接映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E7%9B%B8%E8%81%94"><span class="toc-number">2.3.</span> <span class="toc-text">组相联</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cache%E6%9B%BF%E6%8D%A2%E7%AD%96%E7%95%A5"><span class="toc-number">3.</span> <span class="toc-text">Cache替换策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LFU%E7%AE%97%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text">LFU算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LRU%E7%AE%97%E6%B3%95"><span class="toc-number">3.2.</span> <span class="toc-text">LRU算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%9B%BF%E6%8D%A2"><span class="toc-number">3.3.</span> <span class="toc-text">随机替换</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cache%E5%86%99%E6%93%8D%E4%BD%9C%E7%AD%96%E7%95%A5"><span class="toc-number">4.</span> <span class="toc-text">Cache写操作策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9B%9E%E6%B3%95"><span class="toc-number">4.1.</span> <span class="toc-text">写回法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%86%99%E6%B3%95"><span class="toc-number">4.2.</span> <span class="toc-text">全写法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E4%B8%80%E6%AC%A1%E6%B3%95"><span class="toc-number">4.3.</span> <span class="toc-text">写一次法</span></a></li></ol></li></ol>
+                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6%E4%BB%A5%E5%89%8D"><span class="toc-number">1.</span> <span class="toc-text">ES6以前</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#call%E8%B0%83%E7%94%A8%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF%E7%88%B6%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.</span> <span class="toc-text">call调用实现继承父属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF%E7%88%B6%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">利用原型对象实现继承父方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6%E4%BB%A5%E5%90%8E"><span class="toc-number">2.</span> <span class="toc-text">ES6以后</span></a></li></ol>
                     </div>
                 
                 <hr />
-                <h1 id="Cache设计"><a href="#Cache设计" class="headerlink" title="Cache设计"></a>Cache设计</h1><h2 id="Cache原理"><a href="#Cache原理" class="headerlink" title="Cache原理"></a>Cache原理</h2><blockquote>
-<p>利用程序的局部性原理，缩减CPU的访存时间，让CPU能够更好的发挥性能</p>
-</blockquote>
-<ul>
-<li>空间局部性：最近被访问的块邻近的块很有可能被访问</li>
-<li>时间局部性：最近被的访问的块很有可能被再次访问</li>
-</ul>
-<h2 id="Cache设计的两大原则"><a href="#Cache设计的两大原则" class="headerlink" title="Cache设计的两大原则"></a>Cache设计的两大原则</h2><ul>
-<li>高命中率，要求高命中率减少块的置换操作</li>
-<li>对CPU透明，即CPU访问内存和访问Cache为同一种方式，无需改变</li>
-</ul>
-<h2 id="Cache设计的四个问题"><a href="#Cache设计的四个问题" class="headerlink" title="Cache设计的四个问题"></a>Cache设计的四个问题</h2><ul>
-<li>从主存取得的块如何在Cache中存放</li>
-<li>如何访问主存放入Cache中的块</li>
-<li>当Cache未命中时置换数据块的策略</li>
-<li>怎样保持Cache块中数据与主存块的数据同步</li>
-</ul>
-<h1 id="三种Cache与主存地址映射策略"><a href="#三种Cache与主存地址映射策略" class="headerlink" title="三种Cache与主存地址映射策略"></a>三种Cache与主存地址映射策略</h1><blockquote>
-<p>通常Cache相对于主存都十分小，所以主存块的哪些部分放入有限的Cache空间中是一个很重要的问题。下面有三种策略用于解决主存块在Cache中的存放位置问题</p>
-</blockquote>
-<h2 id="全相联映射"><a href="#全相联映射" class="headerlink" title="全相联映射"></a>全相联映射</h2><blockquote>
-<p>Cache数据块称为行，主存数据块称为块，其中行大小==块大小。全相联映射中，主存一个块地址、块号、块内容都被一起存于Cache的行中</p>
-</blockquote>
-<p>主存中的块被复制到Cache的任意行中</p>
-<p><img src="https://i.loli.net/2021/02/09/rsdg2fLWOGitSzp.png" alt="全相联"></p>
-<p>CPU访问一个主存地址时，为了快速检索，指令中的块号与Cache所有行号的标记同时在比较器中比较，若命中则从Cache中读取一个字，否则在主存地址中读取</p>
-<p>全相联映射其主要缺点是高速比较器电路难于设计和实现，因此适合小容量Cache</p>
-<h2 id="直接映射"><a href="#直接映射" class="headerlink" title="直接映射"></a>直接映射</h2><p>主存被划分为n个和Cache大小相同的区，区内的块只能存入对应Cache行内</p>
-<p>Cache行号 i 和主存块号 j 关系为 i = j mode m，其中m为Cache的大小</p>
-<p><img src="https://i.loli.net/2021/02/09/1zF6SnI5QXZMYqV.png" alt="全相联映射"></p>
-<p>直接映射其优点是硬件简单，成本低，地址变换速度快，但其缺点是每个主存块有一个固定行号可以存放。</p>
-<p>当连续两个访存指令要求访问块号相距m整数倍的两个块时，因两个块同时映射到同一个Cache行内，所以会产生冲突，需要置换行块，导致置换操作频繁，降低Cache效率</p>
-<h2 id="组相联"><a href="#组相联" class="headerlink" title="组相联"></a>组相联</h2><p>将Cache划分为若干个大小相同的组，而主存不同区内，区内的对应块可以换入Cache对应的组中，在组中可以存放在任意行</p>
-<p>当Cache分组的大小为1时，组内只有一个块，此时为直接映射；当Caceh分组大小为整个Cache大小时，只有一个分组，此时为全相联</p>
-<p><img src="https://i.loli.net/2021/02/09/ujlnd1BE5Q2NTZw.png" alt="组相联"></p>
-<p>组相联模式结合了适度兼顾了全相联和直接映射的优点，被普遍采用</p>
-<h1 id="Cache替换策略"><a href="#Cache替换策略" class="headerlink" title="Cache替换策略"></a>Cache替换策略</h1><blockquote>
-<p>当Cache存满需要换入新块时，有三种主流的替换算法分别是</p>
-</blockquote>
-<h2 id="LFU算法"><a href="#LFU算法" class="headerlink" title="LFU算法"></a>LFU算法</h2><p>LFU，最不经常使用算法，将一段时间内被访问次数最少的行换出。每行设置一个计数器，当新行调入Cache，该新行计数器为0。当某个行被读取一次，该行的计数器+1，需要换出行时寻找到计数器最低的行将其换出。</p>
-<h2 id="LRU算法"><a href="#LRU算法" class="headerlink" title="LRU算法"></a>LRU算法</h2><p>LRU，近期最少使用算法，将近期内最长久未被访问过的行换出。同样如LFU为每行设置一个计数器，但是Cache行每次被命中其计数器清零，其它各行计数器+1，与LFU算法相反，需要置换出行时将计数器值最高的行换出</p>
-<h2 id="随机替换"><a href="#随机替换" class="headerlink" title="随机替换"></a>随机替换</h2><p>随机换出行，无固定规则。研究表明随机替换的性能只是稍稍逊于前两种算法</p>
-<h1 id="Cache写操作策略"><a href="#Cache写操作策略" class="headerlink" title="Cache写操作策略"></a>Cache写操作策略</h1><blockquote>
-<p>因为Cache中的数据时主存块中的副本，在任何系统中只要存在副本就存在各副本之间数据同步的问题。当前Cache中普遍采用的同步策略有以下三种：</p>
-</blockquote>
-<h2 id="写回法"><a href="#写回法" class="headerlink" title="写回法"></a>写回法</h2><blockquote>
-<p>write back,copy back：CPU命中Cache时，只修改Cache行中的数据内容，仅当Cache该块被换出时，将数据写回主存；CPU未命中Cache时，将该块从主存复制到Cache行中，再对其修改。Cache中每行都置一个修改位，记录该块是否被修改，若该行被换出是修改位为0，则直接抛弃</p>
-</blockquote>
-<p>写回法优点是减少访问主存的次数，但是写回法会导致Cache行中的数据与对应主存块中的数据不一致，产生隐患</p>
-<h2 id="全写法"><a href="#全写法" class="headerlink" title="全写法"></a>全写法</h2><blockquote>
-<p>write through：CPU命中Cache时，同时修改Cache行和主存块中的内容，主存和Cache同步；当CPU未命中Cache时，有两种策略，一是WTWA法，将主存块置换如Cache行中，对Cache行修改，另一种是WTNWA法，直接修改主存块，不置换入Cache中</p>
-</blockquote>
-<p>全写法的优点是简单，Cache和主存同步，不会发生数据不一致，但是其频繁的访问主存操作导致Cache性能降低</p>
-<h2 id="写一次法"><a href="#写一次法" class="headerlink" title="写一次法"></a>写一次法</h2><blockquote>
-<p>write once：CPU第一次命中Cache时，同时修改Cache行中和主存块中的内容，后面再命中时采用写回法的策略；CPU未命中时采用写回法策略</p>
-</blockquote>
-<p>写一次法结合了写回法和全写法</p>
+                <h2 id="ES6以前"><a href="#ES6以前" class="headerlink" title="ES6以前"></a>ES6以前</h2><p>在es6以前 js 并没有专门的关键字可以实现继承特性，但是那时候我们又需要使用继承。于是就产生了一些方法可以实现继承的效果</p>
+<h3 id="call调用实现继承父属性"><a href="#call调用实现继承父属性" class="headerlink" title="call调用实现继承父属性"></a>call调用实现继承父属性</h3><p>我们都知道<code>call</code>可以改变函数内<code>this</code>的指向，利用这个特性我们可以在子构造函数里面调用父构造函数，并利用<code>call</code>让父构造函数内的<code>this</code>指向子构造函数。这样就完成了继承操作</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span>(<span class="params">uname,age</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">this</span>.name = uname;</span><br><span class="line">	<span class="built_in">this</span>.age = age;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">uname,age</span>)</span>&#123;</span><br><span class="line">    Father.call(<span class="built_in">this</span>,uname,age); <span class="comment">//调用父构造函数，利用call传入自身的this实现继承</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="利用原型对象实现继承父方法"><a href="#利用原型对象实现继承父方法" class="headerlink" title="利用原型对象实现继承父方法"></a>利用原型对象实现继承父方法</h3><p>我们还可以通过让子构造函数的<code>prototype</code>指向一个父构造函数的实例的形式实现继承，不过需要注意的是在赋值完成后我们需要让<code>constructor</code>属性重新指回子构造函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Father</span>(<span class="params">uname,age</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">this</span>.name = uname;</span><br><span class="line">	<span class="built_in">this</span>.age = age;</span><br><span class="line">&#125;;</span><br><span class="line">Father.prototype.say = <span class="function">()=&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;hello!&#x27;</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">uname,age</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = uname;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Son.prototype = Father.prototype 若我们直接赋值，会导致Son的原型对象和Father的原型对象是同一个，在Son中修改原型对象同时也会修改Father的。所以这样赋值是错误的</span></span><br><span class="line"></span><br><span class="line">Son.prototype = <span class="keyword">new</span> Father();  <span class="comment">//通过一个Father实例化对象可以间接访问到Father的prototype</span></span><br><span class="line">Son.prototype.constructor = Son; <span class="comment">//让constructor指回Son构造函数，不然其会指向Father构造函数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> son = <span class="keyword">new</span> Son(<span class="string">&#x27;Asuka&#x27;</span>,<span class="number">16</span>);</span><br><span class="line">son.say(); <span class="comment">//hello！</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="ES6以后"><a href="#ES6以后" class="headerlink" title="ES6以后"></a>ES6以后</h2><p>es6中引入了<code>class</code>关键字同时也引入了<code>extends</code>关键字，利用这些关键字我们可以很轻易的实现继承。同时若我们想要调用父类的方法和属性只需要使用<code>super</code>关键字。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="title">constructor</span>(<span class="params">uname,age</span>)</span>&#123;</span><br><span class="line">		<span class="built_in">this</span>.name = uname;</span><br><span class="line">		<span class="built_in">this</span>.age = age;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="title">say</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&#x27;hello!&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">uname,age,sex</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">super</span>(uname,age); <span class="comment">//直接使用，调用父类constructor.一定要在this之前，不然SyntaxError</span></span><br><span class="line">        <span class="built_in">this</span>.sex = sex;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">say</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">super</span>.say();</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;hi!&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> son = <span class="keyword">new</span> Son(<span class="string">&#x27;Asuhe&#x27;</span>,<span class="number">16</span>,<span class="string">&#x27;male&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(son); <span class="comment">//Son &#123; name: &#x27;Asuhe&#x27;, age: 16, sex: &#x27;male&#x27; &#125;</span></span><br><span class="line">son.say();  <span class="comment">// hello! hi!</span></span><br></pre></td></tr></table></figure>
+
 
             </div>
             
@@ -287,7 +242,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://example.com/2021/05/07/Cache%E8%AE%BE%E8%AE%A1/",
+                text: "http://example.com/2021/10/23/2021-10-23-JavaScript%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -299,17 +254,10 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://example.com/2021/05/07/Cache%E8%AE%BE%E8%AE%A1/";
-            const title         = "「Cache设计」";
-            const excerpt       = `Cache设计Cache原理
-利用程序的局部性原理，缩减CPU的访存时间，让CPU能够更好的发挥性能
-
-
-空间局部性：最近被访问的块邻近的块很有可能被访问
-时间局部性：最近被的访问的块很有可能被再次访问
-
-Cache设计的两大原则
-高...`;
+            const hostUrl       = "http://example.com/2021/10/23/2021-10-23-JavaScript%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF/";
+            const title         = "「JavaScript中的继承」";
+            const excerpt       = `ES6以前在es6以前 js 并没有专门的关键字可以实现继承特性，但是那时候我们又需要使用继承。于是就产生了一些方法可以实现继承的效果
+call调用实现继承父属性我们都知道call可以改变函数内this的指向，利用这个特性我们可以在子...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -328,10 +276,10 @@ Cache设计的两大原则
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/CS/" rel="tag">CS</a>
+                        <a class="tag-none-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2021-05-29</span>
+                    <span>最后编辑：2021-10-23</span>
                     </div>
                 </div>
             </footer>
@@ -339,10 +287,10 @@ Cache设计的两大原则
         
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
-                
-                <div class="nav-next clearfix">
-                    <a title=" 数据链路层中最小帧长问题" href="/2021/05/20/最小帧长/">下一篇 &gt;</a>
+                <div class="nav-previous clearfix">
+                    <a title=" ES6新增特性" href="/2021/10/22/2021-10-22-ES6新增特性/">&lt; 上一篇</a>
                 </div>
+                
                 
             </nav>
         
@@ -379,7 +327,7 @@ Cache设计的两大原则
         <span class="toc-progress-bar"></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Cache%E8%AE%BE%E8%AE%A1"><span class="toc-text">Cache设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache%E5%8E%9F%E7%90%86"><span class="toc-text">Cache原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%B8%A4%E5%A4%A7%E5%8E%9F%E5%88%99"><span class="toc-text">Cache设计的两大原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9B%9B%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="toc-text">Cache设计的四个问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E7%A7%8DCache%E4%B8%8E%E4%B8%BB%E5%AD%98%E5%9C%B0%E5%9D%80%E6%98%A0%E5%B0%84%E7%AD%96%E7%95%A5"><span class="toc-text">三种Cache与主存地址映射策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E7%9B%B8%E8%81%94%E6%98%A0%E5%B0%84"><span class="toc-text">全相联映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E6%98%A0%E5%B0%84"><span class="toc-text">直接映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E7%9B%B8%E8%81%94"><span class="toc-text">组相联</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cache%E6%9B%BF%E6%8D%A2%E7%AD%96%E7%95%A5"><span class="toc-text">Cache替换策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LFU%E7%AE%97%E6%B3%95"><span class="toc-text">LFU算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LRU%E7%AE%97%E6%B3%95"><span class="toc-text">LRU算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%9B%BF%E6%8D%A2"><span class="toc-text">随机替换</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cache%E5%86%99%E6%93%8D%E4%BD%9C%E7%AD%96%E7%95%A5"><span class="toc-text">Cache写操作策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9B%9E%E6%B3%95"><span class="toc-text">写回法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%86%99%E6%B3%95"><span class="toc-text">全写法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E4%B8%80%E6%AC%A1%E6%B3%95"><span class="toc-text">写一次法</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6%E4%BB%A5%E5%89%8D"><span class="toc-text">ES6以前</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#call%E8%B0%83%E7%94%A8%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF%E7%88%B6%E5%B1%9E%E6%80%A7"><span class="toc-text">call调用实现继承父属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E5%8E%9F%E5%9E%8B%E5%AF%B9%E8%B1%A1%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF%E7%88%B6%E6%96%B9%E6%B3%95"><span class="toc-text">利用原型对象实现继承父方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6%E4%BB%A5%E5%90%8E"><span class="toc-text">ES6以后</span></a></li></ol>
     </div>
 </aside>
                 
