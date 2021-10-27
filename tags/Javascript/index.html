@@ -18,7 +18,7 @@
   <meta name="description" content="明天等待死亡的自杀愿望者">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Asuhe">
-<meta property="og:url" content="http://example.com/tags/JavaScript/index.html">
+<meta property="og:url" content="http://example.com/tags/javascript/index.html">
 <meta property="og:site_name" content="Asuhe">
 <meta property="og:description" content="明天等待死亡的自杀愿望者">
 <meta property="og:locale" content="en_US">
@@ -179,7 +179,7 @@ call调用实现继承父属性我们都知道call可以改变函数内this的�
                             <a>
                                 
                                     <i class="fa fa-tags"></i>
-                                    <a class="tag-none-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
+                                    <a class="tag-none-link" href="/tags/javascript/" rel="tag">javascript</a>
                                 
                             </a>
                             
@@ -233,7 +233,7 @@ call调用实现继承父属性我们都知道call可以改变函数内this的�
                             <a>
                                 
                                     <i class="fa fa-tags"></i>
-                                    <a class="tag-none-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
+                                    <a class="tag-none-link" href="/tags/javascript/" rel="tag">javascript</a>
                                 
                             </a>
                             
@@ -288,7 +288,7 @@ call调用实现继承父属性我们都知道call可以改变函数内this的�
                             <a>
                                 
                                     <i class="fa fa-tags"></i>
-                                    <a class="tag-none-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
+                                    <a class="tag-none-link" href="/tags/javascript/" rel="tag">javascript</a>
                                 
                             </a>
                             
@@ -302,6 +302,119 @@ call调用实现继承父属性我们都知道call可以改变函数内this的�
                         </span>
                         <span class="pull-right">
                             <a class="read-more" href="/2021/10/20/2021-10-20-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/" title="阅读全文">阅读全文<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    </footer>
+                </div>
+            </article>
+        
+    
+        
+        
+            <article class="kratos-hentry clearfix">
+                <div class="kratos-entry-border-new clearfix">
+                    
+                    <div class="kratos-entry-thumb-new">
+                        <a href="/2021/10/13/2021-10-13-%E5%85%B3%E4%BA%8EJavascript%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/">
+                            
+                                <img class="kratos-entry-thumb-new-img">
+                            
+                        </a>
+                    </div>
+                    <div class="kratos-post-inner-new">
+                        <header class="kratos-entry-header-new">
+                                <a class="label-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+                            <h2 class="kratos-entry-title-new"><a href="/2021/10/13/2021-10-13-%E5%85%B3%E4%BA%8EJavascript%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/">关于Javascript的作用域</a>
+                        </header>
+                        <div class="kratos-entry-content-new">
+                            <p>
+                                
+                                    函数作用域js里若我们包装函数的声明，则该函数会被当做一个函数表达式，而不是一个函数声明。如何理解?
+12345678910111213141516var a = 2;(function foo()&#123;	var a = 3;	...
+                                
+                            </p>
+                        </div>
+                    </div>
+                    <footer class="kratos-post-meta-new">
+                        <span class="pull-left">
+                            <a>
+                                <i class="fa fa-calendar"></i>
+                                2021-10-13
+                            </a>
+                            <a>
+                                
+                                    <i class="fa fa-tags"></i>
+                                    <a class="tag-none-link" href="/tags/javascript/" rel="tag">javascript</a>
+                                
+                            </a>
+                            
+                                <!-- 当前仅支持valine/waline自带的统计功能 -->
+                                
+                            
+                            
+                                <!-- 当前仅支持waline自带的统计功能 -->
+                                
+                            
+                        </span>
+                        <span class="pull-right">
+                            <a class="read-more" href="/2021/10/13/2021-10-13-%E5%85%B3%E4%BA%8EJavascript%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/" title="阅读全文">阅读全文<i class="fa fa-chevron-circle-right"></i></a>
+                        </span>
+                    </footer>
+                </div>
+            </article>
+        
+    
+        
+        
+            <article class="kratos-hentry clearfix">
+                <div class="kratos-entry-border-new clearfix">
+                    
+                    <div class="kratos-entry-thumb-new">
+                        <a href="/2021/10/10/2021-10-10-js%E7%9A%84%E5%9D%91/">
+                            
+                                <img class="kratos-entry-thumb-new-img">
+                            
+                        </a>
+                    </div>
+                    <div class="kratos-post-inner-new">
+                        <header class="kratos-entry-header-new">
+                                <a class="label-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+                            <h2 class="kratos-entry-title-new"><a href="/2021/10/10/2021-10-10-js%E7%9A%84%E5%9D%91/">Javascript的坑</a>
+                        </header>
+                        <div class="kratos-entry-content-new">
+                            <p>
+                                
+                                    坑一：变量提升js在解析时，会将所有的变量与函数先声明再进行赋值操作。例如
+123//先输出再声明并赋值变量console.log(a); //输出结果为undefinedvar a = 10;
+
+像这类代码，在执行时等于如下效果
+1...
+                                
+                            </p>
+                        </div>
+                    </div>
+                    <footer class="kratos-post-meta-new">
+                        <span class="pull-left">
+                            <a>
+                                <i class="fa fa-calendar"></i>
+                                2021-10-10
+                            </a>
+                            <a>
+                                
+                                    <i class="fa fa-tags"></i>
+                                    <a class="tag-none-link" href="/tags/javascript/" rel="tag">javascript</a>
+                                
+                            </a>
+                            
+                                <!-- 当前仅支持valine/waline自带的统计功能 -->
+                                
+                            
+                            
+                                <!-- 当前仅支持waline自带的统计功能 -->
+                                
+                            
+                        </span>
+                        <span class="pull-right">
+                            <a class="read-more" href="/2021/10/10/2021-10-10-js%E7%9A%84%E5%9D%91/" title="阅读全文">阅读全文<i class="fa fa-chevron-circle-right"></i></a>
                         </span>
                     </footer>
                 </div>
@@ -344,7 +457,7 @@ call调用实现继承父属性我们都知道call可以改变函数内this的�
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">5</span></li></ul>
   </aside>
 
 
@@ -353,7 +466,7 @@ call调用实现继承父属性我们都知道call可以改变函数内this的�
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/BOM/" style="font-size: 0.6em;">BOM</a> <a href="/tags/CN/" style="font-size: 0.67em;">CN</a> <a href="/tags/CS/" style="font-size: 0.73em;">CS</a> <a href="/tags/JavaScript/" style="font-size: 0.73em;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 0.67em;">Javascript</a> <a href="/tags/Web-API/" style="font-size: 0.6em;">Web API</a> <a href="/tags/code/" style="font-size: 0.73em;">code</a> <a href="/tags/live/" style="font-size: 0.8em;">live</a> <a href="/tags/tips/" style="font-size: 0.6em;">tips</a>
+        <a href="/tags/BOM/" style="font-size: 0.6em;">BOM</a> <a href="/tags/CN/" style="font-size: 0.67em;">CN</a> <a href="/tags/CS/" style="font-size: 0.73em;">CS</a> <a href="/tags/Web-API/" style="font-size: 0.6em;">Web API</a> <a href="/tags/code/" style="font-size: 0.73em;">code</a> <a href="/tags/javascript/" style="font-size: 0.8em;">javascript</a> <a href="/tags/live/" style="font-size: 0.8em;">live</a> <a href="/tags/tips/" style="font-size: 0.67em;">tips</a>
       </div>
   </aside>
 
@@ -364,6 +477,12 @@ call调用实现继承父属性我们都知道call可以改变函数内this的�
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/26/2021-10-26-%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E7%9A%84%E4%BD%BF%E7%94%A8/"><i class="fa  fa-book"></i> 模板引擎的使用</a>
+            
+          
         
           
           
@@ -390,11 +509,7 @@ call调用实现继承父属性我们都知道call可以改变函数内this的�
           
         
           
-          
-            <a class="list-group-item" href="/2021/10/13/2021-10-13-%E5%85%B3%E4%BA%8EJavascript%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/"><i class="fa  fa-book"></i> 关于Javascript的作用域</a>
             
-          
-        
           
             
           

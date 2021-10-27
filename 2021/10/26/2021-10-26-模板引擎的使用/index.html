@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
-  <title>没出息的一天 | Asuhe</title>
+  <title>模板引擎的使用 | Asuhe</title>
   <meta name="author" content="Asuhe" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,20 +13,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="live" />
+    <meta name="keywords" content="tips" />
   
-  <meta name="description" content="今天又是没出息的一天，晚上在万达吃烤肉等将近两个小时。吃着烤肉不知道怎么的聊起了家事，中午奶奶给我打电话说要怕我没钱要给我打一千块钱当生活费。当时我极力说不要，自己其实有生活费，内心里早已破防。情绪在吃烤肉的时候爆发了，一边忍着不让眼泪流出来一边在吃。旁边的店员走过，向我投来疑惑的目光，真丢人。我的性格从来都是报喜不报忧的，自己本身过的再苦再累也不想让家里人知道让他们担心，习惯了一个人排解。每次一">
+  <meta name="description" content="什么是模板引擎在我们要渲染相同的UI结构，如新闻列表、博客的文章列表时，用传统的方法我们需要大量拼接字符串。这使得代码运行效率低，页面加载也慢。不仅如此，当我们需要修改结构时，也需要在字符串中修改这使得代码维护起来十分麻烦而且灵活性非常差。 为了解决传统的方法的缺点，于是我们发明了模板引擎技术。使用模板引擎我们可以快速渲染出UI，同时由于清晰的模板结构我们要修改代码时也十分容易。 art - te">
 <meta property="og:type" content="article">
-<meta property="og:title" content="没出息的一天">
-<meta property="og:url" content="http://example.com/2021/09/20/2021-09-20-%E6%B2%A1%E5%87%BA%E6%81%AF%E7%9A%84%E4%B8%80%E5%A4%A9/index.html">
+<meta property="og:title" content="模板引擎的使用">
+<meta property="og:url" content="http://example.com/2021/10/26/2021-10-26-%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="Asuhe">
-<meta property="og:description" content="今天又是没出息的一天，晚上在万达吃烤肉等将近两个小时。吃着烤肉不知道怎么的聊起了家事，中午奶奶给我打电话说要怕我没钱要给我打一千块钱当生活费。当时我极力说不要，自己其实有生活费，内心里早已破防。情绪在吃烤肉的时候爆发了，一边忍着不让眼泪流出来一边在吃。旁边的店员走过，向我投来疑惑的目光，真丢人。我的性格从来都是报喜不报忧的，自己本身过的再苦再累也不想让家里人知道让他们担心，习惯了一个人排解。每次一">
+<meta property="og:description" content="什么是模板引擎在我们要渲染相同的UI结构，如新闻列表、博客的文章列表时，用传统的方法我们需要大量拼接字符串。这使得代码运行效率低，页面加载也慢。不仅如此，当我们需要修改结构时，也需要在字符串中修改这使得代码维护起来十分麻烦而且灵活性非常差。 为了解决传统的方法的缺点，于是我们发明了模板引擎技术。使用模板引擎我们可以快速渲染出UI，同时由于清晰的模板结构我们要修改代码时也十分容易。 art - te">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
-<meta property="article:published_time" content="2021-09-20T14:21:09.000Z">
-<meta property="article:modified_time" content="2021-09-26T12:02:40.196Z">
+<meta property="article:published_time" content="2021-10-26T09:40:51.000Z">
+<meta property="article:modified_time" content="2021-10-27T00:40:51.849Z">
 <meta property="article:author" content="Asuhe">
-<meta property="article:tag" content="live">
+<meta property="article:tag" content="tips">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
 <meta name="twitter:site" content="@null">
@@ -150,17 +150,17 @@
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
                 
-                    <h1 class="kratos-entry-title text-center">没出息的一天</h1>
+                    <h1 class="kratos-entry-title text-center">模板引擎的使用</h1>
                 
                 
                 <ul class="kratos-post-meta text-center">
-                    <li><i class="fa fa-calendar"></i> 2021-09-20</li>
+                    <li><i class="fa fa-calendar"></i> 2021-10-26</li>
                     <li><i class="fa fa-user"></i> 作者 Asuhe</li>
                     <li>
                         <i class="fa fa-edit"></i> 
                         
                         
-                            440
+                            ~1.71K
                         
                         字
                     </li>
@@ -169,12 +169,44 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1632657760196"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1635295251849"></time> 前，其中的内容可能需要更新。
                 </div>
                 
+                    <div class="kratos-post-inner-toc">
+                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E"><span class="toc-number">1.</span> <span class="toc-text">什么是模板引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#art-template"><span class="toc-number">2.</span> <span class="toc-text">art - template</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.</span> <span class="toc-text">模板使用步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#art-template%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">art-template基础语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA"><span class="toc-number">4.1.</span> <span class="toc-text">输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E6%96%87%E8%BE%93%E5%87%BA"><span class="toc-number">4.2.</span> <span class="toc-text">原文输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E8%BE%93%E5%87%BA"><span class="toc-number">4.3.</span> <span class="toc-text">条件输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF"><span class="toc-number">4.4.</span> <span class="toc-text">循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">4.5.</span> <span class="toc-text">过滤器</span></a></li></ol></li></ol>
+                    </div>
+                
                 <hr />
-                <p>今天又是没出息的一天，晚上在万达吃烤肉等将近两个小时。吃着烤肉不知道怎么的聊起了家事，中午奶奶给我打电话说要怕我没钱要给我打一千块钱当生活费。当时我极力说不要，自己其实有生活费，内心里早已破防。情绪在吃烤肉的时候爆发了，一边忍着不让眼泪流出来一边在吃。旁边的店员走过，向我投来疑惑的目光，真丢人。我的性格从来都是报喜不报忧的，自己本身过的再苦再累也不想让家里人知道让他们担心，习惯了一个人排解。每次一想到奶奶快八十的人了，自己还让她担心这担心那的就觉得对不起他。我知道，自己作为家族里当二个上大学的，一直让她很骄傲。我要承载着她的希望，过的越来越好，不能让她看到自己难过，落魄的一面。</p>
-<p>学校心理咨询室的老师说我内心没有力量支撑，仔细想想确实有道理。从八个月大就留守在家，成长过程中最亲近的人就是奶奶还有姑姑。每次遇到困难、面临重要时刻都会想到不能让她们失望。对于父亲母亲心里仅有一点感情，体会不到父爱母爱。对于父亲憎恨的感情更多，90%的苦难都是因为他造成的，可以说毫无责任感。</p>
+                <h2 id="什么是模板引擎"><a href="#什么是模板引擎" class="headerlink" title="什么是模板引擎"></a>什么是模板引擎</h2><p>在我们要渲染相同的UI结构，如新闻列表、博客的文章列表时，用传统的方法我们需要大量拼接字符串。这使得代码运行效率低，页面加载也慢。不仅如此，当我们需要修改结构时，也需要在字符串中修改这使得代码维护起来十分麻烦而且灵活性非常差。</p>
+<p>为了解决传统的方法的缺点，于是我们发明了模板引擎技术。使用模板引擎我们可以快速渲染出UI，同时由于清晰的模板结构我们要修改代码时也十分容易。</p>
+<h2 id="art-template"><a href="#art-template" class="headerlink" title="art - template"></a>art - template</h2><p>art-template 是一个简约、超快的模板引擎，使用这个模板引擎我们可以很方便地生成一些UI结构。</p>
+<h2 id="模板使用步骤"><a href="#模板使用步骤" class="headerlink" title="模板使用步骤"></a>模板使用步骤</h2><p>①导入 art-template</p>
+<p>②定义数据</p>
+<p>③定义模板</p>
+<p>④调用 template 函数</p>
+<p>⑤渲染HTML结构</p>
+<h2 id="art-template基础语法"><a href="#art-template基础语法" class="headerlink" title="art-template基础语法"></a>art-template基础语法</h2><h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><p>在标准语法中，可以进行变量的输出、对象属性的输出、三元表达式输出、逻辑或输出、加减乘除等表达式输出。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;value&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;obj.key&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;obj[<span class="string">&#x27;key&#x27;</span>]&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;a ? b : c&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;a || b&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;a + b&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="原文输出"><a href="#原文输出" class="headerlink" title="原文输出"></a>原文输出</h3><p>如果要输出的 value 值中，包含了 HTML 标签结构，则需要使用<strong>原文输出</strong>语法，才能保证 HTML 标签被正常渲染。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;@ value &#125;&#125;  //类似innerHTML,会将value的文本内容当作HTML渲染</span><br></pre></td></tr></table></figure>
+
+<h3 id="条件输出"><a href="#条件输出" class="headerlink" title="条件输出"></a>条件输出</h3><p>如果要实现条件输出，则可以在双花括号中使用 <strong>if</strong> … <strong>else if</strong> … <strong>/if</strong> 的方式，进行按需输出。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;<span class="keyword">if</span> value&#125;&#125; 按需输出的内容 &#123;&#123;/<span class="keyword">if</span>&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123;<span class="keyword">if</span> v1&#125;&#125; 按需输出的内容 &#123;&#123;<span class="keyword">else</span> <span class="keyword">if</span> v2&#125;&#125; 按需输出的内容 &#123;&#123;/<span class="keyword">if</span>&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><p>如果要实现循环输出，则可以在标准语法内，通过 each 语法循环数组，当前循环的索引使用 <strong>$index</strong> 进行访问，当前的循环项使用 <strong>$value</strong> 进行访问。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;each arr&#125;&#125;</span><br><span class="line">    &#123;&#123;$index&#125;&#125; &#123;&#123;$value&#125;&#125;</span><br><span class="line">&#123;&#123;/each&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><p>过滤器语法类似<strong>管道操作符</strong>，它的上一个输出作为下一个输入。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;value | 处理函数名称&#125;&#125;  </span><br><span class="line"></span><br><span class="line"><span class="comment">//js文件中定义好处理函数的操作</span></span><br><span class="line">template.defaults.imports.处理函数名称 = <span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123; <span class="comment">//传入值为模板的value</span></span><br><span class="line">    <span class="comment">/*Code*/</span></span><br><span class="line">    <span class="keyword">return</span> res <span class="comment">//返回处理结果</span></span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>例子</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>注册时间：&#123;&#123;regTime | dateFormat&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">template.defaults.imports.dateFormat = <span class="function"><span class="keyword">function</span>(<span class="params">date</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> y = date.getFullYear()</span><br><span class="line">   <span class="keyword">var</span> m = date.getMonth() + <span class="number">1</span></span><br><span class="line">   <span class="keyword">var</span> d = date.getDate()</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> y + <span class="string">&#x27;-&#x27;</span> + m + <span class="string">&#x27;-&#x27;</span> + d <span class="comment">// 注意，过滤器最后一定要 return 一个值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
             </div>
             
@@ -228,7 +260,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://example.com/2021/09/20/2021-09-20-%E6%B2%A1%E5%87%BA%E6%81%AF%E7%9A%84%E4%B8%80%E5%A4%A9/",
+                text: "http://example.com/2021/10/26/2021-10-26-%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E7%9A%84%E4%BD%BF%E7%94%A8/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -240,9 +272,9 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://example.com/2021/09/20/2021-09-20-%E6%B2%A1%E5%87%BA%E6%81%AF%E7%9A%84%E4%B8%80%E5%A4%A9/";
-            const title         = "「没出息的一天」";
-            const excerpt       = `今天又是没出息的一天，晚上在万达吃烤肉等将近两个小时。吃着烤肉不知道怎么的聊起了家事，中午奶奶给我打电话说要怕我没钱要给我打一千块钱当生活费。当时我极力说不要，自己其实有生活费，内心里早已破防。情绪在吃烤肉的时候爆发了，一边忍着不让眼...`;
+            const hostUrl       = "http://example.com/2021/10/26/2021-10-26-%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E7%9A%84%E4%BD%BF%E7%94%A8/";
+            const title         = "「模板引擎的使用」";
+            const excerpt       = `什么是模板引擎在我们要渲染相同的UI结构，如新闻列表、博客的文章列表时，用传统的方法我们需要大量拼接字符串。这使得代码运行效率低，页面加载也慢。不仅如此，当我们需要修改结构时，也需要在字符串中修改这使得代码维护起来十分麻烦而且灵活性非...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -261,10 +293,10 @@
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/live/" rel="tag">live</a>
+                        <a class="tag-none-link" href="/tags/tips/" rel="tag">tips</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2021-09-26</span>
+                    <span>最后编辑：2021-10-27</span>
                     </div>
                 </div>
             </footer>
@@ -273,13 +305,9 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" 生即是罪恶" href="/2021/09/10/2021-09-10-生即是恶/">&lt; 上一篇</a>
+                    <a title=" JavaScript中的继承" href="/2021/10/23/2021-10-23-JavaScript中的继承/">&lt; 上一篇</a>
                 </div>
                 
-                
-                <div class="nav-next clearfix">
-                    <a title=" 浅谈rem布局" href="/2021/10/07/rem + less + 媒体查询布局/">下一篇 &gt;</a>
-                </div>
                 
             </nav>
         
@@ -307,6 +335,18 @@
 </aside>
             
                     <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix">
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar"></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E"><span class="toc-text">什么是模板引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#art-template"><span class="toc-text">art - template</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="toc-text">模板使用步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#art-template%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="toc-text">art-template基础语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA"><span class="toc-text">输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E6%96%87%E8%BE%93%E5%87%BA"><span class="toc-text">原文输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E8%BE%93%E5%87%BA"><span class="toc-text">条件输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF"><span class="toc-text">循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-text">过滤器</span></a></li></ol></li></ol>
+    </div>
+</aside>
                 
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
