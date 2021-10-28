@@ -190,9 +190,19 @@
                             
                                 <!-- 当前仅支持valine/waline自带的统计功能 -->
                                 
+                                    <a id="/2021/09/20/2021-09-20-%E6%B2%A1%E5%87%BA%E6%81%AF%E7%9A%84%E4%B8%80%E5%A4%A9/" class="leancloud_visitors" data-flag-title="没出息的一天">
+                                        <i class="fa fa-eye"></i>
+                                        <span class="leancloud-visitors-count"> </span> 次阅读
+                                    </a>
+                                
                             
                             
                                 <!-- 当前仅支持waline自带的统计功能 -->
+                                
+                                    <a>
+                                        <i class="fa fa-commenting-o"></i>
+                                        <span data-xid="/2021/09/20/2021-09-20-%E6%B2%A1%E5%87%BA%E6%81%AF%E7%9A%84%E4%B8%80%E5%A4%A9/" class="waline-comment-count"> </span> 条评论
+                                    </a>
                                 
                             
                         </span>
@@ -253,9 +263,19 @@ Live = evil,death is the best destination
                             
                                 <!-- 当前仅支持valine/waline自带的统计功能 -->
                                 
+                                    <a id="/2021/09/10/2021-09-10-%E7%94%9F%E5%8D%B3%E6%98%AF%E6%81%B6/" class="leancloud_visitors" data-flag-title="生即是罪恶">
+                                        <i class="fa fa-eye"></i>
+                                        <span class="leancloud-visitors-count"> </span> 次阅读
+                                    </a>
+                                
                             
                             
                                 <!-- 当前仅支持waline自带的统计功能 -->
+                                
+                                    <a>
+                                        <i class="fa fa-commenting-o"></i>
+                                        <span data-xid="/2021/09/10/2021-09-10-%E7%94%9F%E5%8D%B3%E6%98%AF%E6%81%B6/" class="waline-comment-count"> </span> 条评论
+                                    </a>
                                 
                             
                         </span>
@@ -307,9 +327,19 @@ Live = evil,death is the best destination
                             
                                 <!-- 当前仅支持valine/waline自带的统计功能 -->
                                 
+                                    <a id="/2021/09/05/2021-09-05-%E5%BC%80%E5%AD%A6/" class="leancloud_visitors" data-flag-title="开学">
+                                        <i class="fa fa-eye"></i>
+                                        <span class="leancloud-visitors-count"> </span> 次阅读
+                                    </a>
+                                
                             
                             
                                 <!-- 当前仅支持waline自带的统计功能 -->
+                                
+                                    <a>
+                                        <i class="fa fa-commenting-o"></i>
+                                        <span data-xid="/2021/09/05/2021-09-05-%E5%BC%80%E5%AD%A6/" class="waline-comment-count"> </span> 条评论
+                                    </a>
                                 
                             
                         </span>
@@ -361,9 +391,19 @@ Live = evil,death is the best destination
                             
                                 <!-- 当前仅支持valine/waline自带的统计功能 -->
                                 
+                                    <a id="/2021/09/03/2021-09-03%20%20%E8%AE%A4%E8%AF%86%E6%96%B0%E6%9C%8B%E5%8F%8B/" class="leancloud_visitors" data-flag-title="认识新朋友">
+                                        <i class="fa fa-eye"></i>
+                                        <span class="leancloud-visitors-count"> </span> 次阅读
+                                    </a>
+                                
                             
                             
                                 <!-- 当前仅支持waline自带的统计功能 -->
+                                
+                                    <a>
+                                        <i class="fa fa-commenting-o"></i>
+                                        <span data-xid="/2021/09/03/2021-09-03%20%20%E8%AE%A4%E8%AF%86%E6%96%B0%E6%9C%8B%E5%8F%8B/" class="waline-comment-count"> </span> 条评论
+                                    </a>
                                 
                             
                         </span>
@@ -415,9 +455,19 @@ Live = evil,death is the best destination
                             
                                 <!-- 当前仅支持valine/waline自带的统计功能 -->
                                 
+                                    <a id="/2021/08/15/2021-08-15/" class="leancloud_visitors" data-flag-title="依然恐惧未来">
+                                        <i class="fa fa-eye"></i>
+                                        <span class="leancloud-visitors-count"> </span> 次阅读
+                                    </a>
+                                
                             
                             
                                 <!-- 当前仅支持waline自带的统计功能 -->
+                                
+                                    <a>
+                                        <i class="fa fa-commenting-o"></i>
+                                        <span data-xid="/2021/08/15/2021-08-15/" class="waline-comment-count"> </span> 条评论
+                                    </a>
                                 
                             
                         </span>
@@ -436,6 +486,26 @@ Live = evil,death is the best destination
 
     <div class="hidden">
         <!-- 加载文章阅读对应的统计功能，评论自带的那种 -->
+        
+            <div id="w-comments" class="post-comments"></div>
+<script>
+    var load_comm = () => {
+        const init = () => {
+            new Waline(Object.assign({
+                el: '#w-comments',
+                path: '/tags/live/index.html'
+            }, JSON.parse('{"serverURL":"https://blog-api-4f5uxbeq9-ashitahe.vercel.app/","path":"window.location.pathname","dark":"auto","login":"enable","visitor":true}')));
+        }
+        if (typeof Waline == 'undefined') {
+            const src = 'https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://waline.js.org/">comments powered by Waline.</a></noscript>
+
         
     </div>
 

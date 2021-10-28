@@ -170,6 +170,17 @@
                         字
                     </li>
                     
+                        <li id="/2021/10/19/2021-10-19-sessionStorage-%E5%92%8C-localStorage/" class="leancloud_visitors" data-flag-title="sessionStorage 和 localStorage">
+                            <i class="fa fa-eye"></i>
+                            <span class="leancloud-visitors-count"> </span> 次阅读
+                        </li>
+                        
+                            <li>
+                                <i class="fa fa-commenting-o"></i>
+                                <span data-xid="/2021/10/19/2021-10-19-sessionStorage-%E5%92%8C-localStorage/" class="waline-comment-count"> </span> 条评论
+                            </li>
+                        
+                    
                 </ul>
             </header>
             <div class="kratos-post-content">
@@ -331,6 +342,26 @@ WhatsessionStorage 和 localStorage 都是BOM提供给我们在浏览器上进�
                 
             </nav>
         
+        
+            <div id="w-comments" class="post-comments"></div>
+<script>
+    var load_comm = () => {
+        const init = () => {
+            new Waline(Object.assign({
+                el: '#w-comments',
+                path: '/2021/10/19/2021-10-19-sessionStorage-%E5%92%8C-localStorage/'
+            }, JSON.parse('{"serverURL":"https://blog-api-4f5uxbeq9-ashitahe.vercel.app/","path":"window.location.pathname","dark":"auto","login":"enable","visitor":true}')));
+        }
+        if (typeof Waline == 'undefined') {
+            const src = 'https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://waline.js.org/">comments powered by Waline.</a></noscript>
+
         
     </article>
 </section>
