@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
-  <title>好伙伴们 | Asuhe</title>
+  <title>友情链接 | Asuhe</title>
   <meta name="author" content="Asuhe" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -17,7 +17,7 @@
   
   <meta name="description" content="好伙伴们在哪里~">
 <meta property="og:type" content="website">
-<meta property="og:title" content="好伙伴们">
+<meta property="og:title" content="友情链接">
 <meta property="og:url" content="http://example.com/friends/index.html">
 <meta property="og:site_name" content="Asuhe">
 <meta property="og:description" content="好伙伴们在哪里~">
@@ -58,6 +58,7 @@
   
     <script src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
   
+  
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 
@@ -80,26 +81,22 @@
                                     
                                 
                                     
-                                        <li><a href="/friends/"><i class="fa fa-paw"></i>正义伙伴</a></li>
+                                        <li><a href="/friends/"><i class="fa fa-paw"></i>友链</a></li>
                                     
                                 
                                     
                                         <li>
-                                            <a><i class="fa fa-flask"></i>实验室</a>
+                                            <a><i class="fa fa-flask"></i>Lab</a>
                                             <ul class="sub-menu">
                                                 
                                                     
                                                 
                                                     
-                                                        <li><a target="_blank" rel="noopener" href="https://subs.kamigami.org">诸神字幕组</a></li>
+                                                        <li><a target="_blank" rel="noopener" href="https://kemira543.gitbook.io/computer-notes/ji-suan-ji-ji-zu-cheng-yuan-li/zong-xian-xi-tong">GitBook</a></li>
                                                     
                                                 
                                                     
-                                                        <li><a target="_blank" rel="noopener" href="http://www.ati.ink">A.T.I MAD Team</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li><a target="_blank" rel="noopener" href="https://www.youtube.com/channel/UCW5S2VdDXF_HroYXuV16UUg">Soul's Team</a></li>
+                                                        <li><a target="_blank" rel="noopener" href="https://space.bilibili.com/504130688">Bilibili</a></li>
                                                     
                                                 
                                             </ul>
@@ -147,39 +144,49 @@
                 <div id="main" class="row">
                     
 
-        <section class="col-md-8">
-    <article>
-        <div class="kratos-hentry kratos-post-inner clearfix">
-            <div class="kratos-post-content">
-                <h2 class="title-h2 text-center">好伙伴们</h2>
-                <div class="linkpage">
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article>
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <div class="kratos-post-content">
+            <h2 class="title-h2 text-center">友情链接</h2>
+            <div class="linkpage">
     <ul id="friendsList"></ul>
 </div>
 
 <script type="text/javascript">
 {
-    const flist = JSON.parse(`[{"name":"柏吃支醉","bio":"","avatar":"https://zzlake.com/storage/2017/04/Avatar_Dennis-RoundCorner_PNG.png","link":"http://zzlake.com/"},{"name":"Little_Fdog","bio":"","avatar":"../images/404.webp","link":"https://www.cnblogs.com/Zowie/"},{"name":"jane_315","bio":"","avatar":"../images/404.webp","link":"https://www.cnblogs.com/jane315/"},{"name":"依扎药医","bio":"","avatar":"../images/404.webp","link":"http://izayoi.cn/"},{"name":"Lionely","bio":"","avatar":"../images/404.webp","link":"https://www.cnblogs.com/lionely/"},{"name":"N的小屋","bio":"","avatar":"https://www.nikiss.top/images/touxiang.jpg","link":"https://www.nikiss.top/"}]`);
+    const flist = JSON.parse(`[{"name":"柏吃支醉","bio":"","avatar":"https://zzlake.com/storage/2017/04/Avatar_Dennis-RoundCorner_PNG.png","link":"http://zzlake.com/"},{"name":"Little_Fdog","bio":"","avatar":"../images/404.webp","link":"https://www.cnblogs.com/Zowie/"},{"name":"jane_315","bio":"","avatar":"../images/404.webp","link":"https://www.cnblogs.com/jane315/"},{"name":"Lionely","bio":"","avatar":"../images/404.webp","link":"https://www.cnblogs.com/lionely/"},{"name":"N的小屋","bio":"","avatar":"https://www.nikiss.top/images/touxiang.jpg","link":"https://www.nikiss.top/"}]`);
     let friendNodes = '';
     while (flist.length > 0) {
         const rndNum = Math.floor(Math.random()*flist.length);
-        friendNodes += `<li><a target="_blank" href="${flist[rndNum].link}"><img src="${flist[rndNum].avatar}"><h4>${flist[rndNum].name}</h4><p>${flist[rndNum].bio}</p></a></li>`;
+        friendNodes += `<li><a target="_blank" href="${flist[rndNum].link}"><img src="${flist[rndNum].avatar || 'https://cdn.jsdelivr.net/gh/Candinya/Kratos-Rebirth/source/images/avatar.webp'}"><h4>${flist[rndNum].name}</h4><p>${flist[rndNum].bio || ''}</p></a></li>`;
         flist.splice(rndNum, 1);
     }
     document.getElementById("friendsList").innerHTML = friendNodes;
 }
 </script>
-            </div>
-            <footer class="kratos-entry-footer clearfix">
-                <div class="footer-tag clearfix">
-                    <div class="pull-date">
-                    <span>最后编辑：2021-05-18</span>
-                    </div>
-                </div>
-            </footer>
         </div>
+        <footer class="kratos-entry-footer clearfix">
+            <div class="footer-tag clearfix">
+                <div class="pull-date">
+                <span>最后编辑：2021-05-18</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+</article>
+
         
-    </article>
-</section>
+
+            </section>
+
+        
 
                 
             
@@ -198,7 +205,7 @@
         </div>
     </div>
     <div class="textwidget">
-        <p class="text-center">明日等待死亡的自杀愿望者</p>
+        <p class="text-center">等待明日的自杀愿望者</p>
     </div>
 </aside>
             
@@ -315,26 +322,6 @@
 </div>
 <footer>
     <div id="footer"  class="ap-lrc"  >
-        <div class="kr-tool text-center">
-            <div class="tool">
-                
-                    <div class="box search-box">
-                        <a href="/search/">
-                            <span class="fa fa-search"></span>
-                        </a>
-                    </div>
-                
-                
-                    <div class="box theme-box" id="darkmode-switch">
-                        <span class="fa fa-adjust"></span>
-                    </div>
-                
-                
-            </div>
-            <div class="box gotop-box">
-                <span class="fa fa-chevron-up"></span>
-            </div>
-        </div>
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 footer-list text-center">
@@ -355,19 +342,39 @@
                             <li>本站已在风雨飘摇中运行<span id="span_dt">Loading...</span></li>
                         </div>
                         <div>
-                            <!-- <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li> -->
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
                             <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by Asuhe.</li>
                         </div>
                         <div>
-                            <!-- <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li> -->
-                            <!--  -->
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            
                         </div>
                         <div>
-                            <li><a href="https://icp.gov.moe/?keyword=20212016" rel="external nofollow" target="_blank">萌ICP备20212016号</a></li>
+                            <li><a href="https://beian.miit.gov.cn" rel="external nofollow" target="_blank">萌ICP备20212016号</a></li>
                             
                         </div>
                     </ul>
                 </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
             </div>
         </div>
     </div>
@@ -377,9 +384,16 @@
 
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
-<script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
 
-<script async src="/js/candy.min.js"></script>
+
+
 
     <script defer src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
     
