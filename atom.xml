@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-11-06T00:52:02.865Z</updated>
+  <updated>2021-11-07T14:19:39.161Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TypeError:this.getOptions is not a function</title>
+    <link href="http://example.com/2021/11/07/2021-11-07-webpack%E4%B8%AD%E6%89%93%E5%8C%85css%E7%9A%84%E5%9D%91/"/>
+    <id>http://example.com/2021/11/07/2021-11-07-webpack%E4%B8%AD%E6%89%93%E5%8C%85css%E7%9A%84%E5%9D%91/</id>
+    <published>2021-11-07T03:29:37.000Z</published>
+    <updated>2021-11-07T14:19:39.161Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="webpack-中打包-css、less、sass文件的坑"><a href="#webpack-中打包-css、less、sass文件的坑" class="headerlink" title="webpack 中打包 css、less、sass文件的坑"></a>webpack 中打包 css、less、sass文件的坑</h2><p>vscode用import语法引入css文件不显示css路径：安装一个路径显示插件即可，推荐使用<a href="https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete">Path Autocomplete</a>即可解决</p><p>原本安装好css-loader准备用webpack打包css文件时出现一堆底层报错说<code>TypeError: this.getOptions is not a function</code></p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ERROR <span class="keyword">in</span> ./src/css/index.css</span><br><span class="line">Module build failed (from ./node_modules/style-loader/dist/cjs.js):</span><br><span class="line">TypeError: this.getOptions is not a <span class="keyword">function</span></span><br><span class="line">    at Object.loader (C:\Users\12071\Desktop\练习\webpack-test\node_modules\style-loader\dist\index.js:19:24)</span><br><span class="line"> @ ./src/js/app.js 8:0-25</span><br></pre></td></tr></table></figure><p>原因：loader版本不匹配</p><p>解决方案：安装配套版本的style-loader和css-loader</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//安装2.0版本的style-loader</span><br><span class="line">npm i style-loader@2.0.0</span><br><span class="line"></span><br><span class="line">//安装5.2.7版本的css-loader</span><br><span class="line">npm i css-loader@5.2.7</span><br></pre></td></tr></table></figure><p><a href="https://stackoverflow.com/questions/68580273/type-error-this-getoptions-is-not-a-function-for-style-loader">stackoverflow YYDS</a></p><p>less文件无法打包</p><p>原因：less-loader版本过高</p><p>解决方案：安装低于5.0版本的less-loader</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install less-loader@5.0 -D</span><br></pre></td></tr></table></figure><p><a href="https://stackoverflow.com/questions/66792368/less-files-not-getting-picked-up-by-less-loader/66793018#66793018">stackoverflow YYDS</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="报错处理" scheme="http://example.com/categories/%E6%8A%A5%E9%94%99%E5%A4%84%E7%90%86/"/>
+    
+    
+    <category term="tools" scheme="http://example.com/tags/tools/"/>
+    
+  </entry>
   
   <entry>
     <title>深入浅出Promise</title>
@@ -465,30 +489,6 @@
     
     
     <category term="code" scheme="http://example.com/tags/code/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>没出息的一天</title>
-    <link href="http://example.com/2021/09/20/2021-09-20-%E6%B2%A1%E5%87%BA%E6%81%AF%E7%9A%84%E4%B8%80%E5%A4%A9/"/>
-    <id>http://example.com/2021/09/20/2021-09-20-%E6%B2%A1%E5%87%BA%E6%81%AF%E7%9A%84%E4%B8%80%E5%A4%A9/</id>
-    <published>2021-09-20T14:21:09.000Z</published>
-    <updated>2021-09-26T12:02:40.196Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>今天又是没出息的一天，晚上在万达吃烤肉等将近两个小时。吃着烤肉不知道怎么的聊起了家事，中午奶奶给我打电话说要怕我没钱要给我打一千块钱当生活费。当时我极力说不要，自己其实有生活费，内心里早已破防。情绪在吃烤肉的时候爆发了，一边忍着不让眼泪流出来一边在吃。旁边的店员走过，向我投来疑惑的目光，真丢人。我的性格从来都是报喜不报忧的，自己本身过的再苦再累也不想让家里人知道让他们担心，习惯了一个人排解。每次一想到奶奶快八十的人了，自己还让她担心这担心那的就觉得对不起他。我知道，自己作为家族里当二个上大学的，一直让她很骄傲。我要承载着她的希望，过的越来越好，不能让她看到自己难过，落魄的一面。</p><p>学校心理咨询室的老师说我内心没有力量支撑，仔细想想确实有道理。从八个月大就留守在家，成长过程中最亲近的人就是奶奶还有姑姑。每次遇到困难、面临重要时刻都会想到不能让她们失望。对于父亲母亲心里仅有一点感情，体会不到父爱母爱。对于父亲憎恨的感情更多，90%的苦难都是因为他造成的，可以说毫无责任感。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    <category term="随笔" scheme="http://example.com/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-    <category term="live" scheme="http://example.com/tags/live/"/>
     
   </entry>
   
