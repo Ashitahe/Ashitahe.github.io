@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="tools" />
+    <meta name="keywords" content="vue" />
   
   <meta name="description" content="VUE的数据代理原理12345678910&lt;div id&#x3D;&quot;app&quot;&gt;    &amp;#123;&amp;#123;msg&amp;#125;&amp;#125;&lt;&#x2F;div&gt;&#x2F;&#x2F;最简单的Vue对象const vm &#x3D; new Vue(&amp;#123;    el:&amp;#x27;#app&amp;#x27;,    data:&amp;#123;        msg:&amp;#x27;I love you，as">
 <meta property="og:type" content="article">
@@ -24,9 +24,9 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
 <meta property="article:published_time" content="2021-11-07T23:54:23.000Z">
-<meta property="article:modified_time" content="2021-11-08T12:10:56.985Z">
+<meta property="article:modified_time" content="2021-11-08T12:13:15.848Z">
 <meta property="article:author" content="Asuhe">
-<meta property="article:tag" content="tools">
+<meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
 <meta name="twitter:site" content="@null">
@@ -186,7 +186,7 @@
         </header>
         <div class="kratos-post-content">
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                本文最后编辑于 <time datetime="1636373456985"></time> 前，其中的内容可能需要更新。
+                本文最后编辑于 <time datetime="1636373595848"></time> 前，其中的内容可能需要更新。
             </div>
             
                 <div class="kratos-post-inner-toc">
@@ -323,7 +323,7 @@
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    <a class="tag-none-link" href="/tags/tools/" rel="tag">tools</a>
+                    <a class="tag-none-link" href="/tags/vue/" rel="tag">vue</a>
                 </div>
                 <div class="pull-date">
                 <span>最后编辑：2021-11-08</span>
@@ -338,6 +338,10 @@
                 <a title=" TypeError:this.getOptions is not a function" href="/2021/11/07/2021-11-07-webpack中打包css的坑/">&lt; 上一篇</a>
             </div>
             
+            
+            <div class="nav-next clearfix">
+                <a title=" const 和 Object.freeze()" href="/2021/11/08/2021-11-08-const-和-Object.freeze()/">下一篇 &gt;</a>
+            </div>
             
         </nav>
     
@@ -406,7 +410,7 @@
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%A5%E9%94%99%E5%A4%84%E7%90%86/">报错处理</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%A5%E9%94%99%E5%A4%84%E7%90%86/">报错处理</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">5</span></li></ul>
   </aside>
 
 
@@ -415,7 +419,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/BOM/" style="font-size: 0.7em;">BOM</a> <a href="/tags/CN/" style="font-size: 0.7em;">CN</a> <a href="/tags/CS/" style="font-size: 0.7em;">CS</a> <a href="/tags/DOM/" style="font-size: 0.6em;">DOM</a> <a href="/tags/Web-API/" style="font-size: 0.6em;">Web API</a> <a href="/tags/code/" style="font-size: 0.7em;">code</a> <a href="/tags/javascript/" style="font-size: 0.8em;">javascript</a> <a href="/tags/live/" style="font-size: 0.75em;">live</a> <a href="/tags/tips/" style="font-size: 0.65em;">tips</a> <a href="/tags/tools/" style="font-size: 0.7em;">tools</a>
+        <a href="/tags/BOM/" style="font-size: 0.7em;">BOM</a> <a href="/tags/CN/" style="font-size: 0.7em;">CN</a> <a href="/tags/CS/" style="font-size: 0.7em;">CS</a> <a href="/tags/DOM/" style="font-size: 0.6em;">DOM</a> <a href="/tags/Web-API/" style="font-size: 0.6em;">Web API</a> <a href="/tags/code/" style="font-size: 0.7em;">code</a> <a href="/tags/javascript/" style="font-size: 0.8em;">javascript</a> <a href="/tags/live/" style="font-size: 0.75em;">live</a> <a href="/tags/tips/" style="font-size: 0.65em;">tips</a> <a href="/tags/tools/" style="font-size: 0.65em;">tools</a> <a href="/tags/vue/" style="font-size: 0.6em;">vue</a>
       </div>
   </aside>
 
@@ -426,6 +430,12 @@
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2021/11/08/2021-11-08-const-%E5%92%8C-Object.freeze()/"><i class="fa  fa-book"></i> const 和 Object.freeze()</a>
+            
+          
         
           
           
@@ -452,11 +462,7 @@
           
         
           
-          
-            <a class="list-group-item" href="/2021/11/02/2021-11-02-%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81/"><i class="fa  fa-book"></i> 身份认证技术</a>
             
-          
-        
           
             
           
