@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
+  <title>VUE基础(一) | Asuhe</title>
+  <meta name="author" content="Asuhe" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="tools" />
+  
+  <meta name="description" content="VUE的数据代理原理12345678910&lt;div id&#x3D;&quot;app&quot;&gt;    &amp;#123;&amp;#123;msg&amp;#125;&amp;#125;&lt;&#x2F;div&gt;&#x2F;&#x2F;最简单的Vue对象const vm &#x3D; new Vue(&amp;#123;    el:&amp;#x27;#app&amp;#x27;,    data:&amp;#123;        msg:&amp;#x27;I love you，as">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VUE基础(一)">
+<meta property="og:url" content="http://example.com/2021/11/08/2021-11-08-VUE%E5%9F%BA%E7%A1%80(%E4%B8%80)/index.html">
+<meta property="og:site_name" content="Asuhe">
+<meta property="og:description" content="VUE的数据代理原理12345678910&lt;div id&#x3D;&quot;app&quot;&gt;    &amp;#123;&amp;#123;msg&amp;#125;&amp;#125;&lt;&#x2F;div&gt;&#x2F;&#x2F;最简单的Vue对象const vm &#x3D; new Vue(&amp;#123;    el:&amp;#x27;#app&amp;#x27;,    data:&amp;#123;        msg:&amp;#x27;I love you，as">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
+<meta property="article:published_time" content="2021-11-07T23:54:23.000Z">
+<meta property="article:modified_time" content="2021-11-08T12:10:56.985Z">
+<meta property="article:author" content="Asuhe">
+<meta property="article:tag" content="tools">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
+<meta name="twitter:site" content="@null">
+  <link rel="alternate" href="atom.xml" type="application/atom+xml">
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" type="text/css" media="all">
+  
+  
+  <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.min.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/friends/"><i class="fa fa-paw"></i>友链</a></li>
+                                    
+                                
+                                    
+                                        <li>
+                                            <a><i class="fa fa-flask"></i>Lab</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://kemira543.gitbook.io/computer-notes/ji-suan-ji-ji-zu-cheng-yuan-li/zong-xian-xi-tong">GitBook</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://space.bilibili.com/504130688">Bilibili</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        <li><a href="/about/"><i class="fa fa-paper-plane"></i>关于我</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/atom.xml"><i class="fa fa-rss"></i>RSS订阅</a></li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">Asuhe</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>Asuhe</h2> <br />
+                        <span>Born in poverty, died of numbness</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article>
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center">VUE基础(一)</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><i class="fa fa-calendar"></i> 2021-11-08</li>
+                <li><i class="fa fa-user"></i> 作者 Asuhe</li>
+                <li>
+                    <i class="fa fa-edit"></i> 
+                    
+                    
+                        ~6.03K
+                    
+                    字
+                </li>
+                
+                    <li id="/2021/11/08/2021-11-08-VUE%E5%9F%BA%E7%A1%80(%E4%B8%80)/" class="leancloud_visitors" data-flag-title="VUE基础(一)">
+                        <i class="fa fa-eye"></i>
+                        <span class="leancloud-visitors-count"> </span> 次阅读
+                    </li>
+                    
+                        <li>
+                            <i class="fa fa-commenting-o"></i>
+                            <span data-xid="/2021/11/08/2021-11-08-VUE%E5%9F%BA%E7%A1%80(%E4%B8%80)/" class="waline-comment-count"> </span> 条评论
+                        </li>
+                    
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                本文最后编辑于 <time datetime="1636373456985"></time> 前，其中的内容可能需要更新。
+            </div>
+            
+                <div class="kratos-post-inner-toc">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#VUE%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%90%86%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">VUE的数据代理原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-defineProperty"><span class="toc-number">1.1.</span> <span class="toc-text">Object.defineProperty()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#computed%E5%92%8Cwatch"><span class="toc-number">2.</span> <span class="toc-text">computed和watch</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#computed"><span class="toc-number">2.1.</span> <span class="toc-text">computed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#watch"><span class="toc-number">2.2.</span> <span class="toc-text">watch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#computed-%E5%92%8C-watch-%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.3.</span> <span class="toc-text">computed 和 watch 最重要的区别</span></a></li></ol></li></ol>
+                </div>
+            
+            <hr />
+            <h2 id="VUE的数据代理原理"><a href="#VUE的数据代理原理" class="headerlink" title="VUE的数据代理原理"></a>VUE的数据代理原理</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    &#123;&#123;msg&#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"><span class="comment">//最简单的Vue对象</span></span><br><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    <span class="attr">el</span>:<span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    <span class="attr">data</span>:&#123;</span><br><span class="line">        <span class="attr">msg</span>:<span class="string">&#x27;I love you，asuka&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>我们都知道当我们使用模板语法去输出msg时并不是直接输出data的msg，而是经过 vm 这层代理输出的。 </p>
+<p>我们在模板中输出的所有数据、方法都是经过 vm 代理的，而不是直接使用配置对象中东西。同样地，当我们修改 msg或者方法时，我们修改的也是 data 、methods中的东西。而不是 vm 上挂载的，修改结果将直接影响到配置对象中的值。</p>
+<p>那么这种数据代理是如何做到的呢，答案就是 Object.defineProperty()方法。</p>
+<h3 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty()"></a>Object.defineProperty()</h3><p>这个方法可以添加或修改一个属性，将其变为<strong>响应式属性</strong>。什么叫响应式属性呢，就是随着你源属性值的变化。它的属性值也跟随着变化。举个简单的例子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="attr">firstName</span>:<span class="string">&#x27;zhang&#x27;</span>,</span><br><span class="line">    <span class="attr">lastName</span>:<span class="string">&#x27;san&#x27;</span>,</span><br><span class="line">    <span class="attr">fullName</span>:<span class="string">&#x27;zhang-san&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj.fullName) <span class="comment">//zhang-san</span></span><br><span class="line"></span><br><span class="line">obj.firstName = <span class="string">&#x27;li&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.fullName) <span class="comment">//zhang-san</span></span><br><span class="line"><span class="comment">//我们改变firstName,合理的是输出是 li-san。但是输出的依然是zhang-san，也就是说fullName没有自动跟随firstName变化</span></span><br><span class="line">--------------</span><br><span class="line"><span class="comment">//如果我们将fullName变成响应式属性，那么上述需求就额能实现</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj,<span class="string">&#x27;fullName&#x27;</span>,&#123;</span><br><span class="line">    <span class="function"><span class="title">get</span>(<span class="params"></span>)</span>&#123; <span class="comment">//每次输出fullName属性时，get函数就会被调用</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.firstName + <span class="string">&#x27;-&#x27;</span> + <span class="built_in">this</span>.lastName; </span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">set</span>(<span class="params">newVal</span>)</span>&#123; <span class="comment">//每次修改fullName属性时，set函数就会传入修改后的新值，然后被调用</span></span><br><span class="line">        <span class="keyword">let</span> arr = newVal.split(<span class="string">&#x27;-&#x27;</span>);</span><br><span class="line">        <span class="built_in">this</span>.firstName = arr[<span class="number">0</span>];</span><br><span class="line">        <span class="built_in">this</span>.lastName = arr[<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(obj.fullName); <span class="comment">//zhang-san</span></span><br><span class="line"></span><br><span class="line">obj.firstName = <span class="string">&#x27;li&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.fullName); <span class="comment">//li-san</span></span><br><span class="line"></span><br><span class="line">obj.fullName = <span class="string">&#x27;xiao-xiangxiang&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.firstName); <span class="comment">//xiao</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.lastName); <span class="comment">//xiangxiang</span></span><br></pre></td></tr></table></figure>
+
+<p>实际上我们可以 set 和 get 函数上做任何我们想做的事情。根据这个特性我们可以想到 vm 是如何做数据代理的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//模拟数据代理</span></span><br><span class="line"><span class="keyword">let</span> vm = &#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> data = &#123;<span class="attr">msg</span>:<span class="string">&#x27;asuka&#x27;</span>&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(vm,<span class="string">&#x27;msg&#x27;</span>,&#123;</span><br><span class="line">    <span class="function"><span class="title">get</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> data.msg;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">set</span>(<span class="params">newVal</span>)</span>&#123;</span><br><span class="line">        data.msg = newVal;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到 vm 原本就是个空对象，但是我们使用了Object.defineProperty()方法后，它就增添了一个属性<code>msg</code>，每当这个<code>msg</code>被输出时就会自动调用<code>get</code>函数，被修改时就会自动调用<code>set</code>函数</p>
+<p>当我们只设置 get 函数进行操作时在 vue 中实际上就是单向数据绑定基础，而我们同时设置好 get 和 set 函数时在 vue 中就变成了双向数据绑定的基础</p>
+<h2 id="computed和watch"><a href="#computed和watch" class="headerlink" title="computed和watch"></a>computed和watch</h2><h3 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h3><p>我们把上例中<code>obj</code>变量拿过来，在这个变量中我们定义了<code>fullName</code>属性。实际上这个属性是由<code>firstName</code>和<code>lastName</code>这两个源头属性组合而成的。既然它是由其它属性组合而成的，那么我们就可以在配置对象的 data 中省略它的定义，直接在 vue 的模板中动态生成。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&#x27;app&#x27;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 第一种方法 直接使用字符串拼接它 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;firstName&#125;&#125; + &#x27;-&#x27; + &#123;&#123;lastName&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 第二种方法 用函数调用拼接,本质上和拼接字符串是一样的 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>getFullName()<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">    <span class="attr">el</span>:<span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="attr">firstName</span>:<span class="string">&#x27;zhang&#x27;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="attr">lastName</span>:<span class="string">&#x27;san&#x27;</span></span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    &#125;,</span></span><br><span class="line"><span class="javascript">    <span class="attr">methods</span>:&#123;</span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">getFullName</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> <span class="built_in">this</span>.firsName + <span class="string">&#x27;-&#x27;</span> + <span class="built_in">this</span>.lastName</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript">&#125;)</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>当我们使用字符串拼接它有一个很大的缺点就是，一旦数据多了起来。拼接字符串这种方法维护起来十分麻烦。而在 vue 它提供了一种计算属性的方式让我们可以更加高效地得到这个由其它属性组合而来的属性。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&#x27;app&#x27;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 第三种方法 计算属性 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;fullName&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">    <span class="attr">el</span>:<span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="attr">firstName</span>:<span class="string">&#x27;zhang&#x27;</span>,</span></span><br><span class="line"><span class="javascript">            <span class="attr">lastName</span>:<span class="string">&#x27;san&#x27;</span></span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    &#125;,</span></span><br><span class="line"><span class="javascript">    <span class="comment">//计算出fullName，这个fullName可以不预先定义，会被动态创建</span></span></span><br><span class="line"><span class="javascript">    <span class="attr">computed</span>:&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">fullName</span>:&#123;</span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="title">get</span>(<span class="params"></span>)</span>&#123; <span class="comment">//类似Object.defineProperty()</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">return</span> <span class="built_in">this</span>.firstName + <span class="string">&#x27;-&#x27;</span> + <span class="built_in">this</span>.lastName;</span></span><br><span class="line"><span class="javascript">            &#125;,</span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="title">set</span>(<span class="params">newVal</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="comment">/* code */</span></span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="comment">//当computed只使用 get 函数时，可以使用简写形式</span></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="title">fullName</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    	<span class="keyword">return</span> <span class="built_in">this</span>.firstName + <span class="string">&#x27;-&#x27;</span> + <span class="built_in">this</span>.lastName</span></span><br><span class="line"><span class="javascript">	&#125;</span></span><br><span class="line"><span class="javascript">&#125;)</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>表面上看起来使用<strong>computed</strong>去计算一个属性和第一种、第二种方法比起来貌似并没有什么区别，但是实际上用计算属性的方式去获取一个全新的响应式属性效率更高，因为它会被缓存起来。当<code>fullName</code>被多次使用时，它将会直接从缓存中拿出来使用不会多次使用<code>this.firstName + &#39;-&#39; + this.lastName</code>去拼接字符串。</p>
+<p>由上我们可以总结出computed的特性：</p>
+<ul>
+<li>可以动态创建出一个属性，不用预先定义属性</li>
+<li>创建出来的这个属性会被缓存，当属性的值不改变时使用该属性将会直接从缓存中拿出，提高效率</li>
+</ul>
+<h3 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h3><p>除了上面三种方法来获得<code>fullName</code>属性我还有第四种方法得到<code>fullName</code>。那就是使用<code>watch</code>监视属性。使用监视的前提是这个属性必须预先存在，也就是说我们必须在data里预先就有需要监视的属性，然后才能去对它使用<code>watch</code>监视。这是和<strong>computed</strong>的一个重要区别。继续使用上面的例子，我们只需要在data后面在跟一个watch属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="attr">firstName</span>:<span class="string">&#x27;zhang&#x27;</span>,</span><br><span class="line">        <span class="attr">lastName</span>:<span class="string">&#x27;san&#x27;</span>,</span><br><span class="line">        <span class="attr">fullName</span>:<span class="string">&#x27;&#x27;</span> <span class="comment">//使用watch时fullName必须预先存在</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line"><span class="attr">watch</span>:&#123;<span class="comment">//对象内放置被监视的属性</span></span><br><span class="line">    <span class="attr">firstName</span>:&#123; </span><br><span class="line">		<span class="function"><span class="title">handler</span>(<span class="params">newVal,oldVal</span>)</span>&#123;  <span class="comment">//这里我们使用handler函数回调，handler是固定写法不可更改,hander会传入被监视属性的新值和旧值两个参数</span></span><br><span class="line">            <span class="comment">//只有当firstName这个属性发生变化时，handler回调才会执行</span></span><br><span class="line">            <span class="built_in">this</span>.fullName = newVal + <span class="string">&#x27;-&#x27;</span> + <span class="built_in">this</span>.lastName;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">immediat</span>:<span class="literal">true</span> <span class="comment">//配置了immediate 无论被监视属性是否变化都强制执行一次handler回调</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//第二种watch写法  在Vue()的外部使用$watch方法监视lastName属性</span></span><br><span class="line">vm.$watch(<span class="string">&#x27;lastName&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">newVal,oldVal</span>)</span>&#123;</span><br><span class="line">    fullName = <span class="built_in">this</span>.firstName + <span class="string">&#x27;-&#x27;</span> + newVal;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>通过上面例子我们可以体会到watch的特点：</p>
+<ul>
+<li>被监视的属性必须预先存在</li>
+<li>当被监视的属性不发生变化时，handler函数其实不会被调用</li>
+<li>可以使用 immediat:true 强制执行 handler 回调</li>
+</ul>
+<h3 id="computed-和-watch-最重要的区别"><a href="#computed-和-watch-最重要的区别" class="headerlink" title="computed 和 watch 最重要的区别"></a>computed 和 watch 最重要的区别</h3><p>实际上 computed 和 watch 有一个最重要的区别就是，<strong>computed里面只能获取到同步的数据，而不能获取到异步的数据。而 watch 里面同步异步的数据都可以获取到。</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;&#123;&#123;fullName&#125;&#125;&lt;<span class="regexp">/p&gt;  /</span><span class="regexp">/ 1s后这个fullName可以被渲染出来 输出:嘿嘿</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">watch:&#123;</span></span><br><span class="line"><span class="regexp">    firstName:&#123;</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/这个对象是一个配置对象</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/当数据发生改变的时候会自动调用handler回调</span></span><br><span class="line"><span class="regexp">        handler(newVal,oldVal)&#123;</span></span><br><span class="line"><span class="regexp">            </span></span><br><span class="line"><span class="regexp">            setTimeout(() =&gt; &#123;</span></span><br><span class="line"><span class="regexp">                /</span><span class="regexp">/ 异步修改数据</span></span><br><span class="line"><span class="regexp">                this.fullName = &#x27;嘿嘿&#x27;;</span></span><br><span class="line"><span class="regexp">            &#125;, 1000);</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;&#123;&#123;fullName&#125;&#125;&lt;<span class="regexp">/p&gt;  /</span><span class="regexp">/ 1s后这个fullName不能被渲染出来 fullName的值为null,无法得到字符串 哈哈</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">computed:&#123;</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/计算属性的完整写法</span></span><br><span class="line"><span class="regexp">    fullName:&#123;</span></span><br><span class="line"><span class="regexp">        get()&#123;</span></span><br><span class="line"><span class="regexp">            let n = null;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/异步修改数据</span></span><br><span class="line"><span class="regexp">            setTimeout(()=&gt;&#123;</span></span><br><span class="line"><span class="regexp">                n = &#x27;哈哈&#x27;;</span></span><br><span class="line"><span class="regexp">            &#125;)</span></span><br><span class="line"><span class="regexp">            return n;</span></span><br><span class="line"><span class="regexp">        &#125;,</span></span><br><span class="line"><span class="regexp">         /</span><span class="regexp">/ 当计算属性的数据能被修改时候使用（表单类元素在双向绑定计算属性值）</span></span><br><span class="line"><span class="regexp">        set(val)&#123;</span></span><br><span class="line"><span class="regexp">			/</span>* code */</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5>本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://example.com/2021/11/08/2021-11-08-VUE%E5%9F%BA%E7%A1%80(%E4%B8%80)/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://example.com/2021/11/08/2021-11-08-VUE%E5%9F%BA%E7%A1%80(%E4%B8%80)/";
+            const title         = "「VUE基础(一)」";
+            const excerpt       = `VUE的数据代理原理12345678910&lt;div id=&quot;app&quot;&gt;    &#123;&#123;msg&#125;&#125;&lt;/div&gt;//最简单的Vue对象const vm = n...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/tools/" rel="tag">tools</a>
+                </div>
+                <div class="pull-date">
+                <span>最后编辑：2021-11-08</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" TypeError:this.getOptions is not a function" href="/2021/11/07/2021-11-07-webpack中打包css的坑/">&lt; 上一篇</a>
+            </div>
+            
+            
+        </nav>
+    
+    
+        <div id="w-comments" class="post-comments"></div>
+<script>
+    var load_comm = () => {
+        const init = () => {
+            new Waline(Object.assign({
+                el: '#w-comments',
+                path: '/2021/11/08/2021-11-08-VUE%E5%9F%BA%E7%A1%80(%E4%B8%80)/'
+            }, JSON.parse('{"serverURL":"https://blog-api-4f5uxbeq9-ashitahe.vercel.app/","dark":"auto","login":"enable","avatar":"retro","visitor":true}')));
+        }
+        if (typeof Waline == 'undefined') {
+            const src = 'https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js';
+            $.getScript(src, init);
+        } else {
+            init();
+        }
+    };
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://waline.js.org/">comments powered by Waline.</a></noscript>
+
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="https://i.loli.net/2021/10/28/OmpU5i7knDQCSoH.jpg" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center">等待明日的自杀愿望者</p>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix">
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar"></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#VUE%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BB%A3%E7%90%86%E5%8E%9F%E7%90%86"><span class="toc-text">VUE的数据代理原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-defineProperty"><span class="toc-text">Object.defineProperty()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#computed%E5%92%8Cwatch"><span class="toc-text">computed和watch</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#computed"><span class="toc-text">computed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#watch"><span class="toc-text">watch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#computed-%E5%92%8C-watch-%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">computed 和 watch 最重要的区别</span></a></li></ol></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%A5%E9%94%99%E5%A4%84%E7%90%86/">报错处理</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">5</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/BOM/" style="font-size: 0.7em;">BOM</a> <a href="/tags/CN/" style="font-size: 0.7em;">CN</a> <a href="/tags/CS/" style="font-size: 0.7em;">CS</a> <a href="/tags/DOM/" style="font-size: 0.6em;">DOM</a> <a href="/tags/Web-API/" style="font-size: 0.6em;">Web API</a> <a href="/tags/code/" style="font-size: 0.7em;">code</a> <a href="/tags/javascript/" style="font-size: 0.8em;">javascript</a> <a href="/tags/live/" style="font-size: 0.75em;">live</a> <a href="/tags/tips/" style="font-size: 0.65em;">tips</a> <a href="/tags/tools/" style="font-size: 0.7em;">tools</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2021/11/08/2021-11-08-VUE%E5%9F%BA%E7%A1%80(%E4%B8%80)/"><i class="fa  fa-book"></i> VUE基础(一)</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/11/07/2021-11-07-webpack%E4%B8%AD%E6%89%93%E5%8C%85css%E7%9A%84%E5%9D%91/"><i class="fa  fa-book"></i> TypeError:this.getOptions is not a function</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/11/05/2021-11-05-%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAPromise/"><i class="fa  fa-book"></i> 深入浅出Promise</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/11/03/2021-11-03-%E9%87%8D%E7%BB%98%E4%B8%8E%E5%9B%9E%E6%B5%81/"><i class="fa  fa-book"></i> 重绘与回流</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/11/02/2021-11-02-%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81/"><i class="fa  fa-book"></i> 身份认证技术</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        <li><a href="mailto:sphinx@asuhe.fun"><i class="fa fa-envelope"></i></a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/Ashitahe"><i class="fa fa-github"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="/atom.xml"><i class="fa fa-rss"></i></a></li>
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2021 Asuhe 版权所有.</li>
+                            <li>本站已在风雨飘摇中运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <!-- <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li> -->
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by Asuhe.</li>
+                        </div>
+                        <div>
+                            <!-- <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li> -->
+                            
+                        </div>
+                        <div>
+                            <li><a href="https://icp.gov.moe" rel="external nofollow" target="_blank">萌ICP备20212016号</a></li>
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+
+
+    <script defer src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="6776797453"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+    <script defer src="/js/kr-dark.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"superSample":2,"hOffset":40,"vOffset":-20,"position":"right","width":200,"height":400},"mobile":{"show":false,"scale":0.2},"react":{"opacityDefault":0.7,"opacityOnHover":0.5},"player":{"meting":true},"log":false});</script></body>
+</html>
