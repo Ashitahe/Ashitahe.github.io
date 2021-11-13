@@ -24,7 +24,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
 <meta property="article:published_time" content="2021-11-12T09:24:27.000Z">
-<meta property="article:modified_time" content="2021-11-12T10:42:24.258Z">
+<meta property="article:modified_time" content="2021-11-12T12:52:03.205Z">
 <meta property="article:author" content="Asuhe">
 <meta property="article:tag" content="javascript">
 <meta name="twitter:card" content="summary">
@@ -166,7 +166,7 @@
                     <i class="fa fa-edit"></i> 
                     
                     
-                        ~3.99K
+                        ~3.96K
                     
                     字
                 </li>
@@ -186,7 +186,7 @@
         </header>
         <div class="kratos-post-content">
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                本文最后编辑于 <time datetime="1636713744258"></time> 前，其中的内容可能需要更新。
+                本文最后编辑于 <time datetime="1636721523205"></time> 前，其中的内容可能需要更新。
             </div>
             
                 <div class="kratos-post-inner-toc">
@@ -202,7 +202,7 @@
 <li>确定 this 指向</li>
 <li>确定作用域链</li>
 </ul>
-<p>有了这三步以后，我们的代码才能执行。其中第一步的生成变量对象实际上就是把我们声明的那些 var 变量 和函数都打包装进一个对象里面。我们都知道在script里面最顶级的对象是 window 对象，在全局执行上下文运行的时候那些在全局作用域下的 var变量和声明的函数都会收集进 window对象里，<strong>window就是一个变量对象</strong>。</p>
+<p>有了这三步以后，我们的代码才能执行。其中第一步的生成变量对象实际上就是把我们声明的那些 var 变量 和函数都打包装进一个对象里面。在全局执行上下文运行的时候那些在全局作用域下的 var变量和声明的函数都会收集进 global 对象里，<strong>global就是一个全局变量对象</strong>。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>);</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://i.loli.net/2021/11/12/JgDQXyECYvZdj7w.png" alt="var a在全局作用域内"></p>
@@ -360,6 +360,10 @@
             </div>
             
             
+            <div class="nav-next clearfix">
+                <a title=" 一文搞定闭包" href="/2021/11/12/2021-11-12-一文搞定闭包/">下一篇 &gt;</a>
+            </div>
+            
         </nav>
     
     
@@ -427,7 +431,7 @@
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%A5%E9%94%99%E5%A4%84%E7%90%86/">报错处理</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%A5%E9%94%99%E5%A4%84%E7%90%86/">报错处理</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">5</span></li></ul>
   </aside>
 
 
@@ -447,6 +451,12 @@
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2021/11/12/2021-11-12-%E4%B8%80%E6%96%87%E6%90%9E%E5%AE%9A%E9%97%AD%E5%8C%85/"><i class="fa  fa-book"></i> 一文搞定闭包</a>
+            
+          
         
           
           
@@ -473,11 +483,7 @@
           
         
           
-          
-            <a class="list-group-item" href="/2021/11/08/2021-11-08-const-%E5%92%8C-Object.freeze()/"><i class="fa  fa-book"></i> const 和 Object.freeze()</a>
             
-          
-        
           
             
           
