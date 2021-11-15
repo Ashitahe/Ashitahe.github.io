@@ -15,16 +15,16 @@
   
     <meta name="keywords" content="vue" />
   
-  <meta name="description" content="Vue的生命周期根据官网给的图可以大致将Vue的生命周期分为四个阶段：初始化阶段、挂载阶段、更新阶段、销毁阶段。而每个阶段又可以分为前、后两个阶段。  初始化阶段beforeCreate() 钩子可以让我们在初始化之前进行一些操作。在这个阶段，数据还没有被代理到我们创建的实例中，所以此时我们无法获取data里的数据。 created() 钩子可以让我们在初始化完成时进行一些操作。在这个阶段，数据完">
+  <meta name="description" content="Vue的生命周期Vue总共有11个生命周期，下文只介绍8个生命周期 根据官网给的图可以大致将Vue的生命周期分为四个阶段：初始化阶段、挂载阶段、更新阶段、销毁阶段。而每个阶段又可以分为前、后两个阶段。  初始化阶段beforeCreate() 钩子可以让我们在初始化之前进行一些操作。在这个阶段，数据还没有被代理到我们创建的实例中，所以此时我们无法获取data里的数据。 created() 钩子可以">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VUE基础(二)">
 <meta property="og:url" content="http://example.com/2021/11/09/2021-11-09-VUE%E5%9F%BA%E7%A1%80(%E4%BA%8C)/index.html">
 <meta property="og:site_name" content="Asuhe">
-<meta property="og:description" content="Vue的生命周期根据官网给的图可以大致将Vue的生命周期分为四个阶段：初始化阶段、挂载阶段、更新阶段、销毁阶段。而每个阶段又可以分为前、后两个阶段。  初始化阶段beforeCreate() 钩子可以让我们在初始化之前进行一些操作。在这个阶段，数据还没有被代理到我们创建的实例中，所以此时我们无法获取data里的数据。 created() 钩子可以让我们在初始化完成时进行一些操作。在这个阶段，数据完">
+<meta property="og:description" content="Vue的生命周期Vue总共有11个生命周期，下文只介绍8个生命周期 根据官网给的图可以大致将Vue的生命周期分为四个阶段：初始化阶段、挂载阶段、更新阶段、销毁阶段。而每个阶段又可以分为前、后两个阶段。  初始化阶段beforeCreate() 钩子可以让我们在初始化之前进行一些操作。在这个阶段，数据还没有被代理到我们创建的实例中，所以此时我们无法获取data里的数据。 created() 钩子可以">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
 <meta property="article:published_time" content="2021-11-09T14:53:35.000Z">
-<meta property="article:modified_time" content="2021-11-10T14:26:15.083Z">
+<meta property="article:modified_time" content="2021-11-13T07:16:25.500Z">
 <meta property="article:author" content="Asuhe">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
@@ -166,7 +166,7 @@
                     <i class="fa fa-edit"></i> 
                     
                     
-                        ~3.41K
+                        ~3.44K
                     
                     字
                 </li>
@@ -186,7 +186,7 @@
         </header>
         <div class="kratos-post-content">
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                本文最后编辑于 <time datetime="1636554375083"></time> 前，其中的内容可能需要更新。
+                本文最后编辑于 <time datetime="1636787785500"></time> 前，其中的内容可能需要更新。
             </div>
             
                 <div class="kratos-post-inner-toc">
@@ -194,7 +194,8 @@
                 </div>
             
             <hr />
-            <h2 id="Vue的生命周期"><a href="#Vue的生命周期" class="headerlink" title="Vue的生命周期"></a>Vue的生命周期</h2><p>根据官网给的图可以大致将Vue的生命周期分为四个阶段：初始化阶段、挂载阶段、更新阶段、销毁阶段。而每个阶段又可以分为前、后两个阶段。</p>
+            <h2 id="Vue的生命周期"><a href="#Vue的生命周期" class="headerlink" title="Vue的生命周期"></a>Vue的生命周期</h2><p>Vue总共有11个生命周期，下文只介绍8个生命周期</p>
+<p>根据官网给的图可以大致将Vue的生命周期分为四个阶段：初始化阶段、挂载阶段、更新阶段、销毁阶段。而每个阶段又可以分为前、后两个阶段。</p>
 <p><img src="https://i.loli.net/2021/11/09/VJlqy2KYobWscwC.png" alt="vue生命周期"></p>
 <h3 id="初始化阶段"><a href="#初始化阶段" class="headerlink" title="初始化阶段"></a>初始化阶段</h3><p>beforeCreate() 钩子可以让我们在初始化之前进行一些操作。在这个阶段，<strong>数据还没有被代理到我们创建的实例中</strong>，所以此时我们无法获取data里的数据。</p>
 <p>created() 钩子可以让我们在初始化完成时进行一些操作。在这个阶段，<strong>数据完成了代理</strong>，此时我们可以获取 data中的数据。</p>
@@ -203,7 +204,7 @@
 
 
 <h3 id="挂载阶段"><a href="#挂载阶段" class="headerlink" title="挂载阶段"></a>挂载阶段</h3><p>beforeMount()钩子可以让我们在DOM实际渲染到页面前进行一些操作，<strong>这时挂载点的数据已经被渲染好了，但还没有实际插入页面，我们无法获取到DOM节点。</strong></p>
-<p>mounted()钩子可以让我们的在DOM实际渲染到页面后进行一些操作，<strong>此时DOM节点已经挂载，我们可以获取到DOM节点。</strong>通常这时我们会向服务器发送请求获得数据。</p>
+<p>mounted()钩子可以让我们的在DOM实际渲染到页面后进行一些操作，<strong>此时DOM节点已经挂载，我们可以获取到DOM节点。</strong>通常这时我们会向服务器发送请求获得数据、挂载事件等等</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">ref</span>=<span class="string">&quot;pp&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	<span class="attr">el</span>:<span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">beforMount</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.$refs.pp) <span class="comment">//undefined</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">mounted</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.$refs.pp) <span class="comment">//&lt;p ref=&quot;pp&quot;&gt;&lt;/p&gt;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 
@@ -294,9 +295,10 @@
             const twitterBase   = "https://twitter.com/intent/tweet?";
             const hostUrl       = "http://example.com/2021/11/09/2021-11-09-VUE%E5%9F%BA%E7%A1%80(%E4%BA%8C)/";
             const title         = "「VUE基础(二)」";
-            const excerpt       = `Vue的生命周期根据官网给的图可以大致将Vue的生命周期分为四个阶段：初始化阶段、挂载阶段、更新阶段、销毁阶段。而每个阶段又可以分为前、后两个阶段。
+            const excerpt       = `Vue的生命周期Vue总共有11个生命周期，下文只介绍8个生命周期
+根据官网给的图可以大致将Vue的生命周期分为四个阶段：初始化阶段、挂载阶段、更新阶段、销毁阶段。而每个阶段又可以分为前、后两个阶段。
 
-初始化阶段beforeCreate() 钩子可以让我们在初始化之前进行一些操作。在...`;
+初始化阶段beforeCrea...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -318,7 +320,7 @@
                     <a class="tag-none-link" href="/tags/vue/" rel="tag">vue</a>
                 </div>
                 <div class="pull-date">
-                <span>最后编辑：2021-11-10</span>
+                <span>最后编辑：2021-11-13</span>
                 </div>
             </div>
         </footer>
@@ -402,7 +404,7 @@
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%A5%E9%94%99%E5%A4%84%E7%90%86/">报错处理</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%A5%E9%94%99%E5%A4%84%E7%90%86/">报错处理</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">5</span></li></ul>
   </aside>
 
 
@@ -411,7 +413,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/BOM/" style="font-size: 0.7em;">BOM</a> <a href="/tags/CN/" style="font-size: 0.7em;">CN</a> <a href="/tags/CS/" style="font-size: 0.7em;">CS</a> <a href="/tags/DOM/" style="font-size: 0.6em;">DOM</a> <a href="/tags/Web-API/" style="font-size: 0.6em;">Web API</a> <a href="/tags/code/" style="font-size: 0.7em;">code</a> <a href="/tags/javascript/" style="font-size: 0.8em;">javascript</a> <a href="/tags/live/" style="font-size: 0.75em;">live</a> <a href="/tags/tips/" style="font-size: 0.65em;">tips</a> <a href="/tags/tools/" style="font-size: 0.65em;">tools</a> <a href="/tags/vue/" style="font-size: 0.7em;">vue</a>
+        <a href="/tags/BOM/" style="font-size: 0.68em;">BOM</a> <a href="/tags/CN/" style="font-size: 0.68em;">CN</a> <a href="/tags/CS/" style="font-size: 0.68em;">CS</a> <a href="/tags/DOM/" style="font-size: 0.6em;">DOM</a> <a href="/tags/Web-API/" style="font-size: 0.6em;">Web API</a> <a href="/tags/code/" style="font-size: 0.68em;">code</a> <a href="/tags/javascript/" style="font-size: 0.8em;">javascript</a> <a href="/tags/live/" style="font-size: 0.76em;">live</a> <a href="/tags/tips/" style="font-size: 0.64em;">tips</a> <a href="/tags/tools/" style="font-size: 0.64em;">tools</a> <a href="/tags/vue/" style="font-size: 0.72em;">vue</a>
       </div>
   </aside>
 
@@ -422,6 +424,12 @@
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2021/11/15/2021-11-15-%E5%AF%B9key%E5%80%BC%E7%9A%84%E7%90%86%E8%A7%A3/"><i class="fa  fa-book"></i> 对key值的理解</a>
+            
+          
         
           
           
@@ -448,11 +456,7 @@
           
         
           
-          
-            <a class="list-group-item" href="/2021/11/09/2021-11-09-VUE%E5%9F%BA%E7%A1%80(%E4%BA%8C)/"><i class="fa  fa-book"></i> VUE基础(二)</a>
             
-          
-        
           
             
           

@@ -15,16 +15,16 @@
   
     <meta name="keywords" content="vue" />
   
-  <meta name="description" content="组件间通信propsprops组件是组件通信最常用最简单的方式。它使用于父子组件之间进行通信。父组件可以给子组件传递函数数据和非函数数据，当我们给子组件传递一个非函数数据通常给子组件传递的是一个父组件配置对象里的一个属性，而不是具体的属性值。子组件拿到了这个属性就是拿到了它的引用，从而可以开始操作属性值。当我们传递非函数数据时，本质上就是父组件给子组件传递数据，以供子组件使用。 当我们给子组件传递">
+  <meta name="description" content="组件间通信propsprops组件是组件通信最常用最简单的方式。它适用于父子组件之间进行通信。父组件可以给子组件传递函数数据和非函数数据，当我们给子组件传递一个非函数数据通常给子组件传递的是一个父组件配置对象里的一个属性，而不是具体的属性值。子组件拿到了这个属性就是拿到了它的引用，从而可以开始操作属性值。当我们传递非函数数据时，本质上就是父组件给子组件传递数据，以供子组件使用。 当我们给子组件传递">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VUE基础(三)">
 <meta property="og:url" content="http://example.com/2021/11/11/2021-11-11-VUE%E5%9F%BA%E7%A1%80(%E4%B8%89)/index.html">
 <meta property="og:site_name" content="Asuhe">
-<meta property="og:description" content="组件间通信propsprops组件是组件通信最常用最简单的方式。它使用于父子组件之间进行通信。父组件可以给子组件传递函数数据和非函数数据，当我们给子组件传递一个非函数数据通常给子组件传递的是一个父组件配置对象里的一个属性，而不是具体的属性值。子组件拿到了这个属性就是拿到了它的引用，从而可以开始操作属性值。当我们传递非函数数据时，本质上就是父组件给子组件传递数据，以供子组件使用。 当我们给子组件传递">
+<meta property="og:description" content="组件间通信propsprops组件是组件通信最常用最简单的方式。它适用于父子组件之间进行通信。父组件可以给子组件传递函数数据和非函数数据，当我们给子组件传递一个非函数数据通常给子组件传递的是一个父组件配置对象里的一个属性，而不是具体的属性值。子组件拿到了这个属性就是拿到了它的引用，从而可以开始操作属性值。当我们传递非函数数据时，本质上就是父组件给子组件传递数据，以供子组件使用。 当我们给子组件传递">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
 <meta property="article:published_time" content="2021-11-11T12:45:49.000Z">
-<meta property="article:modified_time" content="2021-11-11T13:05:52.199Z">
+<meta property="article:modified_time" content="2021-11-15T06:51:54.519Z">
 <meta property="article:author" content="Asuhe">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
@@ -166,7 +166,7 @@
                     <i class="fa fa-edit"></i> 
                     
                     
-                        872
+                        ~2.53K
                     
                     字
                 </li>
@@ -186,22 +186,42 @@
         </header>
         <div class="kratos-post-content">
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                本文最后编辑于 <time datetime="1636635952199"></time> 前，其中的内容可能需要更新。
+                本文最后编辑于 <time datetime="1636959114519"></time> 前，其中的内容可能需要更新。
             </div>
             
                 <div class="kratos-post-inner-toc">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="toc-number">1.</span> <span class="toc-text">组件间通信</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#props"><span class="toc-number">1.1.</span> <span class="toc-text">props</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">自定义事件</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="toc-number">1.</span> <span class="toc-text">组件间通信</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#props"><span class="toc-number">1.1.</span> <span class="toc-text">props</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">自定义事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF%E9%80%9A%E4%BF%A1"><span class="toc-number">1.3.</span> <span class="toc-text">全局事件总线通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E8%AE%A2%E9%98%85%E5%92%8C%E5%8F%91%E5%B8%83"><span class="toc-number">1.4.</span> <span class="toc-text">消息订阅和发布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#slot%E6%8F%92%E6%A7%BD"><span class="toc-number">1.5.</span> <span class="toc-text">slot插槽</span></a></li></ol></li></ol>
                 </div>
             
             <hr />
-            <h2 id="组件间通信"><a href="#组件间通信" class="headerlink" title="组件间通信"></a>组件间通信</h2><h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><p>props组件是组件通信最常用最简单的方式。它使用于父子组件之间进行通信。父组件可以给子组件传递函数数据和非函数数据，当我们给子组件传递一个<strong>非函数数据通常给子组件传递的是一个父组件配置对象里的一个属性，而不是具体的属性值</strong>。子组件拿到了这个属性就是拿到了它的引用，从而可以开始操作属性值。当我们传递非函数数据时，本质上就是父组件给子组件传递数据，以供子组件使用。</p>
+            <h2 id="组件间通信"><a href="#组件间通信" class="headerlink" title="组件间通信"></a>组件间通信</h2><h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><p>props组件是组件通信最常用最简单的方式。它<strong>适用于父子组件之间进行通信</strong>。父组件可以给子组件传递函数数据和非函数数据，当我们给子组件传递一个<strong>非函数数据通常给子组件传递的是一个父组件配置对象里的一个属性，而不是具体的属性值</strong>。子组件拿到了这个属性就是拿到了它的引用，从而可以开始操作属性值。当我们传递非函数数据时，本质上就是父组件给子组件传递数据，以供子组件使用。</p>
 <p>当我们给子组件传递的是一个函数数据而时，本质上就是父组件想要得到子组件中收集来的数据，子组件通过给父组件传递过来的函数传递实参的方式，将收集到的数据给父组件。</p>
 <p>使用props方法通信主要是运用在父子（嵌套）关系里，若想给兄弟组件传递数据就必须经过组件的共同祖先来中转再传递给兄弟组件，十分麻烦。它能够让父组件数据传递给子组件的原因是因为，站在父组件这个层级，父组件能够看到子组件，而子组件看上层组件是看不见的。从我们拆分的语法也可以很容易理解，当我们引入一个文件时，使用<code>import </code>引入文件的那个文件能够清楚地知道自己引用了哪些文件，而对于被引用的文件它其实并不知道自己被谁引用了。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//子组件配置对象</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//第一种写法</span></span><br><span class="line">    <span class="attr">props</span>:[<span class="string">&#x27;传递过来的属性名&#x27;</span>]</span><br><span class="line">    <span class="comment">//第二种写法</span></span><br><span class="line">    <span class="attr">props</span>:&#123;</span><br><span class="line">        传递过来的属性名:<span class="built_in">Function</span>  <span class="comment">//可以指定传递过来的数据类型，这里指定为Function</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//第三种写法</span></span><br><span class="line">    <span class="attr">props</span>:&#123;</span><br><span class="line">        传递过来的属性名:&#123;</span><br><span class="line">        	<span class="attr">type</span>:<span class="built_in">Function</span> <span class="comment">//指定数据类型</span></span><br><span class="line">            <span class="attr">required</span>:<span class="literal">true</span> <span class="comment">//指定必须传递</span></span><br><span class="line">            <span class="attr">defaulte</span>:value <span class="comment">//指定如果没传数据，默认数据的value</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a>自定义事件</h3>
+<h3 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a>自定义事件</h3><p>自定义事件通信类似于<code>props</code>中父组件给子组件传递函数数据。自己定义事件和自定义回调函数，和系统事件触发相比。我们自己可以定义无数个事件类型，而系统事件类型是固定的；在系统事件的回调函数中，回调函数是由系统调用的，在自定义事件中回调函数是我们自己使用<code>$emit</code>函数触发的。</p>
+<p>自定义事件<strong>专门用于子组件向父组件通信，但不能用于父组件向子组件通信</strong>。在组件的层级结构中，父组件是最顶层的可以看见下层的子组件，所以可以用<code>$on</code>来给子组件绑定事件，而子组件位于下层无法使用<code>$on</code>来给父组件绑定事件。这就导致了自定义事件这种通信类型无法用于父组件向子组件通信传递数据。总结起来就是：</p>
+<ul>
+<li>接受数据的组件必须能看到预绑定事件的组件对象，才能绑定</li>
+<li>发送数据的组件必须能看到绑定了事件的组件对象，才能触发事件</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父组件 App.vue</span></span><br><span class="line">&lt;Add ref=<span class="string">&quot;add&quot;</span> &gt;&lt;/Add&gt;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//挂载后才给子组件绑定事件</span></span><br><span class="line">    <span class="function"><span class="title">monted</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.$refs.add.$on(<span class="string">&#x27;addUser&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  <span class="comment">/*....*/</span> &#125;); <span class="comment">//给子组件绑定addUser事件</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">------</span><br><span class="line"><span class="comment">//绑定事件简便写法</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">Add</span> @<span class="attr">addUser</span>=<span class="string">&quot;functionName&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">Add</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//子组件 Add.vue</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;addSome&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">addSome</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> obj = &#123;</span><br><span class="line">        <span class="attr">name</span>:<span class="string">&#x27;Asuhe&#x27;</span>,</span><br><span class="line">        <span class="attr">age</span>:<span class="number">18</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">this</span>.$emit(<span class="string">&#x27;addUser&#x27;</span>,obj); <span class="comment">//触发addUser事件</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//解绑事件</span></span><br><span class="line">$off(<span class="string">&#x27;EventName&#x27;</span>);</span><br><span class="line"><span class="comment">//绑定只能触发一次的事件</span></span><br><span class="line">$once(<span class="string">&#x27;EventName&#x27;</span>,callback);</span><br></pre></td></tr></table></figure>
+
+<p>子组件和父组件能够使用<code>$on</code>、<code>$emit</code>等函数是因为，子组件的实例化对象的<code>__proto__</code>会顺着原型链往上找到<code>Vue</code>方法的<code>prototype</code>，在<code>Vue</code>这个函数对象的<code>prototype</code>中有<code>$on</code>这些方法。</p>
+<p><img src="https://i.loli.net/2021/11/13/bWnaiXxmFSDBozg.png" alt="原型链查找$on"></p>
+<h3 id="全局事件总线通信"><a href="#全局事件总线通信" class="headerlink" title="全局事件总线通信"></a>全局事件总线通信</h3><p>全局总线通信就是自定义事件通信的升级版，它也是利用原型链查找的特性来构建通信，它可以<strong>适用任何通信场合</strong>。使用全局事件总线通信首先我们要定义一个总线，这个总线是全部组件都可以通过原型链去查找到它，其次这个总线也要有能够使用<code>$on</code>和<code>$emit</code>函数的权利。只有符合上述两点的对象才能当作总线。根据上述自定义事件原型链，我们可以找到对象<code>vm</code>来充当总线。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在main.js中给vm的prototype添加一个$bus属性让其指向vm自身</span></span><br><span class="line"><span class="function"><span class="title">beforeCreate</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    vm.prototype.$bus = <span class="built_in">this</span>; <span class="comment">// 数据代理前就挂载总线</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>通过原型链的查找，<code>$bus</code> → <code>vm</code> 和 <code>vm.__proto__</code> → <code>Vue.prototype</code>的环形查找，就可以使全局事件总线达到所有的组件对象都能找到它和可以调用<code>$on</code>和<code>$emit</code>的条件。</p>
+<p><img src="https://i.loli.net/2021/11/15/sCBtA2KWqNIYGy1.png" alt="全局事件总线"></p>
+<p>完成全局事件总线的设置后，我们只需要将自定义事件绑定在全局事件总线中。在接收数据的组件中，获取到总线然后绑定事件，传入自己定义的回调函数。在发送数据的组件中，获取到总线然后触发事件，传入需要发送的数据。</p>
+<p><img src="https://i.loli.net/2021/11/15/kfdGEg4oN5ev7Cc.png" alt="兄弟组件通信"></p>
+<h3 id="消息订阅和发布"><a href="#消息订阅和发布" class="headerlink" title="消息订阅和发布"></a>消息订阅和发布</h3><p>这种通信方式是通过使用第三方插件<code>PubSubJS</code>的方式来达到通信目的。其使用方法类似于全局事件总线。</p>
+<h3 id="slot插槽"><a href="#slot插槽" class="headerlink" title="slot插槽"></a>slot插槽</h3>
         </div>
         
             <div class="kratos-copyright text-center clearfix">
@@ -268,7 +288,7 @@
             const twitterBase   = "https://twitter.com/intent/tweet?";
             const hostUrl       = "http://example.com/2021/11/11/2021-11-11-VUE%E5%9F%BA%E7%A1%80(%E4%B8%89)/";
             const title         = "「VUE基础(三)」";
-            const excerpt       = `组件间通信propsprops组件是组件通信最常用最简单的方式。它使用于父子组件之间进行通信。父组件可以给子组件传递函数数据和非函数数据，当我们给子组件传递一个非函数数据通常给子组件传递的是一个父组件配置对象里的一个属性，而不是具体的...`;
+            const excerpt       = `组件间通信propsprops组件是组件通信最常用最简单的方式。它适用于父子组件之间进行通信。父组件可以给子组件传递函数数据和非函数数据，当我们给子组件传递一个非函数数据通常给子组件传递的是一个父组件配置对象里的一个属性，而不是具体的...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -290,7 +310,7 @@
                     <a class="tag-none-link" href="/tags/vue/" rel="tag">vue</a>
                 </div>
                 <div class="pull-date">
-                <span>最后编辑：2021-11-11</span>
+                <span>最后编辑：2021-11-15</span>
                 </div>
             </div>
         </footer>
@@ -367,14 +387,14 @@
         <span class="toc-progress-bar"></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="toc-text">组件间通信</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#props"><span class="toc-text">props</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6"><span class="toc-text">自定义事件</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="toc-text">组件间通信</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#props"><span class="toc-text">props</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6"><span class="toc-text">自定义事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF%E9%80%9A%E4%BF%A1"><span class="toc-text">全局事件总线通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E8%AE%A2%E9%98%85%E5%92%8C%E5%8F%91%E5%B8%83"><span class="toc-text">消息订阅和发布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#slot%E6%8F%92%E6%A7%BD"><span class="toc-text">slot插槽</span></a></li></ol></li></ol>
     </div>
 </aside>
                 
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%A5%E9%94%99%E5%A4%84%E7%90%86/">报错处理</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%A5%E9%94%99%E5%A4%84%E7%90%86/">报错处理</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">5</span></li></ul>
   </aside>
 
 
@@ -383,7 +403,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/BOM/" style="font-size: 0.7em;">BOM</a> <a href="/tags/CN/" style="font-size: 0.7em;">CN</a> <a href="/tags/CS/" style="font-size: 0.7em;">CS</a> <a href="/tags/DOM/" style="font-size: 0.6em;">DOM</a> <a href="/tags/Web-API/" style="font-size: 0.6em;">Web API</a> <a href="/tags/code/" style="font-size: 0.7em;">code</a> <a href="/tags/javascript/" style="font-size: 0.8em;">javascript</a> <a href="/tags/live/" style="font-size: 0.75em;">live</a> <a href="/tags/tips/" style="font-size: 0.65em;">tips</a> <a href="/tags/tools/" style="font-size: 0.65em;">tools</a> <a href="/tags/vue/" style="font-size: 0.7em;">vue</a>
+        <a href="/tags/BOM/" style="font-size: 0.68em;">BOM</a> <a href="/tags/CN/" style="font-size: 0.68em;">CN</a> <a href="/tags/CS/" style="font-size: 0.68em;">CS</a> <a href="/tags/DOM/" style="font-size: 0.6em;">DOM</a> <a href="/tags/Web-API/" style="font-size: 0.6em;">Web API</a> <a href="/tags/code/" style="font-size: 0.68em;">code</a> <a href="/tags/javascript/" style="font-size: 0.8em;">javascript</a> <a href="/tags/live/" style="font-size: 0.76em;">live</a> <a href="/tags/tips/" style="font-size: 0.64em;">tips</a> <a href="/tags/tools/" style="font-size: 0.64em;">tools</a> <a href="/tags/vue/" style="font-size: 0.72em;">vue</a>
       </div>
   </aside>
 
@@ -394,6 +414,12 @@
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
+            <a class="list-group-item" href="/2021/11/15/2021-11-15-%E5%AF%B9key%E5%80%BC%E7%9A%84%E7%90%86%E8%A7%A3/"><i class="fa  fa-book"></i> 对key值的理解</a>
+            
+          
         
           
           
@@ -420,11 +446,7 @@
           
         
           
-          
-            <a class="list-group-item" href="/2021/11/09/2021-11-09-VUE%E5%9F%BA%E7%A1%80(%E4%BA%8C)/"><i class="fa  fa-book"></i> VUE基础(二)</a>
             
-          
-        
           
             
           
