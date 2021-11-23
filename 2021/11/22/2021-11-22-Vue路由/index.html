@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
-  <title>事件对象 | Asuhe</title>
+  <title>Vue路由 | Asuhe</title>
   <meta name="author" content="Asuhe" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,20 +13,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="Web API" />
+    <meta name="keywords" content="vue" />
   
-  <meta name="description" content="什么是事件对象在浏览器中我们通常都是通过事件触发来实现网页与用户的交互效果的，在这个过程中js会产生一个事件对象。例如我们用常规方法给按钮绑定一个点击事件 12345678&lt;button&gt;按钮&lt;&#x2F;button&gt;&lt;script&gt;    var btn &#x3D; document.querySelector(&amp;#x27;btn&amp;#x27;);    btn.addEven">
+  <meta name="description" content="基本使用123456789101112131415161718192021222324252627282930313233343536373839404142&#x2F;&#x2F; ..&#x2F;router&#x2F;index.jsimport Vue from &amp;#x27;vue&amp;#x27;;import VueRouter from &amp;#x27;vue-router&amp;#x27;;import routes from &amp;#x2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="事件对象">
-<meta property="og:url" content="http://example.com/2021/10/13/2021-10-13-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/index.html">
+<meta property="og:title" content="Vue路由">
+<meta property="og:url" content="http://example.com/2021/11/22/2021-11-22-Vue%E8%B7%AF%E7%94%B1/index.html">
 <meta property="og:site_name" content="Asuhe">
-<meta property="og:description" content="什么是事件对象在浏览器中我们通常都是通过事件触发来实现网页与用户的交互效果的，在这个过程中js会产生一个事件对象。例如我们用常规方法给按钮绑定一个点击事件 12345678&lt;button&gt;按钮&lt;&#x2F;button&gt;&lt;script&gt;    var btn &#x3D; document.querySelector(&amp;#x27;btn&amp;#x27;);    btn.addEven">
+<meta property="og:description" content="基本使用123456789101112131415161718192021222324252627282930313233343536373839404142&#x2F;&#x2F; ..&#x2F;router&#x2F;index.jsimport Vue from &amp;#x27;vue&amp;#x27;;import VueRouter from &amp;#x27;vue-router&amp;#x27;;import routes from &amp;#x2">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
-<meta property="article:published_time" content="2021-10-13T09:53:03.000Z">
-<meta property="article:modified_time" content="2021-10-14T01:00:34.791Z">
+<meta property="article:published_time" content="2021-11-22T13:49:01.000Z">
+<meta property="article:modified_time" content="2021-11-23T00:54:40.620Z">
 <meta property="article:author" content="Asuhe">
-<meta property="article:tag" content="Web API">
+<meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2021/05/27/yeYRIOsidnxkru3.jpg">
 <meta name="twitter:site" content="@null">
@@ -156,29 +156,29 @@
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center">事件对象</h1>
+                <h1 class="kratos-entry-title text-center">Vue路由</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><i class="fa fa-calendar"></i> 2021-10-13</li>
+                <li><i class="fa fa-calendar"></i> 2021-11-22</li>
                 <li><i class="fa fa-user"></i> 作者 Asuhe</li>
                 <li>
                     <i class="fa fa-edit"></i> 
                     
                     
-                        1102
+                        1026
                     
                     字
                 </li>
                 
-                    <li id="/2021/10/13/2021-10-13-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/" class="leancloud_visitors" data-flag-title="事件对象">
+                    <li id="/2021/11/22/2021-11-22-Vue%E8%B7%AF%E7%94%B1/" class="leancloud_visitors" data-flag-title="Vue路由">
                         <i class="fa fa-eye"></i>
                         <span class="leancloud-visitors-count"> </span> 次阅读
                     </li>
                     
                         <li>
                             <i class="fa fa-commenting-o"></i>
-                            <span data-xid="/2021/10/13/2021-10-13-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/" class="waline-comment-count"> </span> 条评论
+                            <span data-xid="/2021/11/22/2021-11-22-Vue%E8%B7%AF%E7%94%B1/" class="waline-comment-count"> </span> 条评论
                         </li>
                     
                 
@@ -186,24 +186,20 @@
         </header>
         <div class="kratos-post-content">
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                本文最后编辑于 <time datetime="1634173234791"></time> 前，其中的内容可能需要更新。
+                本文最后编辑于 <time datetime="1637628880620"></time> 前，其中的内容可能需要更新。
             </div>
             
                 <div class="kratos-post-inner-toc">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.</span> <span class="toc-text">什么是事件对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1%E5%8F%AF%E4%BB%A5%E5%B9%B2%E4%BB%80%E4%B9%88"><span class="toc-number">2.</span> <span class="toc-text">事件对象可以干什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E8%A7%A6%E5%8F%91%E7%9A%84%E4%B8%89%E4%B8%AA%E9%98%B6%E6%AE%B5"><span class="toc-number">3.</span> <span class="toc-text">事件触发的三个阶段</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E6%98%BE%E7%A4%BA%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.1.</span> <span class="toc-text">组件显示位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%AF%BC%E8%88%AA"><span class="toc-number">1.2.</span> <span class="toc-text">声明式导航</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A8%8B%E5%BC%8F%E5%AF%BC%E8%88%AA"><span class="toc-number">1.3.</span> <span class="toc-text">编程式导航</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="toc-number">2.</span> <span class="toc-text">路由间通信</span></a></li></ol>
                 </div>
             
             <hr />
-            <h2 id="什么是事件对象"><a href="#什么是事件对象" class="headerlink" title="什么是事件对象"></a>什么是事件对象</h2><p>在浏览器中我们通常都是通过事件触发来实现网页与用户的交互效果的，在这个过程中js会产生一个事件对象。例如我们用常规方法给按钮绑定一个点击事件</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;btn&#x27;</span>);</span></span><br><span class="line"><span class="javascript">    btn.addEventListiner(<span class="string">&#x27;click&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"> e </span>)</span>&#123; <span class="comment">//这里我们给匿名函数的形参 e 就可以接收到 click 产生的事件对象</span></span></span><br><span class="line"><span class="javascript">        alert(<span class="string">&#x27;哈喽&#x27;</span>);</span></span><br><span class="line"><span class="javascript">    &#125;)</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+            <h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ../router/index.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> routes <span class="keyword">from</span> <span class="string">&#x27;routes&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册路由</span></span><br><span class="line">Vue.use(VueRouter);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">    <span class="attr">mode</span>:<span class="string">&#x27;history&#x27;</span>,</span><br><span class="line">    routes</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">--------------</span><br><span class="line"><span class="comment">// routes.js 路由表文件</span></span><br><span class="line"><span class="keyword">import</span> Home <span class="keyword">from</span> <span class="string">&#x27;../pages/Home&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">path</span>:<span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">        <span class="attr">component</span>:Home</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">path</span>:<span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">        <span class="attr">redirect</span>:Home <span class="comment">// 默认选中Home路由组件</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">-----------</span><br><span class="line"><span class="comment">// main.js 在全局文件中使用路由器</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;../Router&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    <span class="attr">name</span>:<span class="string">&#x27;app&#x27;</span>,</span><br><span class="line">    <span class="attr">eq</span>:<span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    <span class="attr">components</span>:&#123;</span><br><span class="line">        router</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
 
-<h2 id="事件对象可以干什么"><a href="#事件对象可以干什么" class="headerlink" title="事件对象可以干什么"></a>事件对象可以干什么</h2><p>在返回的事件对象中包含了很多属性与方法，这些属性可以让我们准确的获取到用户目前的状态，例如用户按下了什么键、鼠标移动坐标、鼠标点击等等。然后我们可以根据用户的状态去设计我们的交互。我们可以打印一下这个对象看看里面都有什么</p>
-<p><img src="https://i.loli.net/2021/10/14/91XMzcK2inRrb4k.png" alt="部分事件对象的内容"></p>
-<h2 id="事件触发的三个阶段"><a href="#事件触发的三个阶段" class="headerlink" title="事件触发的三个阶段"></a>事件触发的三个阶段</h2><p>一个事件从产生到被触发可以分为三个阶段：捕获阶段、停留阶段、冒泡阶段。在捕获阶段，浏览器查找触发的事件顺序是从顶级DOM依次查找，直到找到源头。如果查找过程中有DOM元素绑定了和事件源头一样的事件，则会被触发。举个例子</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;father&#x27;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;son&#x27;</span>&gt;</span>Asuhe<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> father = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.father&#x27;</span>);</span></span><br><span class="line"><span class="javascript">    father.addEventListiner(<span class="string">&#x27;click&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        alert(<span class="string">&#x27;我是你爸爸&#x27;</span>);</span></span><br><span class="line"><span class="javascript">    &#125;,<span class="literal">true</span>) <span class="comment">//开启捕获阶段</span></span></span><br><span class="line"><span class="javascript">    </span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> son = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.son&#x27;</span>);</span></span><br><span class="line"><span class="javascript">    son.addEventListiner(<span class="string">&#x27;click&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        alert(<span class="string">&#x27;我是你儿子&#x27;</span>);</span></span><br><span class="line"><span class="javascript">    &#125;)</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>这种情况下会先弹出父亲的话，然后在弹出儿子的话。</p>
-
+<p>当我们在<code>main.js</code>中注册了<code>router</code>，我们就可以在任何一个组件（包括非路由组件）中使用<code>$route</code>和<code>$router</code>对象了。</p>
+<p><code>$route</code>对象是局部路由信息对象，它包含了当前路由组件里的信息，包括<code>params</code>、<code>query</code>参数等等</p>
+<p><code>$router</code>对象是全局的路由器对象，全局就一个。它包含了很多属性和方法（push、replace、go等等），可以让整个应用都可以拥有路由功能。编程式导航就利用了这个对象来实现动态跳转。</p>
+<h3 id="组件显示位置"><a href="#组件显示位置" class="headerlink" title="组件显示位置"></a>组件显示位置</h3><h3 id="声明式导航"><a href="#声明式导航" class="headerlink" title="声明式导航"></a>声明式导航</h3><h3 id="编程式导航"><a href="#编程式导航" class="headerlink" title="编程式导航"></a>编程式导航</h3><h2 id="路由间通信"><a href="#路由间通信" class="headerlink" title="路由间通信"></a>路由间通信</h2>
         </div>
         
             <div class="kratos-copyright text-center clearfix">
@@ -256,7 +252,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://example.com/2021/10/13/2021-10-13-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/",
+                text: "http://example.com/2021/11/22/2021-11-22-Vue%E8%B7%AF%E7%94%B1/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -268,10 +264,9 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://example.com/2021/10/13/2021-10-13-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/";
-            const title         = "「事件对象」";
-            const excerpt       = `什么是事件对象在浏览器中我们通常都是通过事件触发来实现网页与用户的交互效果的，在这个过程中js会产生一个事件对象。例如我们用常规方法给按钮绑定一个点击事件
-12345678&lt;button&gt;按钮&lt;/button&gt;...`;
+            const hostUrl       = "http://example.com/2021/11/22/2021-11-22-Vue%E8%B7%AF%E7%94%B1/";
+            const title         = "「Vue路由」";
+            const excerpt       = `基本使用123456789101112131415161718192021222324252627282930313233343536373839404142// ../router/index.jsimport Vue from &...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -290,10 +285,10 @@
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    <a class="tag-none-link" href="/tags/Web-API/" rel="tag">Web API</a>
+                    <a class="tag-none-link" href="/tags/vue/" rel="tag">vue</a>
                 </div>
                 <div class="pull-date">
-                <span>最后编辑：2021-10-14</span>
+                <span>最后编辑：2021-11-23</span>
                 </div>
             </div>
         </footer>
@@ -302,13 +297,9 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" 关于Javascript的作用域" href="/2021/10/13/2021-10-13-关于Javascript的作用域/">&lt; 上一篇</a>
+                <a title=" 手撸bind、apply、call" href="/2021/11/21/2021-11-21-手撸bind、apply、call/">&lt; 上一篇</a>
             </div>
             
-            
-            <div class="nav-next clearfix">
-                <a title=" sessionStorage 和 localStorage" href="/2021/10/19/2021-10-19-sessionStorage-和-localStorage/">下一篇 &gt;</a>
-            </div>
             
         </nav>
     
@@ -319,7 +310,7 @@
         const init = () => {
             new Waline(Object.assign({
                 el: '#w-comments',
-                path: '/2021/10/13/2021-10-13-%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1/'
+                path: '/2021/11/22/2021-11-22-Vue%E8%B7%AF%E7%94%B1/'
             }, JSON.parse('{"serverURL":"https://blog-api-4f5uxbeq9-ashitahe.vercel.app/","dark":"auto","login":"enable","avatar":"retro","visitor":true}')));
         }
         if (typeof Waline == 'undefined') {
@@ -370,7 +361,7 @@
         <span class="toc-progress-bar"></span>
     </h4>
     <div class="textwidget">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1"><span class="toc-text">什么是事件对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1%E5%8F%AF%E4%BB%A5%E5%B9%B2%E4%BB%80%E4%B9%88"><span class="toc-text">事件对象可以干什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E8%A7%A6%E5%8F%91%E7%9A%84%E4%B8%89%E4%B8%AA%E9%98%B6%E6%AE%B5"><span class="toc-text">事件触发的三个阶段</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-text">基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E6%98%BE%E7%A4%BA%E4%BD%8D%E7%BD%AE"><span class="toc-text">组件显示位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%AF%BC%E8%88%AA"><span class="toc-text">声明式导航</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A8%8B%E5%BC%8F%E5%AF%BC%E8%88%AA"><span class="toc-text">编程式导航</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="toc-text">路由间通信</span></a></li></ol>
     </div>
 </aside>
                 
