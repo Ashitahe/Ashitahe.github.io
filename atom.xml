@@ -6,7 +6,7 @@
   <link href="https://asuhe.fun/atom.xml" rel="self"/>
   
   <link href="https://asuhe.fun/"/>
-  <updated>2022-11-06T03:53:31.745Z</updated>
+  <updated>2023-01-15T02:22:24.172Z</updated>
   <id>https://asuhe.fun/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Charles基础教程</title>
+    <link href="https://asuhe.fun/2022/11/14/2022-11-10-Charles%E6%95%99%E7%A8%8B/"/>
+    <id>https://asuhe.fun/2022/11/14/2022-11-10-Charles%E6%95%99%E7%A8%8B/</id>
+    <published>2022-11-14T13:28:41.000Z</published>
+    <updated>2023-01-15T02:22:24.172Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>因为工作上开发移动端的应用，而移动端并没有像 Chrome 那样好用的调试工具去查看网络请求的信息，所以需要利用抓包来进行网络请求的监控调试。在此介绍一些 Charles 抓包工具的基础使用，以作备份。</p><h2 id="基础抓包"><a class="anchor" href="#基础抓包">#</a> 基础抓包</h2><p>本文以抓 ios 手机上的流量为例。安卓手机的基本步骤也是同理。</p><h3 id="基本流程"><a class="anchor" href="#基本流程">#</a> 基本流程</h3><p>抓包基本流程：</p><ul><li>确保手机与抓包的电脑连接在同一局域网下</li><li>抓包电脑开启 http 代理，并设置好本机的端口号</li><li>手机设计好代理服务器为抓包电脑的 ip 和端口</li></ul><h3 id="图例"><a class="anchor" href="#图例">#</a> 图例</h3><ul><li>设置电脑代理的端口，以 <code>192.168.6.238:8888</code>  为例<ul><li>打开 Charles。</li><li>Proxy -&gt; Proxy Setting。设置端口号</li></ul></li></ul><p><img data-src="https://asuhe.oss-cn-shanghai.aliyuncs.com/BlogImg/%7B5B04BE7E-3459-D346-5FDA-BB4917B9038D%7D.png" alt="img" /></p><ul><li>手机设置代理服务器的地址与端口号<ul><li>找到代理服务器 IP 以及端口</li><li>设置代理</li></ul></li></ul><p><img data-src="https://asuhe.oss-cn-shanghai.aliyuncs.com/BlogImg/%7B0A4E2A2A-5F2F-8B8A-ECCC-7E9E6B892E9B%7D.png" alt="img" /></p><h2 id="https抓包"><a class="anchor" href="#https抓包">#</a> Https 抓包</h2><h2 id="mock数据"><a class="anchor" href="#mock数据">#</a> Mock 数据</h2><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="工具使用" scheme="https://asuhe.fun/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
+    
+    
+    <category term="tools" scheme="https://asuhe.fun/tags/tools/"/>
+    
+  </entry>
   
   <entry>
     <title>设计模式概述</title>
@@ -154,30 +178,6 @@
     
     
     <category term="css" scheme="https://asuhe.fun/categories/css/"/>
-    
-    
-    <category term="前端" scheme="https://asuhe.fun/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Webpack模块化原理</title>
-    <link href="https://asuhe.fun/2022/07/09/2022-07-09-Webpack%E6%A8%A1%E5%9D%97%E5%8C%96%E5%8E%9F%E7%90%86/"/>
-    <id>https://asuhe.fun/2022/07/09/2022-07-09-Webpack%E6%A8%A1%E5%9D%97%E5%8C%96%E5%8E%9F%E7%90%86/</id>
-    <published>2022-07-09T02:48:35.000Z</published>
-    <updated>2022-07-09T02:59:39.599Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="webpack实现commonjs模块化与es6-module模块化兼容的原理"><a class="anchor" href="#webpack实现commonjs模块化与es6-module模块化兼容的原理">#</a> Webpack 实现 CommonJS 模块化与 ES6 Module 模块化兼容的原理</h1><h2 id="commonjs模块化原理"><a class="anchor" href="#commonjs模块化原理">#</a> CommonJS 模块化原理</h2><h2 id="es6-module模块化原理"><a class="anchor" href="#es6-module模块化原理">#</a> ES6 Module 模块化原理</h2><h2 id="commonjs模块转es6-module"><a class="anchor" href="#commonjs模块转es6-module">#</a> CommonJS 模块转 ES6 Module</h2><h2 id="es6-module转commonjs模块"><a class="anchor" href="#es6-module转commonjs模块">#</a> ES6 Module 转 CommonJS 模块</h2><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    <category term="Webpack" scheme="https://asuhe.fun/categories/Webpack/"/>
     
     
     <category term="前端" scheme="https://asuhe.fun/tags/%E5%89%8D%E7%AB%AF/"/>
